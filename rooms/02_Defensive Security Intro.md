@@ -27,8 +27,7 @@
    
     哪個團隊專注於防禦性安全？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `
-Blue Team  `
+&nbsp;&nbsp;&nbsp;&nbsp; `Blue Team`
 
 ---
 
@@ -152,7 +151,7 @@ Blue Team  `
 
    哪種惡意軟體需要用戶付費才能重新獲得對其檔的訪問許可權？
 
-&nbsp;&nbsp;&nbsp;&nbsp; `Ransomware `
+&nbsp;&nbsp;&nbsp;&nbsp; `Ransomware`
 
 > #### Task 3：防禦性安全的實際範例
 
