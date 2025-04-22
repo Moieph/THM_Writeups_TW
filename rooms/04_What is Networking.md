@@ -110,7 +110,7 @@ Part 2：獲得 Flag 🎉🎉
 &nbsp;&nbsp;&nbsp;&nbsp; `THM{YOU_GOT_ON_TRYHACKME}`
 
 > #### Task 4：Ping (ICMP) 
-Ping 是一個基本網路工具，用來檢查兩台設備間的連線是否正常
+Ping 是一個基本網路工具，用來檢查兩台設備間的連線是否正常。
 
 - 工作原理：
   - 使用 ICMP 協定 傳送「echo」封包到目標設備 
@@ -129,6 +129,7 @@ Part 2：獲得 Flag 🎉🎉
 <p align="left">
   <img src="/rooms/images/04_05.png" width="600">
 </p>
+
 ##### 🔐 答題：
 1. What protocol does ping use?
    
