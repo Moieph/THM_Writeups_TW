@@ -8,8 +8,8 @@
 
 |  Room                          |                 Field                |           Difficulty          |                 Writeup Link                |          Tools         | 
 |--------------------------------------------------|--------------------------------------|-------------------------------|---------------------------------------------|-------------|
-| Offensive Security Intro    |               	🟥 Red Team       |              Easy             | [Walkthrough](./rooms/01_Offensive-Security-Intro.md) |
-| Defensive Security           |             🟦 Blue Team         |              Easy             | [Walkthrough](./rooms/02_Defensive-Security-Intro.md) |
+| Offensive Security Intro    |               	🟥 Red Team       |              Easy             | [Walkthrough](./rooms/01_Offensive%20Security%20Intro.md) |
+| Defensive Security           |             🟦 Blue Team         |              Easy             | [Walkthrough](./rooms/02_Defensive%20Security%20Intro.md) |
 | Careers in Cyber            |           🔧Fundamental    |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
 | What is Networking           |      🌐 Networking   |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Security Principles          |   🧾 Governance |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
