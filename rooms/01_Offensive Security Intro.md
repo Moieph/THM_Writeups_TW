@@ -13,7 +13,7 @@ THM路徑：https://tryhackme.com/room/offensivesecurityintro
 
 ---
 
-> #### Task 2：入侵你的第一台機器
+>#### Task 2：入侵你的第一台機器
 
 &nbsp;&nbsp;&nbsp;&nbsp;步驟 1️⃣：打開終端機（Terminal）
 

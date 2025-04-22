@@ -25,7 +25,8 @@ THM路徑：https://tryhackme.com/room/whatisnetworking
 
 > #### Task 3：識別網路上的設備
 
-設備識別：IP 位址（可更改） MAC 位址（不可更改）
+設備識別：<br>
+IP 位址（可更改） MAC 位址（不可更改）
 
 為了能在網路中通訊，設備必須能被辨識，就像人有名字與指紋一樣。
 
