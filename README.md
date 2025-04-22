@@ -1,6 +1,7 @@
-# THM_Writeups_TW
+# 🛡️ THM_Writeups_TW
 
-TryHackMe 中文解題筆記（Walkthrough），從零記錄學習過程、踩坑記錄與解法思路。
+> **TryHackMe 中文解題筆記（Walkthrough）**  
+從零記錄學習過程、踩坑記錄與解法思路。
 
 ## 已完成房間（12）
 
@@ -9,10 +10,6 @@ TryHackMe 中文解題筆記（Walkthrough），從零記錄學習過程、踩�
 | Offensive Security Intro                         |                Red Team              |              Easy             | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Defensive Security                               |               Blue Team              |              Easy             | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Careers in Cyber                                 |            Career / Overview         |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
-
-
-
-
 
 
 ## 工具與筆記
