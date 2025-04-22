@@ -48,7 +48,6 @@
   <img src="/rooms/images/01_03.png" width="600">
 </p>
 
----
 ##### 🔐 答題：
 1. Above your account balance, you should now see a message indicating the answer to this question. Can you find the answer you need?
    
