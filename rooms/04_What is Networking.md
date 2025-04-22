@@ -1,27 +1,54 @@
-# Careers in Cyber
-**資訊安全工作介紹**
+# What is Networking?  
+**什麼是網路？**
 
-THM路徑：https://tryhackme.com/room/careersincyber
-> #### Task 1：介紹
+THM路徑：https://tryhackme.com/room/whatisnetworking <br>
+官方影片：https://youtu.be/42u_2e6eNF4?si=5G3x-KfvIMHzU84a
+> #### Task 1：什麼是網路？
+##### 🔐 答題：
+1. What is the key term for devices that are connected together?
+   
+    連接在一起的設備的關鍵術語是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Network`
 
-> #### Task 2：安全分析師（Security analysts）
+> #### Task 2：什麼是互聯網？
 
-&nbsp;&nbsp;&nbsp;&nbsp;_負責分析公司整體資安狀況，協助制定防禦措施，保護組織免於攻擊_ <br>
+**互聯網（Internet）是一個由許多小型網路（Private Network）組成的公用網路（Public Network）**
 
-- 主要職責：
-1. 與利害關係人合作，評估公司網路安全。
-2. 撰寫資安報告，記錄問題與應對方式。
-3. 擬定資安計畫，結合最新攻擊趨勢與防護需求。
+##### 🔐 答題：
+1. Who invented the World Wide Web?
+   
+   誰發明全球資訊網？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `
+Tim Berners-Lee `
+> #### Task 3：識別網路上的設備
 
-> #### Task 3：安全工程師（Security engineer）
+設備識別：IP 位址（Ｏ更改）、 MAC 位址（Ｘ更改）
 
-&nbsp;&nbsp;&nbsp;&nbsp;_根據威脅與漏洞情報，設計並實施資安防護，防止各類攻擊與資料外洩_ <br>
+為了能在網路中通訊，設備必須能被辨識，就像人有名字與指紋一樣。
 
-- 主要職責：
-1. 測試與強化軟體安全機制
-2. 監控網路、回應報告並修補弱點
-3. 評估與部署最佳資安系統
+<details>
+<summary> IP （Internet Protocol）位址：</summary>
+&nbsp;
+<p align="left">
+  <img src="/rooms/images/04_01.png" width="600">
+</p>
 
+1. 類似「名字」，可更改
+2. 每台設備在網路中都有一組 IP 位址 
+
+- 分為：
+  - 私人 IP：在內部網路中使用，如 192.168.x.x
+  - 公共 IP：與外部網路通訊時使用，由 ISP 分配
+    - 公共 IP 可共用（如多台設備透過一個路由器上網）
+<hr>
+IPv4 vs IPv6：
+
+IPv4：最多約 42 億個位址，逐漸用完<br>
+IPv6：可用位址達 340 兆兆兆（2¹²⁸），解決位址不足問題
+
+</details>
 
 > #### Task 4：事件響應人員（Incident responder）
 &nbsp;&nbsp;&nbsp;&nbsp;_負責應對資安事件，制定計劃、即時反應、降低損害，守護公司資料與聲譽_ <br>
