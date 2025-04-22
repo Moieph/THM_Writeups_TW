@@ -62,9 +62,8 @@
 
 <details>
 <summary> 威脅情報（Threat Intelligence）</summary>
-&nbsp;
 
-&nbsp;&nbsp;&nbsp;_蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦。_
+_蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦。_
 
 ──────────
 
@@ -76,9 +75,9 @@
 
 <details>
 <summary> 數位取證和事件回應 ( DFIR ・Digital Forensics and Incident Response）</summary>
-&nbsp;
 
-&nbsp;&nbsp;&nbsp;_用科學方法調查攻擊，分析證據。_
+
+_用科學方法調查攻擊，分析證據。_
 
 ──────────
 
@@ -122,7 +121,7 @@
 <summary> 惡意軟體分析（Malware Analysis）</summary>
 &nbsp;
 
-&nbsp;&nbsp;&nbsp;&nbsp;_惡意軟體是用來破壞或操控系統的程式、文件或檔案。_
+_惡意軟體是用來破壞或操控系統的程式、文件或檔案。_
 
 ──────────
 
