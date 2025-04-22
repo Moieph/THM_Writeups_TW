@@ -36,40 +36,41 @@
 
 <details>
 <summary> 安全營運中心 ( SOC ) Security Operations Center</summary>  
-&nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+
+---
   
- &nbsp;&nbsp;&nbsp;&nbsp;漏洞（Vulnerabilities）：</b> <br>
- &nbsp;&nbsp;&nbsp;&nbsp;發現漏洞應儘速修補，無法修補時採其他防護措施。修補不一定由 SOC 執行。
+漏洞（Vulnerabilities）：</b> <br>
+發現漏洞應儘速修補，無法修補時採其他防護措施。修補不一定由 SOC 執行。
 
- &nbsp;&nbsp;&nbsp;&nbsp;違反政策（Policy violations）：<br>
- &nbsp;&nbsp;&nbsp;&nbsp;使用者若違反公司安全規範（如上傳機密資料），即屬違規行為。
+違反政策（Policy violations）：<br>
+使用者若違反公司安全規範（如上傳機密資料），即屬違規行為。
 
- &nbsp;&nbsp;&nbsp;&nbsp;未授權活動（Unauthorized activity）：<br>
- &nbsp;&nbsp;&nbsp;&nbsp;帳號遭盜用登入，SOC 需即時偵測與阻擋，避免損害擴大。
+未授權活動（Unauthorized activity）：<br>
+帳號遭盜用登入，SOC 需即時偵測與阻擋，避免損害擴大。
 
- &nbsp;&nbsp;&nbsp;&nbsp;網路入侵（Network intrusions）：<br>
-&nbsp;&nbsp;&nbsp;&nbsp;入侵風險無法完全避免，需快速偵測阻止後續攻擊。
+網路入侵（Network intrusions）：<br>
+入侵風險無法完全避免，需快速偵測阻止後續攻擊。
 
 </details>
 
 <details>
 <summary> 威脅情報（Threat Intelligence）</summary>
 
-&nbsp;&nbsp;&nbsp;&nbsp;_蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦。_
+_蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦。_
 
-&nbsp;&nbsp;&nbsp;&nbsp;────────────<br> 
-&nbsp;&nbsp;&nbsp;&nbsp;識別威脅行為者<br>
-&nbsp;&nbsp;&nbsp;&nbsp;預測攻擊模式<br>
-&nbsp;&nbsp;&nbsp;&nbsp;擬定應對策略，降低風險
+---
+識別威脅行為者<br>
+預測攻擊模式<br>
+定應對策略，降低風險
 
 </details>
 
 <details>
 <summary> 數位取證和事件回應 ( DFIR ・Digital Forensics and Incident Response）</summary>
 
-&nbsp;&nbsp;&nbsp;&nbsp;_用科學方法調查攻擊，分析證據。_
+_用科學方法調查攻擊，分析證據。_
 
-&nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+---
 
 1. 檔案系統（File System）<br>
    分析硬碟影像，可看出程式安裝、檔案建立與刪除痕跡。
@@ -86,7 +87,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;_面對資料外洩或網路攻擊，事件回應能減少損害、加速恢復。應事先制定計畫。_
 
-&nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+---
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**四大階段：**
 
 1. 準備（Preparation）：<br>
@@ -110,7 +111,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;_惡意軟體是用來破壞或操控系統的程式、文件或檔案。_
 
-&nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+---
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**常見類型：**<br> 
 
 - 病毒（Virus）：
@@ -120,7 +121,8 @@
 - 勒索軟體（Ransomware）：
 加密檔案、勒索贖金換解密金鑰
 
-&nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+---
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**惡意軟體分析目標：**<br> 
 
 - 靜態分析（Static analysis）：
