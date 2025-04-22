@@ -18,6 +18,8 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;  `gobuster -u http://fakebank.thm -w wordlist.txt dir`
 
+![]
+
 
 ##### 答題：
 1. Above your account balance, you should now see a message indicating the answer to this question. Can you find the answer you need?
