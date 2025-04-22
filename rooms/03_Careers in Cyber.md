@@ -1,4 +1,4 @@
-# Defensive Security Intro
+# Careers in Cyber
 
 > #### Task 1：防禦性安全介紹
 
@@ -152,39 +152,3 @@ Blue Team  `
    哪種惡意軟體需要用戶付費才能重新獲得對其檔的訪問許可權？
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Ransomware `
-
-> #### Task 3：防禦性安全的實際範例
-
-假設您是負責保護銀行的安全運營中心 （SOC） 分析師。該銀行的 SOC 使用安全資訊和事件管理 （SIEM） 工具，該工具從各種來源收集與安全相關的資訊和事件，並將它們顯示在一個儀錶板中。如果 SIEM 發現可疑情況，將生成警報。
-
----
-
-Part 1：檢查 SIEM 儀表面板中的警報中，找到可疑 IP 地址(143.110.250.149)
-<p align="center">
-  <img src="/rooms/images/02_02.png" width="600">
-</p>
-
-Part 2：檢查 IP 地址以查看它是否是惡意的或可疑的
-<p align="center">
-  <img src="/rooms/images/02_03.png" width="600">
-</p>
-
-Part 3：查看檢查結果，我們知道 IP 地址143.110.250.149是惡意的，需要將其上報給相關的工作人員。
-<p align="center">
-  <img src="/rooms/images/02_04.png" width="600">
-</p>
-
-Part 4：將事件上報給 SOC Team Lead——安全運營中心團隊負責人
-<p align="center">
-  <img src="/rooms/images/02_05.png" width="600">
-</p>
-
-Part 5：阻止惡意 IP 地址(143.110.250.149)訪問目標公司的權限
-<p align="center">
-  <img src="/rooms/images/02_06.png" width="600">
-</p>
-
-Part 6：獲得 Flag 🎉🎉
-<p align="center">
-  <img src="/rooms/images/02_07.png" width="600">
-</p>
