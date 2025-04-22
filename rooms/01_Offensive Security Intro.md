@@ -4,7 +4,8 @@
 
 ##### 答題：
 1. Which of the following options better represents the process where you simulate a hacker's actions to find vulnerabilities in a system?
-   以下哪個選項更能代表您模擬駭客查找系統中漏洞的過程？
+   
+    以下哪個選項更能代表您模擬駭客查找系統中漏洞的過程？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `Offensive Security`
 
@@ -20,9 +21,16 @@
 
 ![](/rooms/images/01_01.png)
 
+&nbsp;&nbsp;&nbsp;&nbsp;透過字典清單，掃出 `/bank-transfer` 為該網域內的隱藏路徑，HTTP碼狀態列顯示 200（成功處理）回到瀏覽器輸入 `http://fakebank.thm/bank-transfer`
+
+![](/rooms/images/01_02.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
 ##### 答題：
 1. Above your account balance, you should now see a message indicating the answer to this question. Can you find the answer you need?
-   在您的賬戶餘額上方，您現在應該會看到一條消息，指示此問題的答案。您能找到您需要的答案嗎？
+   
+    在您的帳戶餘額上方，您會看到一條消息，指示此問題的答案。
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Offensive Security`
 
