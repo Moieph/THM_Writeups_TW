@@ -2,28 +2,23 @@
 
 > #### Task 1：防禦性安全介紹
 
-1. 使用者資安意識（User cyber security awareness）
-  
-   提升使用者的資安知識，有助防範攻擊。
+1. 使用者資安意識（User cyber security awareness）<br>
+  提升使用者的資安知識，有助防範攻擊。
 
 
-2. 資產紀錄與管理（Documenting and managing assets）
-   
+2. 資產紀錄與管理（Documenting and managing assets）<br>
    掌握系統與裝置資產，才能提供適當防護。
 
 
-3. 系統更新與修補（Updating and patching systems）
-
+3. 系統更新與修補（Updating and patching systems）<br>
    定期更新設備，避免漏洞被利用。
 
 
-4. 預防性安全設備（Setting up preventative security devices）
-
+4. 預防性安全設備（Setting up preventative security devices）<br>
    防火牆控管流量，IPS 阻擋已知攻擊。
 
 
-5. 日誌記錄與監控（Setting up logging and monitoring devices）
-
+5. 日誌記錄與監控（Setting up logging and monitoring devices）<br>
    記錄與監控可偵測異常活動，防止入侵。
 
 ##### 🔐 答題：
@@ -40,27 +35,29 @@ Blue Team  `
 
 
 <details>
-<summary> 安全營運中心 ( SOC ) Security Operations Center</summary>
+<summary> 安全營運中心 ( SOC )　 Security Operations Center</summary>  
+&nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+  
+ &nbsp;&nbsp;&nbsp;&nbsp;**漏洞（Vulnerabilities）：**</b> <br>
+ &nbsp;&nbsp;&nbsp;&nbsp;發現漏洞應儘速修補，無法修補時採其他防護措施。修補不一定由 SOC 執行。
 
- &nbsp;&nbsp;&nbsp;&nbsp;漏洞（Vulnerabilities）：<br>
-   &nbsp;&nbsp;&nbsp;&nbsp;發現漏洞應儘速修補，無法修補時採其他防護措施。修補不一定由 SOC 執行
+ &nbsp;&nbsp;&nbsp;&nbsp;**違反政策（Policy violations）：**<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;使用者若違反公司安全規範（如上傳機密資料），即屬違規行為。
 
-   &nbsp;&nbsp;&nbsp;&nbsp;違反政策（Policy violations）：<br>
-   &nbsp;&nbsp;&nbsp;&nbsp;使用者若違反公司安全規範（如上傳機密資料），即屬違規行為
+ &nbsp;&nbsp;&nbsp;&nbsp;**未授權活動（Unauthorized activity）：**<br>
+ &nbsp;&nbsp;&nbsp;&nbsp;帳號遭盜用登入，SOC 需即時偵測與阻擋，避免損害擴大。
 
-   &nbsp;&nbsp;&nbsp;&nbsp;未授權活動（Unauthorized activity）：<br>
-   &nbsp;&nbsp;&nbsp;&nbsp;帳號遭盜用登入，SOC 需即時偵測與阻擋，避免損害擴大
-
-   &nbsp;&nbsp;&nbsp;&nbsp;網路入侵（Network intrusions）：<br>
-   &nbsp;&nbsp;&nbsp;&nbsp;入侵風險無法完全避免，需快速偵測阻止後續攻擊
+ &nbsp;&nbsp;&nbsp;&nbsp;**網路入侵（Network intrusions）：**<br>
+&nbsp;&nbsp;&nbsp;&nbsp;入侵風險無法完全避免，需快速偵測阻止後續攻擊。
 
 </details>
 
 <details>
 <summary> 威脅情報（Threat Intelligence）</summary>
 
-&nbsp;&nbsp;&nbsp;&nbsp;_蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦_
-&nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+&nbsp;&nbsp;&nbsp;&nbsp;**蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦。**
+
+&nbsp;&nbsp;&nbsp;&nbsp;────────────<br> 
 &nbsp;&nbsp;&nbsp;&nbsp;識別威脅行為者<br>
 &nbsp;&nbsp;&nbsp;&nbsp;預測攻擊模式<br>
 &nbsp;&nbsp;&nbsp;&nbsp;擬定應對策略，降低風險
@@ -70,8 +67,10 @@ Blue Team  `
 <details>
 <summary> 數位取證和事件回應 ( DFIR ・Digital Forensics and Incident Response）</summary>
 
-&nbsp;&nbsp;&nbsp;&nbsp;_用科學方法調查攻擊，分析證據。_  
+&nbsp;&nbsp;&nbsp;&nbsp;**用科學方法調查攻擊，分析證據。**
+
 &nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+
 1. 檔案系統（File System）<br>
    分析硬碟影像，可看出程式安裝、檔案建立與刪除痕跡。
 2. 系統記憶體（System memory）<br>
@@ -85,7 +84,8 @@ Blue Team  `
 <details>
 <summary> 事件回應（Incident Response）</summary>
 
-&nbsp;&nbsp;&nbsp;&nbsp;_面對資料外洩或網路攻擊，事件回應能減少損害、加速恢復。應事先制定計畫。_ 
+&nbsp;&nbsp;&nbsp;&nbsp;**面對資料外洩或網路攻擊，事件回應能減少損害、加速恢復。應事先制定計畫。**
+
 &nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**四大階段：**
 
@@ -93,9 +93,9 @@ Blue Team  `
    建立訓練有素的應變團隊，預防事件發生
 2. 偵測與分析（Detection and Analysis）:<br>
    偵測異常並分析事件嚴重程度
-3. 遏制、根除、復原（Containment, Eradication, and Recovery）<br>
+3. 遏制、根除、復原（Containment, Eradication, and Recovery）：<br>
    控制事件影響、清除威脅並恢復系統
-4. 事件後活動（Post-Incident Activity）<br>
+4. 事件後活動（Post-Incident Activity）：<br>
   記錄報告與經驗教訓，強化未來防禦
 
 
@@ -108,7 +108,8 @@ Blue Team  `
 <details>
 <summary> 惡意軟體分析（Malware Analysis）</summary>
 
-&nbsp;&nbsp;&nbsp;&nbsp;_惡意軟體是用來破壞或操控系統的程式、文件或檔案。_ 
+&nbsp;&nbsp;&nbsp;&nbsp;**惡意軟體是用來破壞或操控系統的程式、文件或檔案。** 
+
 &nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**常見類型：**<br> 
 
