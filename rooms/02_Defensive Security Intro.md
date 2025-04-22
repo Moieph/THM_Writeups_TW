@@ -3,20 +3,15 @@
 
 > #### Task 1：防禦性安全介紹
 
-使用者資安意識（User cyber security awareness）：<br>
-提升使用者的資安知識，有助防範攻擊。
+使用者資安意識（User cyber security awareness）：提升使用者的資安知識，有助防範攻擊。
 
-資產紀錄與管理（Documenting and managing assets：）<br>
-掌握系統與裝置資產，才能提供適當防護。
+資產紀錄與管理（Documenting and managing assets)：掌握系統與裝置資產，才能提供適當防護。
 
-系統更新與修補（Updating and patching systems）：<br>
-定期更新設備，避免漏洞被利用。
+系統更新與修補（Updating and patching systems）：定期更新設備，避免漏洞被利用。
 
-預防性安全設備（Setting up preventative security devices）：<br>
-防火牆控管流量，IPS 阻擋已知攻擊。
+預防性安全設備（Setting up preventative security devices）：防火牆控管流量，IPS 阻擋已知攻擊。
 
-日誌記錄與監控（Setting up logging and monitoring devices）：<br>
-記錄與監控可偵測異常活動，防止入侵。
+日誌記錄與監控（Setting up logging and monitoring devices）：記錄與監控可偵測異常活動，防止入侵。
 
 ##### 🔐 答題：
 1. Which team focuses on defensive security?
@@ -58,8 +53,9 @@
 
 <details>
 <summary> 威脅情報（Threat Intelligence）</summary>
+&nbsp;
 
-_蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦。_
+&nbsp;&nbsp;&nbsp;&nbsp;_蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦。_
 
 ──────────
 
@@ -71,9 +67,9 @@ _蒐集與潛在敵人相關資訊，目的是預測攻擊、提前防禦。_
 
 <details>
 <summary> 數位取證和事件回應 ( DFIR ・Digital Forensics and Incident Response）</summary>
+&nbsp;
 
-
-_用科學方法調查攻擊，分析證據。_
+&nbsp;&nbsp;&nbsp;&nbsp;_用科學方法調查攻擊，分析證據。_
 
 ──────────
 
@@ -117,7 +113,7 @@ _用科學方法調查攻擊，分析證據。_
 <summary> 惡意軟體分析（Malware Analysis）</summary>
 &nbsp;
 
-_惡意軟體是用來破壞或操控系統的程式、文件或檔案。_
+&nbsp;&nbsp;&nbsp;&nbsp;_惡意軟體是用來破壞或操控系統的程式、文件或檔案。_
 
 ──────────
 
