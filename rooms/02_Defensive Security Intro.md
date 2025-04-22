@@ -3,24 +3,20 @@
 
 > #### Task 1：防禦性安全介紹
 
-1. 使用者資安意識（User cyber security awareness）<br>
-  提升使用者的資安知識，有助防範攻擊。
+使用者資安意識（User cyber security awareness）：<br>
+提升使用者的資安知識，有助防範攻擊。
 
+資產紀錄與管理（Documenting and managing assets：）<br>
+掌握系統與裝置資產，才能提供適當防護。
 
-2. 資產紀錄與管理（Documenting and managing assets）<br>
-   掌握系統與裝置資產，才能提供適當防護。
+系統更新與修補（Updating and patching systems）：<br>
+定期更新設備，避免漏洞被利用。
 
+預防性安全設備（Setting up preventative security devices）：<br>
+防火牆控管流量，IPS 阻擋已知攻擊。
 
-3. 系統更新與修補（Updating and patching systems）<br>
-   定期更新設備，避免漏洞被利用。
-
-
-4. 預防性安全設備（Setting up preventative security devices）<br>
-   防火牆控管流量，IPS 阻擋已知攻擊。
-
-
-5. 日誌記錄與監控（Setting up logging and monitoring devices）<br>
-   記錄與監控可偵測異常活動，防止入侵。
+日誌記錄與監控（Setting up logging and monitoring devices）：<br>
+記錄與監控可偵測異常活動，防止入侵。
 
 ##### 🔐 答題：
 1. Which team focuses on defensive security?
@@ -35,7 +31,7 @@
 
 
 <details>
-<summary> 安全營運中心 ( SOC ) Security Operations Center</summary>  
+<summary> 安全營運中心 SOC (Security Operations Center) </summary>  
 
 
   
