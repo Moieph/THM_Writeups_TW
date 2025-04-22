@@ -31,21 +31,21 @@
 </details>
 
 <p align="center">
-  <img src="/rooms/images/01_01.png" width="555">
+  <img src="/rooms/images/01_01.png" width="600">
 </p>
 
-透過字典清單，掃出 `/bank-transfer` 為該網域內的隱藏路徑，HTTP碼狀態碼顯示 200（成功處理）回到瀏覽器輸入 `http://fakebank.thm/bank-transfer`
+&nbsp;&nbsp;&nbsp;&nbsp;透過字典清單，掃出 `/bank-transfer` 為該網域內的隱藏路徑，HTTP碼狀態碼顯示 200（成功處理）回到瀏覽器輸入 `http://fakebank.thm/bank-transfer`
 
 
 <p align="center">
-  <img src="/rooms/images/01_02.png" width="555">
+  <img src="/rooms/images/01_02.png" width="600">
 </p>
 
 
 &nbsp;&nbsp;&nbsp;&nbsp;步驟 3️⃣：從帳號 2276 匯 2000 美元至 8881
 
 <p align="center">
-  <img src="/rooms/images/01_03.png" width="555">
+  <img src="/rooms/images/01_03.png" width="600">
 </p>
 
 ---
