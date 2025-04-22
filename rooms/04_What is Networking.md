@@ -109,4 +109,41 @@ Part 2：獲得 Flag 🎉🎉
 
 &nbsp;&nbsp;&nbsp;&nbsp; `THM{YOU_GOT_ON_TRYHACKME}`
 
-> #### Task 4：識別網路上的設備
+> #### Task 4：Ping (ICMP) 
+Ping 是一個基本網路工具，用來檢查兩台設備間的連線是否正常
+
+- 工作原理：
+  - 使用 ICMP 協定 傳送「echo」封包到目標設備 
+  - 目標回傳「echo reply」封包 
+  - 依此測量延遲時間（毫秒），確認是否能通訊
+
+  
+`ping IP address or website URL`
+
+---
+Part 1：於上方輸入 IP address: 8.8.8.8
+<p align="left">
+  <img src="/rooms/images/04_04.png" width="600">
+</p>
+Part 2：獲得 Flag 🎉🎉
+<p align="left">
+  <img src="/rooms/images/04_05.png" width="600">
+</p>
+##### 🔐 答題：
+1. What protocol does ping use?
+   
+    ping 使用什麼協定？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `ICMP`
+
+2. What is the syntax to ping 10.10.10.10?
+   
+    ping 10.10.10.10 的語法是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `ping 10.10.10.10`
+
+3. What flag do you get when you ping 8.8.8.8?
+    
+    ping 8.8.8.8 時得到什麼標誌？
+
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{I_PINGED_THE_SERVER}`
