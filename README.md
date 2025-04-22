@@ -8,15 +8,15 @@
 |--------------------------------------------------|--------------------------------------|-------------------------------|---------------------------------------------|
 | Offensive Security Intro    |               🟥 Red Team          |              Easy             | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Defensive Security           |              🟦 Blue Team           |              Easy             | [Walkthrough](./rooms/name1/walkthrough.md) |
-| Careers in Cyber            |           🔧Cybersecurity Overview      |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
-| What is Networking           |       🌐 Networking    |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
+| Careers in Cyber            |           Cybersecurity Overview      |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
+| What is Networking           |      Networking    |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Security Principles          |        🧾 Governance  |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Governance & Regulation        |        🧾 Governance  |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Cyber Kill Chain              |       🟦 Blue Team     |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
-|  Linux Fundamentals Part 1      |       🖥️ System  |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
-| Python Basics               |       🖥️ System  |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
+|  Linux Fundamentals Part 1      |       System  |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
+| Python Basics               |       System  |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Common Attacks                 |      🟥 Red Team   |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
-| Network Services                 |      🌐 Networking    |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
+| Network Services                 |      Networking    |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
 
 
 ## 工具與筆記
