@@ -30,7 +30,7 @@
 
 </details>
 
-<p align="center">
+<p align="left">
   <img src="/rooms/images/01_01.png" width="600">
 </p>
 
@@ -39,7 +39,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;步驟 3️⃣：從帳號 2276 匯 2000 美元至 8881
 
-<p align="center">
+<p align="left">
   <img src="/rooms/images/01_03.png" width="600">
 </p>
 
