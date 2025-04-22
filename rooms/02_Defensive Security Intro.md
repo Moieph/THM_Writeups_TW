@@ -1,4 +1,5 @@
 # Defensive Security Intro
+**防禦性安全入門**
 
 > #### Task 1：防禦性安全介紹
 
@@ -35,7 +36,7 @@ Blue Team  `
 
 
 <details>
-<summary> 安全營運中心 ( SOC )　 Security Operations Center</summary>  
+<summary> 安全營運中心 ( SOC ) Security Operations Center</summary>  
 &nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
   
  &nbsp;&nbsp;&nbsp;&nbsp;漏洞（Vulnerabilities）：</b> <br>

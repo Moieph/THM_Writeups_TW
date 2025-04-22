@@ -1,42 +1,44 @@
 # Careers in Cyber
+**資訊安全工作介紹**
 
-> #### Task 1：防禦性安全介紹
+> #### Task 1：介紹
 
-1. 使用者資安意識（User cyber security awareness）<br>
-  提升使用者的資安知識，有助防範攻擊。
+> #### Task 2：安全分析師（Security analysts）
+_負責分析公司整體資安狀況，協助制定防禦措施，保護組織免於攻擊_ <br>
+
+&nbsp;&nbsp;&nbsp;主要職責：
+1. 與利害關係人合作，評估公司網路安全。
+2. 撰寫資安報告，記錄問題與應對方式。
+3. 擬定資安計畫，結合最新攻擊趨勢與防護需求。
+
+> #### Task 2：安全工程師（Security engineer）
+_根據威脅與漏洞情報，設計並實施資安防護，防止各類攻擊與資料外洩_ <br>
+
+&nbsp;&nbsp;&nbsp;主要職責：
+1. 測試與強化軟體安全機制
+2. 監控網路、回應報告並修補弱點
+3. 評估與部署最佳資安系統
+
+#
+
+> #### Task 2：Security Analyst  安全分析師
+_根據威脅與漏洞情報，設計並實施資安防護，防止各類攻擊與資料外洩_ <br>
+
+&nbsp;&nbsp;&nbsp;主要職責：
+1. 測試與強化軟體安全機制
+2. 監控網路、回應報告並修補弱點
+3. 評估與部署最佳資安系統
 
 
-2. 資產紀錄與管理（Documenting and managing assets）<br>
-   掌握系統與裝置資產，才能提供適當防護。
 
 
-3. 系統更新與修補（Updating and patching systems）<br>
-   定期更新設備，避免漏洞被利用。
-
-
-4. 預防性安全設備（Setting up preventative security devices）<br>
-   防火牆控管流量，IPS 阻擋已知攻擊。
-
-
-5. 日誌記錄與監控（Setting up logging and monitoring devices）<br>
-   記錄與監控可偵測異常活動，防止入侵。
-
-##### 🔐 答題：
-1. Which team focuses on defensive security?
-   
-    哪個團隊專注於防禦性安全？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `
-Blue Team  `
-
----
-
-> #### Task 2：防禦安全領域
 
 
 <details>
 <summary> 安全營運中心 ( SOC )　 Security Operations Center</summary>  
 &nbsp;&nbsp;&nbsp;&nbsp;────────────<br>
+
+
   
  &nbsp;&nbsp;&nbsp;&nbsp;漏洞（Vulnerabilities）：</b> <br>
  &nbsp;&nbsp;&nbsp;&nbsp;發現漏洞應儘速修補，無法修補時採其他防護措施。修補不一定由 SOC 執行。
