@@ -67,8 +67,6 @@ Blue Team  `
 
 </details>
 
-</details>
-
 <details>
 <summary> 數位取證和事件回應 ( DFIR ・Digital Forensics and Incident Response）</summary>
 
