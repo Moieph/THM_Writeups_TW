@@ -130,12 +130,10 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**惡意軟體分析目標：**<br> 
 
-- 靜態分析（Static analysis）：
-
+- 靜態分析（Static analysis）：<br>
   不執行程式，透過程式碼檢查惡意行為，需懂組合語言。
 
-- 動態分析（Dynamic analysis）：
-
+- 動態分析（Dynamic analysis）：<br>
    在安全環境中執行程式，觀察其實際行為與影響。
 
 </details>
