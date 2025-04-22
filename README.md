@@ -6,11 +6,11 @@
 
 ## 已完成房間數：12
 
-|  Room                          |                 Field                |           Difficulty          |                 Writeup Link                |          Tools         | 
-|--------------------------------------------------|--------------------------------------|-------------------------------|---------------------------------------------|-------------|
+|  Room                          |                 Field                |           Difficulty          |                 Writeup Link               |          Tools         | 
+|--------------------------------------------------|--------------------------------------|-------------------------------|--------------------------------------------|-------------|
 | Offensive Security Intro    |               	🟥 Red Team       |              Easy             | [Walkthrough](./rooms/01_Offensive%20Security%20Intro.md) |
 | Defensive Security           |             🟦 Blue Team         |              Easy             | [Walkthrough](./rooms/02_Defensive%20Security%20Intro.md) |
-| Careers in Cyber            |           🔧Fundamental    |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
+| Careers in Cyber            |           🔧Fundamental    |              Info             | [Walkthrough](./rooms/03_Careers%20in%20Cyber) |
 | What is Networking           |      🌐 Networking   |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Security Principles          |   🧾 Governance |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
 | Governance & Regulation        |   🧾 Governance |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md) |
