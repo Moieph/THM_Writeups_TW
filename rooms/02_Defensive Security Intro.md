@@ -2,7 +2,7 @@
 **🛡️ 防禦性安全入門**
 
 THM路徑：https://tryhackme.com/room/defensivesecurityintro
-> #### Task 1：防禦性安全介紹
+>> #### Task 1：防禦性安全介紹
 
 - 使用者資安意識（User cyber security awareness）：提升使用者的資安知識，有助防範攻擊。
 
@@ -23,7 +23,7 @@ THM路徑：https://tryhackme.com/room/defensivesecurityintro
 
 ---
 
-> #### Task 2：防禦安全領域
+>> #### Task 2：防禦安全領域
 
 
 <details>
@@ -159,7 +159,7 @@ THM路徑：https://tryhackme.com/room/defensivesecurityintro
 
 &nbsp;&nbsp;&nbsp;&nbsp; `Ransomware`
 
-> #### Task 3：防禦性安全的實際範例
+>> #### Task 3：防禦性安全的實際範例
 
 假設您是負責保護銀行的安全運營中心 （SOC） 分析師。該銀行的 SOC 使用安全資訊和事件管理 （SIEM） 工具，該工具從各種來源收集與安全相關的資訊和事件，並將它們顯示在一個儀錶板中。如果 SIEM 發現可疑情況，將生成警報。
 
