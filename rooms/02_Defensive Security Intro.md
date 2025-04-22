@@ -188,3 +188,11 @@ Part 6：獲得 Flag 🎉🎉
 <p align="left">
   <img src="/rooms/images/02_07.png" width="600">
 </p>
+
+##### 🔐 答題：
+1. What is the flag that you obtained by following along?
+   
+    您通過跟隨獲得的標誌是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{THREAT-BLOCKED}`
+
