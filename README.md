@@ -2,13 +2,14 @@
 
 > **TryHackMe 中文解題筆記（Walkthrough）**  從零記錄學習過程、踩坑記錄與解法思路。
 
-## 已完成房間（12）
+## 已完成房間數：12
 
 |                    Room                          |                 Field                |           Difficulty          |                 Writeup Link                |
 |--------------------------------------------------|--------------------------------------|-------------------------------|---------------------------------------------|
-| Offensive Security Intro                         |                Red Team              |              Easy             | [Walkthrough](./rooms/name1/walkthrough.md) |
-| Defensive Security                               |               Blue Team              |              Easy             | [Walkthrough](./rooms/name1/walkthrough.md) |
-| Careers in Cyber                                 |            Career / Overview         |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
+| Offensive Security Intro                         |               Red Team / Web Exploitation             |              Easy             | [Walkthrough](./rooms/name1/walkthrough.md) |
+| Defensive Security                               |              Blue Team / Threat Intelligence            |              Easy             | [Walkthrough](./rooms/name1/walkthrough.md) |
+| Careers in Cyber                                 |            Cybersecurity Overview      |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
+| What is Networking                             |        Networking Basics    |              Info             | [Walkthrough](./rooms/name1/walkthrough.md) |
 
 
 ## 工具與筆記
