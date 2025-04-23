@@ -1,5 +1,10 @@
 # Governance & Regulation  
-**📝️ 治理與監管**
+
+
+
+
+
+<!--**📝️ 治理與監管**
 
 THM路徑：https://tryhackme.com/room/cybergovernanceregulation
 
@@ -320,7 +325,7 @@ THM路徑：https://tryhackme.com/room/cybergovernanceregulation
 Information Security Management and Compliance
 
 <details>
-<summary><strong>ISO / IEC 27001：國際資訊安全管理標準</strong></summary>
+<summary><strong>ISO/IEC 27001：國際資訊安全管理標準</strong></summary>
 
 | 項目         | 說明                                                                 |
 |--------------|----------------------------------------------------------------------|
@@ -333,7 +338,7 @@ Information Security Management and Compliance
 
 ---
 
-**ISO / IEC 27001 核心要素 ：**
+**ISO 27001 核心要素 ：**
 
 | 中文名稱         | 英文原名                            | 簡要說明                                                 |
 |------------------|--------------------------------------|----------------------------------------------------------|
@@ -393,21 +398,21 @@ Information Security Management and Compliance
 
 ---
 
-🔍ISO / IEC 27001 vs SOC 2 差異比較表
+🔍ISO 27001 vs SOC 2 差異比較表
 
-| 項目                 | ISO / IEC 27001 | SOC 2                                      |
-|----------------------|-----------------|--------------------------------------------|
-| 發布單位             | ISO / IEC       | AICPA（會計師協會）                        |
-| 性質                 | 標準（可認證）         | 審計報告（無認證）                          |
-| 是否付費             | 是（購買官方標準）       | 審計服務需委託，報告內容不公開              |
-| 評估對象             | 組織整體資訊安全管理架構    | 控制措施是否落實，與五大信任原則對應        |
-| 國際認可度           | 高（全球皆適用）        | 主要在北美或與美國客戶合作時要求            |
-| 誰最常要求企業實施   | 國際供應鏈、大型跨國企業    | 客戶（尤其是使用雲端服務者）                 |
+| 項目                 | ISO 27001                                 | SOC 2                                      |
+|----------------------|--------------------------------------------|--------------------------------------------|
+| 發布單位             | ISO / IEC                                  | AICPA（會計師協會）                        |
+| 性質                 | 標準（可認證）                              | 審計報告（無認證）                          |
+| 是否付費             | 是（購買官方標準）                          | 審計服務需委託，報告內容不公開              |
+| 評估對象             | 組織整體資訊安全管理架構                    | 控制措施是否落實，與五大信任原則對應        |
+| 國際認可度           | 高（全球皆適用）                            | 主要在北美或與美國客戶合作時要求            |
+| 誰最常要求企業實施   | 國際供應鏈、大型跨國企業                     | 客戶（尤其是使用雲端服務者）                 |
 
 ##### 🔐 答題：
-1. Which ISO / IEC 27001 component involves selecting and implementing controls to reduce the identified risks to an acceptable level?
+1. Which ISO/IEC 27001 component involves selecting and implementing controls to reduce the identified risks to an acceptable level?
    
-   哪個 ISO / IEC 27001 組成部分涉及選擇和實施控制措施，以將已識別的風險降低到可接受的水準？
+   哪個 ISO/IEC 27001 組成部分涉及選擇和實施控制措施，以將已識別的風險降低到可接受的水準？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `Risk treatment`
 
