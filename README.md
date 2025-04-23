@@ -17,11 +17,11 @@
 | What is Networking           |      🌐 Networking   |              Info             | [Walkthrough](./rooms/04_What%20is%20Networking.md)       | `ping` |
 | Security Principles          |   🧾 Governance |             Easy          | [Walkthrough](./rooms/05_Security%20Principles.md)        |
 | Governance & Regulation        |   🧾 Governance |             Easy          | [Walkthrough](./rooms/06_Governance%20&%20Regulation.md)               |
-| Cyber Kill Chain              |        🟦 Blue Team    |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |
-|  Linux Fundamentals Part 1      |    🖥️ System  |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |
-| Python Basics               |     🖥️ System |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |
-| Common Attacks                 |    	🟥 Red Team   |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |
-| Network Services                 |    🌐 Networking   |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |
+| Cyber Kill Chain              |        🟦 Blue Team    |             Easy          | 🔧[Walkthrough](./rooms/name1/walkthrough.md)               |
+|  Linux Fundamentals Part 1      |    🖥️ System  |             Easy          | 🔧[Walkthrough](./rooms/name1/walkthrough.md)               |
+| Python Basics               |     🖥️ System |             Easy          | 🔧[Walkthrough](./rooms/name1/walkthrough.md)               |
+| Common Attacks                 |    	🟥 Red Team   |             Easy          | 🔧[Walkthrough](./rooms/name1/walkthrough.md)               |
+| Network Services                 |    🌐 Networking   |             Easy          | 🔧[Walkthrough](./rooms/name1/walkthrough.md)               |
 
 
 ## 工具與筆記
