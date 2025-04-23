@@ -62,7 +62,7 @@ THM路徑：https://tryhackme.com/room/securityprinciples
 
 ---
 
-以下題目為隨機出現：
+💭 以下題目為隨機出現：
 
 Q1：在警察檢查站，警察懷疑車輛登記文件為假。該員警認為缺少哪項安全功能？
 <p align="left">
@@ -226,7 +226,7 @@ Q5：兩家公司正在就某項協議進行談判；然而，他們希望對協
 
 ---
 
-核心邏輯：<br>
+**核心邏輯：**<br>
 不允許任何人直接操作關鍵資料（CDI）。<br>
 必須透過經授權與驗證的操作流程（TP)，並配合完整性檢查 (IVP)。<br>
 ✅ 這種做法符合現代**企業級系統的管控流程設計**
@@ -243,7 +243,7 @@ Q5：兩家公司正在就某項協議進行談判；然而，他們希望對協
 </details>
 
 ---
-以下題目為隨機出現：
+💭 以下題目為隨機出現：
 
 Q1：哪個模型不能向下讀取？
 <p align="left">
@@ -275,4 +275,76 @@ Q4：哪個模型不能向上寫入？
 &nbsp;&nbsp;&nbsp;&nbsp; `THM{SECURITY_MODELS}`
 
 >> #### Task 5：深度防禦（Defence-in-Depth）
+深度防禦是一種資安策略，主張建立多層次的安全防線來保護系統，因此也被稱為：**✅ 多層安全（Multi-Level Security）**
 
+這種策略不依賴單一防禦措施，而是透過「層層設防」來降低攻擊成功的機率。
+
+>> #### Task 6：ISO/IEC 19249
+
+**五大「架構原則」（Architectural Principles）DALEV**
+
+1. 領域分離：Domain Separation <br>
+    將相關元件（資料/應用）歸為同一領域並賦予統一的安全屬性，例如 x86 中的 Ring 0 vs Ring 3。
+2. 分層設計：Layering <br>
+    如 OSI 七層網路模型，強調每層皆可施加安全策略，對應防禦縱深（Defence-in-Depth）概念。
+3. 封裝：Encapsulation <br>
+    如 OOP 中的物件封裝，透過方法（例如 API）存取資料，避免錯誤輸入與未授權存取。
+4. 冗餘：Redundancy <br>
+    保障可用性與完整性，例如 RAID 5、雙電源，出錯時仍能持續運作且偵測錯誤資料。
+5. 虛擬化：Virtualization <br>
+    透過虛擬機、雲端服務實現沙盒、安全隔離、監控惡意行為。
+
+---
+
+**五大「設計原則」（Design Principles）LACCP**
+
+1. 最小權限：Least Privilege   <br>
+    使用者僅獲得完成任務所需的最小權限，例如只能閱讀、不能編輯。
+2. 攻擊面最小化：Attack Surface Minimisation <br>
+    關閉不必要服務、刪除預設帳號等，減少攻擊入口。
+3. 中央化參數驗證：Centralized Parameter Validation <br>
+    所有輸入都應集中驗證，防止漏洞如 RCE、DoS。
+4. 中央化安全服務：Centralized General Security Services <br>
+    例如集中式認證伺服器，統一管理所有安全功能。
+5. 錯誤與例外處理：Preparing for Error and Exception Handling  <br>
+    設計 Fail-Safe 系統，避免錯誤導致洩漏或安全破口。
+
+##### 🔐 答題：
+1. Which principle are you applying when you turn off an insecure server that is not critical to the business?
+   
+   當您關閉對業務不重要的不安全伺服器時，您應用了什麼原則？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `2`
+
+2. Your company hired a new sales representative. Which principle are they applying when they tell you to give them access only to the company products and prices?
+   
+   您的公司聘請了一位新的銷售代表。當他們告訴您僅允許他們訪問公司的產品和價格時，他們應用了什麼原則？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `1`
+
+3. While reading the code of an ATM, you noticed a huge chunk of code to handle unexpected situations such as network disconnection and power failure. Which principle are they applying?
+   
+   在閱讀 ATM 的代碼時，您注意到有一大段代碼用於處理網路斷開和電源故障等意外情況。他們應用了什麼原則？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `5`
+
+>> #### Task 7：零信任 / 信任但驗證
+
+<details>
+<summary><strong>Trust but Verify（信任但驗證）</strong></summary>
+
+<strong>核心概念：</strong>即使你信任某個人或系統，也應該設定機制來持續驗證其行為是否正常。
+
+「信任」是一種操作上的前提，但「驗證」是一種持續性的安全行動。
+
+- 實務方法：
+  - 建立 日誌紀錄機制（logging）
+  - 定期審查行為記錄（如網頁瀏覽、系統操作）
+  - 搭配自動化安全工具：
+    - Proxy（代理伺服器）
+    - IDS（入侵偵測系統）
+    - IPS（入侵防禦系統）
+
+📌 向現實妥協式的資安策略，在不完全否定信任的情況下，強化驗證機制。
+
+</details>
