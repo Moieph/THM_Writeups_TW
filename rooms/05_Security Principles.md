@@ -21,8 +21,8 @@ THM路徑：https://tryhackme.com/room/securityprinciples
 <details>
 <summary><strong>1️⃣ 真實性（Authenticity）</strong></summary>
 
-- 定義：Authentic 意指「非偽造、非虛假」。
-- 說明：真實性是指資料、文件或檔案確實來自聲稱的來源，而非被偽造或中途竄改。
+- <strong>定義</strong>：Authentic 意指「非偽造、非虛假」。
+- <strong>說明</strong>：真實性是指資料、文件或檔案確實來自聲稱的來源，而非被偽造或中途竄改。
 - ✅ 目的是確保來源的可信度與內容的正當性。
 
 </details>
@@ -30,8 +30,8 @@ THM路徑：https://tryhackme.com/room/securityprinciples
 <details>
 <summary><strong>2️⃣ 不可否認性（Nonrepudiation）</strong></summary>
 
-- 定義：Repudiate 表示「否認、拒絕承認」。 Nonrepudiation 則是防止這種否認發生。
-- 說明：不可否認性是指發送者無法否認其曾經傳送過某個文件或資料，確保事後責任歸屬清晰。
+- <strong>定義：</strong>Repudiate 表示「否認、拒絕承認」。 Nonrepudiation 則是防止這種否認發生。
+- <strong>說明：</strong>不可否認性是指發送者無法否認其曾經傳送過某個文件或資料，確保事後責任歸屬清晰。
 - 🔐 對於線上交易、病患診斷記錄、銀行轉帳等場景，這項特性非常關鍵。
 
 </details>
@@ -43,18 +43,18 @@ THM路徑：https://tryhackme.com/room/securityprinciples
 <details>
 <summary><strong>3️⃣ 效用性（Utility）</strong></summary>
 
-- 定義：效用性是指資訊的實用價值是否仍然存在。
-- 說明：即使資訊仍在、也可存取，但如果無法理解或使用，則等同於失去效用。
-- 🔐 如：使用者遺失了解密金鑰，雖然筆電與硬碟仍在，也無法使用裡面的加密資料，該資訊即喪失效用（utility lost）。
+- <strong>定義：</strong>效用性是指資訊的實用價值是否仍然存在。
+- <strong>說明：</strong>使資訊仍在、也可存取，但如果無法理解或使用，則等同於失去效用。
+- <strong>🔐 如：</strong>使用者遺失了解密金鑰，雖然筆電與硬碟仍在，也無法使用裡面的加密資料，該資訊即喪失效用（utility lost）。
 
 </details>
 
 <details>
 <summary><strong>4️⃣ 擁有權（Possession）</strong></summary>
 
-- 定義：擁有權是指資訊的實體控制權是否仍掌握在合法擁有者手中。
-- 說明：即便資料未被刪除或竄改，只要落入未授權者手中，也等同於失去對該資料的控制。
-- 🧨 例如：
+- <strong>定義：</strong>擁有權是指資訊的實體控制權是否仍掌握在合法擁有者手中。
+- <strong>說明：</strong>即便資料未被刪除或竄改，只要落入未授權者手中，也等同於失去對該資料的控制。
+- <strong>🧨 例如：</strong>
   - 攻擊者偷走備份硬碟 → 我們失去資訊的實體控制。
   - 勒索軟體加密資料 → 雖資料仍在，我們卻無法使用，亦屬「擁有權喪失」。
 
@@ -135,20 +135,15 @@ Q5：兩家公司正在就某項協議進行談判；然而，他們希望對協
 
     此模型的目標是透過「存取控制規則」來防止未授權使用者存取敏感資訊，確保機密性不被破壞。
 
-1. 簡單安全性原則（Simple Security Property）：
-- 又稱：「不可向上讀」（No Read Up, NRU）
+1. 簡單安全性原則（Simple Security Property）：<br>
+**又稱：**「不可向上讀」（No Read Up, NRU）<br>
+**規則：** 低安全等級的主體（Subject）不能讀取高安全等級的物件（Object）。<br>
+**目的：** 防止機密資料被低權限者讀取。
 
-- 規則：低安全等級的主體（Subject）不能讀取高安全等級的物件（Object）。
-
-- 目的：防止機密資料被低權限者讀取。
-
-星號安全性原則（Star Security Property）
-
-又稱：「不可向下寫」（No Write Down, NWD）
-
-規則：高安全等級的主體不能寫入到低安全等級的物件。
-
-目的：避免機密資訊洩露給低權限者。
+2. 星號安全性原則（Star Security Property）<br>
+**又稱：**「不可向下寫」（No Write Down, NWD）<br>
+**規則：** 高安全等級的主體不能寫入到低安全等級的物件。<br>
+**目的：** 避免機密資訊洩露給低權限者。
 
 任意性安全原則（Discretionary Security Property）
 
