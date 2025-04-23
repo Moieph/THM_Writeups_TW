@@ -66,9 +66,9 @@ Kill Chain（殺戮鏈）原為軍事術語，指的是攻擊流程的結構：<
 
 ---
 - 🎯 小結：
-  - Weaponization 是 **攻擊準備工作中的核心階段**
-  - 此階段強調「整合」惡意程式與漏洞利用，形成可用的攻擊武器 
-  - 優化 Payload 製作流程可大幅提升攻擊成功率與隱蔽性
+  - Weaponization 是 **攻擊準備工作中的核心階段**。
+  - 此階段強調「整合」惡意程式與漏洞利用，形成可用的攻擊武器 。
+  - 優化 Payload 製作流程可大幅提升攻擊成功率與隱蔽性。
 
 ##### 🔐 答題：
 1. This term is referred to as a group of commands that perform a specific task. You can think of them as subroutines or functions that contain the code that most users use to automate routine tasks. But malicious actors tend to use them for malicious purposes and include them in Microsoft Office documents. Can you provide the term for it? 
@@ -77,7 +77,7 @@ Kill Chain（殺戮鏈）原為軍事術語，指的是攻擊流程的結構：<
    
 &nbsp;&nbsp;&nbsp;&nbsp; `Macro`
 
->> #### Task 3：階段 3️⃣ Delivery（投遞）
+>> #### Task 4：階段 3️⃣ Delivery（投遞）
 **定義：**
     Delivery 是指攻擊者選擇方式**將惡意程式（Payload / Malware）送達目標裝置**的階段。
 
@@ -95,15 +95,15 @@ Kill Chain（殺戮鏈）原為軍事術語，指的是攻擊流程的結構：<
 
 ---
 - 🎯 小結：
-  - Delivery 是 **攻擊啟動關鍵點**，任何一種傳遞成功都會開啟後續階段（如 Exploitation）
-  - 此階段大量依賴 **社交工程 + 技術混合**
-  - 針對個別對象（如 Spearphishing、USB 偽裝）往往更有效且更難偵測
+  - Delivery 是 **攻擊啟動關鍵點**，任何一種傳遞成功都會開啟後續階段（如 Exploitation）。
+  - 此階段大量依賴 **社交工程 + 技術混合**。
+  - 針對個別對象（如 Spearphishing、USB 偽裝）往往更有效且更難偵測。
 
->> #### Task 3：階段 4️⃣ Exploitation（利用）
+>> #### Task 5：階段 4️⃣ Exploitation（利用）
 **定義：**
     Exploitation（利用） 指的是攻擊者在成功投遞惡意程式後，**觸發漏洞或利用受害者操作**，來執行惡意程式碼、取得系統控制權。
 
-這是 Cyber Kill Chain 中關鍵的 **「突破口」**：從「存在惡意」→「實際執行」
+這是 Cyber Kill Chain 中關鍵的 **「突破口」**：從「存在惡意」→「實際執行」。
 
 ---
 
@@ -120,7 +120,7 @@ Kill Chain（殺戮鏈）原為軍事術語，指的是攻擊流程的結構：<
 
 **🕸️ 橫向移動（Lateral Movement）**
 
-**定義（CrowdStrike）：** 攻擊者在取得初步存取後，進一步橫向移動至其他裝置或系統以擴大控制與數據存取
+**定義（CrowdStrike）：** 攻擊者在取得初步存取後，進一步橫向移動至其他裝置或系統以擴大控制與數據存取。
 
 - 常見做法包括：
   - 竊取憑證（如 Token、Hash、Session）
@@ -131,7 +131,7 @@ Kill Chain（殺戮鏈）原為軍事術語，指的是攻擊流程的結構：<
 ##### 🔐 答題：
 1. What is the name of the attack when it is performed against a specific group of people, and the attacker seeks to infect the website that the mentioned group of people is constantly visiting. 
    
-   當針對特定人群執行攻擊時，攻擊者試圖感染上述人群不斷訪問的網站，攻擊名稱是什麼。
+   當針對特定人群執行攻擊時，攻擊者試圖感染上述人群不斷訪問的網站，攻擊名稱是什麼？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `Watering hole attack`
 
