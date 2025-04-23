@@ -281,7 +281,7 @@ Q4：哪個模型不能向上寫入？
 
 >> #### Task 6：ISO/IEC 19249
 
-**五大「架構原則」（Architectural Principles）DALEV**
+**📝 五大「架構原則」（Architectural Principles）DALEV**
 
 1. 領域分離：Domain Separation <br>
     將相關元件（資料/應用）歸為同一領域並賦予統一的安全屬性，例如 x86 中的 Ring 0 vs Ring 3。
@@ -296,7 +296,7 @@ Q4：哪個模型不能向上寫入？
 
 ---
 
-**五大「設計原則」（Design Principles）LACCP**
+**📝 五大「設計原則」（Design Principles）LACCP**
 
 1. 最小權限：Least Privilege   <br>
     使用者僅獲得完成任務所需的最小權限，例如只能閱讀、不能編輯。
