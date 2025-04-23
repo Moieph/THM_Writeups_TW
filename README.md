@@ -12,7 +12,7 @@
 | Defensive Security           |             🟦 Blue Team         |              Easy             | [Walkthrough](./rooms/02_Defensive%20Security%20Intro.md) |
 | Careers in Cyber            |           🔧Fundamental    |              Info             | [Walkthrough](./rooms/03_Careers%20in%20Cyber.md)         |
 | What is Networking           |      🌐 Networking   |              Info             | [Walkthrough](./rooms/04_What%20is%20Networking.md)       | `ping` |
-| Security Principles          |   🧾 Governance |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |
+| Security Principles          |   🧾 Governance |             Easy          | [Walkthrough](./rooms/05_Security%20Principles.md)        |
 | Governance & Regulation        |   🧾 Governance |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |
 | Cyber Kill Chain              |        🟦 Blue Team    |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |
 |  Linux Fundamentals Part 1      |    🖥️ System  |             Easy          | [Walkthrough](./rooms/name1/walkthrough.md)               |

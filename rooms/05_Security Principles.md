@@ -135,150 +135,144 @@ Q5：兩家公司正在就某項協議進行談判；然而，他們希望對協
 
     此模型的目標是透過「存取控制規則」來防止未授權使用者存取敏感資訊，確保機密性不被破壞。
 
-1. 簡單安全性原則（Simple Security Property）：<br>
-**又稱：**「不可向上讀」（No Read Up, NRU）<br>
-**規則：** 低安全等級的主體（Subject）不能讀取高安全等級的物件（Object）。<br>
-**目的：** 防止機密資料被低權限者讀取。
+1. **簡單安全性原則（Simple Security Property）**<br>
+又稱：「不可向上讀」（No Read Up, NRU）<br>
+規則：低安全等級的主體（Subject）不能讀取高安全等級的物件（Object）。<br>
+✅ 目的：防止機密資料被低權限者讀取。
 
-2. 星號安全性原則（Star Security Property）<br>
-**又稱：**「不可向下寫」（No Write Down, NWD）<br>
-**規則：** 高安全等級的主體不能寫入到低安全等級的物件。<br>
-**目的：** 避免機密資訊洩露給低權限者。
+2. **星號安全性原則（Star Security Property）**<br>
+又稱：「不可向下寫」（No Write Down, NWD）<br>
+規則：高安全等級的主體不能寫入到低安全等級的物件。<br>
+✅ 目的：避免機密資訊洩露給低權限者。
 
-任意性安全原則（Discretionary Security Property）
-
+3. **任意性安全原則（Discretionary Security Property）**<br>
 使用存取矩陣（Access Matrix）來控制誰能對哪些物件執行哪些操作。
 
+- 舉例矩陣：
 
+|  主體   | 物件 A  |  物件 B |
+|-|-------|-|
+|Subject 1| 寫入    |  無存取權限|
+|Subject 2| 讀 / 寫 |讀取|
 
+- 常見權限類型： 
+  - Read（讀）：可以查看資源內容
+  - Write（寫）：可以修改資源內容
+  - Execute（執行）：可以執行程式／指令
+  - Delete（刪除）：可以刪除資源
+  - No Access（無權限）：禁止任何操作
 
-</details>
+---
 
+⚠️ 模型限制：
 
-
-
-
-
-設備識別：<br>
-IP 位址（可更改） MAC 位址（不可更改）
-
-為了能在網路中通訊，設備必須能被辨識，就像人有名字與指紋一樣。
-
-<details>
-<summary> IP （Internet Protocol）位址</summary>
-&nbsp;
-<p align="left">
-  <img src="/rooms/images/04_01.png" width="600">
-</p>
-
-1. 類似「名字」，可更改
-2. 每台設備在網路中都有一組 IP 位址 <br>
-- 分為：
-  - 私人 IP：在內部網路中使用，如 192.168.x.x
-  - 公共 IP：與外部網路通訊時使用，由 ISP 分配
-    - 公共 IP 可共用（如多台設備透過一個路由器上網）
-<hr>
-IPv4 vs IPv6：
-
-- IPv4：最多約 42 億個位址，逐漸用完<br>
-- IPv6：可用位址達 340 兆兆兆（2¹²⁸），解決位址不足問題
+1. Bell-LaPadula 是**針對機密性保護**設計，不處理完整性或可用性問題。
+2. 不適用於**檔案共享或協作需求**，因此在現代動態資訊系統中功能有限。
 
 </details>
 
 <details>
-<summary> MAC 位址（Media Access Control）唯一且固定</summary>
-&nbsp;
+<summary><strong>Biba 模型</strong> 「不可下讀、不可上寫」</summary>
+<i>重點在「完整性（Integrity）」</i>
 
-- 類似「指紋」，出廠時寫死在網卡上，格式如：a4:c3:f0:85:ac:2d
+- 模型目的：
 
-<hr>
+    保護資料的正確性與一致性，防止未授權的資料修改，避免資料遭竄改或污染。
 
-MAC 偽裝（MAC Spoofing）
-1. MAC 可被偽造，造成安全風險
-2. 若防火牆僅依 MAC 判斷是否放行，容易被冒用<br>
+1. **簡單完整性原則（Simple Integrity Property）**<br>
+又稱：「不可向下讀」（No Read Down, NRD）<br>
+高完整性等級的使用者不能讀取低完整性等級的資料。<br>
+✅ 目的：避免信任高的人被低可信資料污染。
 
-🛜 公共 Wi-Fi（如咖啡店）常依 MAC 控管使用者權限與流量
+2. **星號完整性原則（Star Integrity Property）**<br>
+又稱：「不可向上寫」（No Write Up, NWU）<br>
+低完整性等級的使用者不能寫入高完整性等級的資料。<br>
+✅ 目的：避免不可信使用者汙染高可信資料。
+
+---
+
+⚠️ 模型限制：
+
+1. 無法處理「內部威脅（Insider Threat）」
+2. 僅限完整性控制，無法**涵蓋機密性與可用性問題**
+3. 在實務上不易應用於**開放協作與動態內容的系統**
+
+</details>
+
+<details>
+<summary><strong>Clark-Wilson 模型</strong>「高度要求資料正確性、防止未授權操作」</summary>
+<i>重點在「完整性（Integrity）」</i>
+
+- 模型目的：
+
+    確保商業環境中資料的一致性、準確性與合法修改，特別強調使用「受控程序」進行資料存取與修改。
+
+1. **CDI（Constrained Data Item）受限資料項目**<br>
+我們需要保護其完整性的資料（例如財務報表、交易紀錄）。<br>
+只能透過轉換程序來操作，不可隨意存取或修改。<br>
+
+2. **UDI（Unconstrained Data Item）非受限資料項目**<br>
+非受控資料來源，例如使用者輸入、系統輸入等。<br>
+需經過轉換程序處理後，才能變成 CDI。<br>
+
+3. **TP（Transformation Procedure）轉換程序**<br>
+特定編碼好的操作（如寫入、更新），必須通過授權驗證並能維護資料完整性。<br>
+所有對 CDI 的變更必須透過這些程序進行。<br>
+
+4. **IVP（Integrity Verification Procedure）完整性驗證程序**<br>
+**用來檢查 CDI 是否符合預期狀態或一致性規範。** <br>
+確保沒有非法改動發生。<br>
+
+
+---
+
+核心邏輯：<br>
+不允許任何人直接操作關鍵資料（CDI）。<br>
+必須透過經授權與驗證的操作流程（TP)，並配合完整性檢查 (IVP)。<br>
+✅ 這種做法符合現代**企業級系統的管控流程設計**
+
+---
+
+舉例說明：
+
+- 🏦 一家銀行的轉帳系統：
+  - 金額資料（CDI）不得由使用者自行輸入或更改
+  - 使用者輸入的資料（UDI）會經 TP 驗證與處理，若通過才能更新 CDI
+  - 系統定期執行 IVP，確認帳戶餘額等資料未遭竄改
 
 </details>
 
 ---
-Part 1：偽裝 Alice 裝置的 MAC 地址進行通信：
+以下題目為隨機出現：
+
+Q1：哪個模型不能向下讀取？
 <p align="left">
-  <img src="/rooms/images/04_02.png" width="600">
+  <img src="/rooms/images/05_09.png" width="600">
 </p>
-Part 2：獲得 Flag 🎉🎉
+Q2：哪個模型不能向上讀取？
 <p align="left">
-  <img src="/rooms/images/04_03.png" width="600">
+  <img src="/rooms/images/05_10.png" width="600">
+</p>
+Q3：哪個模型不能向下寫入？
+<p align="left">
+  <img src="/rooms/images/05_11.png" width="600">
+</p>
+Q4：哪個模型不能向上寫入？
+<p align="left">
+  <img src="/rooms/images/05_12.png" width="600">
 </p>
 
-
-##### 🔐 答題：
-1. What does the term "IP" stand for?
-   
-   “IP”一詞代表什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `Internet Protocol`
-
-2. What is each section of an IP address called?
-   
-   IP 位址的每個部分叫什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `Octet`
-
-3. What does the term "MAC" stand for?
-
-     “MAC”一詞代表什麼？
-
-&nbsp;&nbsp;&nbsp;&nbsp; `Media Access Control`
-
-4. What does the term "MAC" stand for?å
-
-     “MAC”一詞代表什麼？
-
-&nbsp;&nbsp;&nbsp;&nbsp; `Media Access Control`
-
-5. Deploy the interactive lab using the "View Site" button and spoof your MAC address to access the site.  What is the flag?
-
-     使用「View Site」 （查看網站） 按鈕部署互動式實驗室，並偽造您的 MAC 位址以訪問該網站。標誌是什麼？
-
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{YOU_GOT_ON_TRYHACKME}`
-
->> #### Task 4：Ping (ICMP) 
-Ping 是一個基本網路工具，用來檢查兩台設備間的連線是否正常。
-
-- 工作原理：
-  - 使用 ICMP 協定 傳送「echo」封包到目標設備 
-  - 目標回傳「echo reply」封包 
-  - 依此測量延遲時間（毫秒），確認是否能通訊
-
-  
-`ping IP address or website URL`
-
----
-Part 1：於上方輸入 IP address: 8.8.8.8
+獲得 Flag 🎉🎉
 <p align="left">
-  <img src="/rooms/images/04_04.png" width="600">
-</p>
-Part 2：獲得 Flag 🎉🎉
-<p align="left">
-  <img src="/rooms/images/04_05.png" width="600">
+  <img src="/rooms/images/05_13.png" width="600">
 </p>
 
 ##### 🔐 答題：
-1. What protocol does ping use?
+1. Click on "View Site" and answer the four questions. What is the flag that you obtained at the end?
    
-    ping 使用什麼協定？
+   按兩下「View Site」 並回答四個問題。你最後得到的旗幟是什麼？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `ICMP`
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{SECURITY_MODELS}`
 
-2. What is the syntax to ping 10.10.10.10?
-   
-    ping 10.10.10.10 的語法是什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `ping 10.10.10.10`
+>> #### Task 5：深度防禦（Defence-in-Depth）
 
-3. What flag do you get when you ping 8.8.8.8?
-    
-    ping 8.8.8.8 時得到什麼標誌？
-
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{I_PINGED_THE_SERVER}`
