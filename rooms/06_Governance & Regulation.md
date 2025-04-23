@@ -3,41 +3,75 @@
 
 THM路徑：https://tryhackme.com/room/cybergovernanceregulation
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 >> #### Task 1：介紹
 
->> #### Task 2：CIA 資安三要素
+>> #### Task 2：為什麼它很重要？
 
-<p align="left">
-  <img src="/rooms/images/05_01.png" width="600">
-</p>
+**資訊安全法規(Information Security Regulations)：**
 
-1. **機密性（Confidentiality）：**<br>確保只有授權的使用者或接收者可以存取資料，防止未授權的存取與洩漏。
-2. **完整性（Integrity）：**<br>確保資料未被未經授權地更動，且當資料遭到變更時，我們能夠偵測並追蹤這些變化。
-3. **可用性（Availability）：**<br>確保系統或服務在使用者需要時能正常運作，不因攻擊（如 DDoS）或故障而中斷。
+所有產業（金融、醫療、政府、製造）中，只要涉及個人資料（PII），都必須遵守隱私與資料保護法規，以保護民眾資料、維護信任並符合合規要求。
+
+法規是一種外部強制規範，要求組織必須在資訊保護上達到最低標準。
+
+---
+🌍常見國際資訊安全法規與標準：
+
+|法規名稱 | 領域 | 說明 |
+|-|-|-|
+|GDPR |個資保護  | 歐盟法規，規範企業如何蒐集、儲存與處理歐盟公民的個人資料   |
+|HIPAA| 醫療 | 美國法案，要求醫療資料處理者保護病患資訊    |
+|PCI-DSS|金融支付| 處理信用卡資訊的技術與作業要求，避免持卡人資料洩漏      |
+|GLBA|金融| 金融業者需保護顧客的非公開個資（NPI），並說明資料分享方式 |
+
+##### 🔐 答題：
+1. A rule or law enforced by a governing body to ensure compliance and protect against harm is called?
+   
+   由管理機構執行的規則或法律以確保合規性和防止傷害被稱為？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Regulation`
+ 
+2. Health Insurance Portability and Accountability Act (HIPAA) targets which domain for data protection?
+   
+   健康保險流通與責任法案 （HIPAA） 針對哪個域進行數據保護？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Healthcare`
+
+>> #### Task 3：資訊安全架構
+一套有系統的文件規範與制度框架，用來指導組織如何規劃、執行與強化資安措施。
+
+
+- 資訊安全文件（策略性與管理性） Information Security Documents
+  - 五大類型
+    - | 文件類型           | 定義       | 說明與舉例               |
+      |----------------|----------|---------------------|
+      | 政策（Policies）   | 目標與原則性聲明 | 例：密碼政策、遠端存取政策       |
+        | 標準（Standards）  | 強制性技術規範  | 例：最低密碼長度為 12 字元     |
+        | 指引（Guidelines） | 最佳建議、非強制 | 例：建議定期更換 Wi-Fi 密碼   |
+        | 程序（Procedures） | 明確操作步驟   | 例：資安事件通報流程 SOP      |
+        | 基線（Baselines）  | 最低安全門檻   | 例：所有伺服器必須啟用防火牆與日誌紀錄 |
+- 撰寫資安治理文件（技術性與流程性）
+  - 六大步驟
+    - |步驟 | 說明與舉例 |
+        |-|-|
+        |1. 確定範圍與目的 |例：密碼政策目的是提升密碼強度，防止帳號被竊取 |
+        |2. 法規與業界調研| 參考 GDPR、NIST、ISO 27001 等標準  |
+        |3. 撰寫草稿與設計架構|條文要明確、可執行、符合組織價值  |
+        |4. 內部審查與核准| 法務、資安部門、高層管理共同審閱|
+        |5. 宣導與落實推行| 對員工做教育訓練與角色責任說明 |
+        |6. 定期檢討與更新|配合威脅變化或法規調整修正內容 |
 
 <hr>
 
+- 是否都要自己編寫這些文件？<br>
+❌ 不一定。有些組織會直接採用現成業界標準
+- 選擇適用框架的考量因素：
+    1. 法規需求（依地區與產業）
+    2. 組織目標與資訊敏感度
+    3. 可用資源與專業人力
+    4. 威脅情境與風險型態
 
-<details>
+
+<!--<details>
 <summary><strong>1️⃣ 真實性（Authenticity）</strong></summary>
 
 - <strong>定義</strong>：Authentic 意指「非偽造、非虛假」。
