@@ -241,6 +241,8 @@ Kill Chain（殺戮鏈）原為軍事術語，指的是攻擊流程的結構：<
 **定義：**
     攻擊者在建立後門、持久化、控制通道之後，**親手實現他最初的意圖**，包含竊密、破壞、勒索、持續滲透等。
 
+---
+
 👾 可能採取的攻擊行動：
 
 | 攻擊行動 | 說明 |
@@ -282,7 +284,8 @@ Actions on Objectives 是駭客「收網」的時刻。
 
 一旦進入此階段，受害者若無良好偵測與備援，**將承受高額金錢損失、商譽重創、營運癱瘓。**
 
----
+
+
 
 ##### 🔐 答題：
 1. Can you provide a technology included in Microsoft Windows that can create backup copies or snapshots of files or volumes on the computer, even when they are in use?  
