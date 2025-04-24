@@ -2,6 +2,9 @@
 **🛡️ 防禦性安全入門**
 
 THM路徑：https://tryhackme.com/room/defensivesecurityintro
+
+---
+
 >> #### Task 1：防禦性安全介紹
 
 - 使用者資安意識（User cyber security awareness）：提升使用者的資安知識，有助防範攻擊。
