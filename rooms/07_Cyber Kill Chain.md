@@ -186,5 +186,152 @@ Kill Chain（殺戮鏈）原為軍事術語，指的是攻擊流程的結構：<
 **定義：**
     **Command and Control（C2 或 C&C）** 是攻擊者與已感染主機建立溝通通道的過程，讓攻擊者能遠端操控、下指令、傳送惡意載荷或收集資料。
 
+| 名詞        | 說明                                      |
+|-------------|-------------------------------------------|
+| C2 Channel  | 攻擊者與受感染系統間的通訊管道             |
+| Beaconing   | 被感染裝置定期與 C2 Server 聯繫，保持通訊連線狀態 |
+
 ---
 
+🛠️ 常見的 C2 通訊協議與方式：
+
+| 通訊方式                       | 描述                                                                 |
+|------------------------------|----------------------------------------------------------------------|
+| **HTTP / HTTPS（port 80 / 443）** | 🔥 最常見！<br>將惡意通訊混入一般網路流量中，躲過防火牆與監控系統 |
+| **DNS Tunneling**            | 受感染的機器不斷向攻擊者的 DNS 伺服器發出 DNS 請求<br>🔁 可規避 HTTPS 過濾，難以察覺 |
+| **舊方法：IRC（Internet Relay Chat）** | 傳統 C2 通訊協議，現已不常用，容易被偵測  
+
+---
+
+- **C2 Server 可由攻擊者或另一被攻陷主機架設**
+- 多層 C2 架構有助於躲避偵測與分析
+
+---
+
+🕵🏻‍♂️ 實務偵測重點：
+
+| 行為特徵                      | 可能意義                        |
+|------------------------------|---------------------------------|
+| 主機定時向同一 IP／網域連線    | Beaconing 行為                  |
+| DNS 請求頻繁、格式異常        | DNS Tunneling 疑慮              |
+| HTTPS 請求但內容為亂碼／不合規 | 隱藏資料傳輸可能性              |
+| 非辦公時間大量資料外傳        | 可疑遠端操控或 exfiltration 行為 |
+
+---
+
+🎯 小結：
+
+- **C2 是駭客攻擊流程中 最關鍵的持續控制手段**
+- 現今常用 **HTTP/HTTPS、DNS Tunneling** 取代傳統 IRC
+
+- 安全人員應部署：
+  - 行為分析（UEBA）
+  - DNS 記錄監控
+  - 出站流量白名單化與深度封包檢測（DPI）
+
+##### 🔐 答題：
+1. What is the C2 communication where the victim makes regular DNS requests to a DNS server and domain which belong to an attacker.  
+   
+   受害者向屬於攻擊者的 DNS 伺服器和域發出常規 DNS 請求的 C2 通訊是什麼。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `DNS Tunneling`
+
+>> #### Task 8：階段 7️⃣ Actions on Objectives（目標行動）
+
+**定義：**
+    攻擊者在建立後門、持久化、控制通道之後，**親手實現他最初的意圖**，包含竊密、破壞、勒索、持續滲透等。
+
+👾 可能採取的攻擊行動：
+
+| 攻擊行動 | 說明 |
+|----------|------|
+| 🪪 收集憑證 | 利用工具如 Mimikatz 擷取記憶體中帳密或憑證 |
+| 🛠 權限提升 | 透過錯誤設定（如共享權限、服務帳號）提權至系統或網域管理員 |
+| 🧠 內部偵察 | 掃描內部網段、互動機器或資源，尋找漏洞與資產 |
+| 🔁 橫向移動 | 控制更多機器，擴大滲透與控制範圍 |
+| 📤 資訊收集與外洩（Exfiltration） | 傳送敏感資訊至外部 C2 或儲存空間 |
+| 🧹 刪除備份與隱蔽痕跡 | 移除原機備份，常與勒索行動搭配（使用 `vssadmin delete shadows`） |
+| 🪓 覆蓋或破壞資料 | 操作資料刪除、覆寫磁碟、破壞關鍵系統設定 |
+
+---
+
+🧾 Exfiltration（資料外洩）補充說明：
+
+| 項目 | 內容 |
+|------|------|
+| 🎯 目標 | 獲取並傳出企業機密、帳號密碼、客戶資料、商業文件 |
+| 📚 常用手法 | - 壓縮後傳送至 C2 Server  <br> - 使用加密通訊（HTTPS, DNS Tunneling） <br> - 利用雲端空間（如 Dropbox API） <br> - 偽裝成正常流量傳送資料 |
+| 🧙‍♂️ 難以察覺的關鍵點 | - 時間分散傳輸（低頻流量） <br> - 使用正規協議如 DNS / HTTPS <br> - 加密資料封包難以辨識內容 |
+
+---
+
+🔐 防禦建議：
+
+| 方向 | 重點技術 |
+|------|-----------|
+| 流量監控 | 出站資料異常行為分析、DLP、防火牆封鎖未授權通訊 |
+| 檔案完整性 | 使用 FIM（File Integrity Monitoring）偵測刪除或修改行為 |
+| 記錄分析 | SIEM 收錄異常日誌，例如大量 VSS 刪除、權限變更 |
+| 備份管理 | 建立離線備份點，避免單一系統被清除所有復原資料 |
+
+---
+
+🧠 小結：
+
+Actions on Objectives 是駭客「收網」的時刻。
+
+一旦進入此階段，受害者若無良好偵測與備援，**將承受高額金錢損失、商譽重創、營運癱瘓。**
+
+---
+
+##### 🔐 答題：
+1. Can you provide a technology included in Microsoft Windows that can create backup copies or snapshots of files or volumes on the computer, even when they are in use?  
+   
+   您能否提供 Microsoft Windows 中包含的技術，該技術可以創建計算機上檔或卷的備份副本或快照，即使它們正在使用中也是如此？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Shadow Copy`
+
+>> #### Task 9：實踐分析
+
+| 攻擊階段                         | 技術名稱                              |
+|----------------------------------|-----------------------------------|
+| Reconnaissance（偵察）          |                                   |
+| Weaponization（武器化）         | PowerShell（軟像執行技術）                |
+| Delivery（傳送）                | Spearphishing Attachment          |
+| Exploitation（利用）            | Exploit Public-Facing Application |
+| Persistence / Priv. Esc.        | Dynamic Linker Hijacking          |
+| Command & Control（C2）         | Fallback Channels                 |
+| Actions on Objectives（目標達成）| Data from Local System            |
+
+<p align="left">
+  <img src="/rooms/images/07_01.png" width="600">
+</p>
+
+
+<p align="left">
+  <img src="/rooms/images/07_02.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What is the flag after you complete the static site?  
+   
+   完成靜態網站後，標誌是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{7HR347_1N73L_12_4w35om3}`
+
+>> #### Task 10：結論
+
+🛡 Cyber Kill Chain 的限制與補充建議：
+
+✅ **優點：**
+- **協助理解攻擊流程**：從偵察到目標達成，幫助防禦者分析與攔截攻擊行為。
+- **改善網路防禦策略**：可以用來補強防線、檢查缺口。
+
+❌ **缺點與限制：**
+
+| 限制點                     | 說明                                                                 |
+|----------------------------|----------------------------------------------------------------------|
+| 太久沒更新（2011 年版）   | 缺乏針對現代攻擊手法的更新，容易產生防禦落差。                       |
+| 聚焦在惡意程式與網路邊界 | 忽略了像是帳號濫用、合法憑證濫用等**內部威脅（Insider Threat）**。 |
+| 難以處理複合式攻擊       | 現代攻擊者會結合多種 TTP（策略、技術、程序）以規避偵測，傳統模型難以完整捕捉。 |
+| 無法單靠簽章識別惡意     | 對抗「變異化惡意程式」（如修改檔案 hash）與靈活攻擊方式的能力有限。   |
