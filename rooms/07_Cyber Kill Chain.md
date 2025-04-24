@@ -4,6 +4,8 @@
 
 THM路徑：https://tryhackme.com/room/cyberkillchainzmt
 
+---
+
 >> #### Task 1：介紹
 
 Kill Chain（殺戮鏈）原為軍事術語，指的是攻擊流程的結構：<br>
