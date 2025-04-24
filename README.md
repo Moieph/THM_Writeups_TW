@@ -9,19 +9,19 @@
 
 ## 已完成房間數：12
 
-|  Room                          |                 Field                |           Difficulty          | Writeup Link                                                 | Tools | 
-|--------------------------------------------------|--------------------------------------|-------------------------------|--------------------------------------------------------------|------|
-| Offensive Security Intro    |               	🟥 Red Team       |              Easy             | [Walkthrough](./rooms/01_Offensive%20Security%20Intro.md)    |
-| Defensive Security           |             🟦 Blue Team         |              Easy             | [Walkthrough](./rooms/02_Defensive%20Security%20Intro.md)    |
-| Careers in Cyber            |           🔧Fundamental    |              Info             | [Walkthrough](./rooms/03_Careers%20in%20Cyber.md)            |
-| What is Networking           |      🌐 Networking   |              Info             | [Walkthrough](./rooms/04_What%20is%20Networking.md)          | `ping` |
-| Security Principles          |   🧾 Governance |             Easy          | [Walkthrough](./rooms/05_Security%20Principles.md)           |
-| Governance & Regulation        |   🧾 Governance |             Easy          | [Walkthrough](./rooms/06_Governance%20&%20Regulation.md)     |
-| Cyber Kill Chain              |        🟦 Blue Team    |             Easy          | [Walkthrough](./rooms/07_Cyber%20Kill%20Chain.md)            |
-|  Linux Fundamentals Part 1      |    🖥️ System  |             Easy          | [Walkthrough](./rooms/08_Linux%20Fundamentals%20Part%201.md) |
-| Python Basics               |     🖥️ System |             Easy          | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
-| Common Attacks                 |    	🟥 Red Team   |             Easy          | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
-| Network Services                 |    🌐 Networking   |             Easy          | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
+|  Room                          |                 Field                | Difficulty | Writeup Link                                                 | Tools | 
+|--------------------------------------------------|--------------------------------------|------------|--------------------------------------------------------------|------|
+| Offensive Security Intro    |               	🟥 Red Team       | Easy       | [Walkthrough](./rooms/01_Offensive%20Security%20Intro.md)    |
+| Defensive Security           |             🟦 Blue Team         | Easy       | [Walkthrough](./rooms/02_Defensive%20Security%20Intro.md)    |
+| Careers in Cyber            |           🔧Fundamental    | Info       | [Walkthrough](./rooms/03_Careers%20in%20Cyber.md)            |
+| What is Networking           |      🌐 Networking   | Info       | [Walkthrough](./rooms/04_What%20is%20Networking.md)          | `ping` |
+| Security Principles          |   🧾 Governance | Easy       | [Walkthrough](./rooms/05_Security%20Principles.md)           |
+| Governance & Regulation        |   🧾 Governance | Easy       | [Walkthrough](./rooms/06_Governance%20&%20Regulation.md)     |
+| Cyber Kill Chain              |        🟦 Blue Team    | Easy       | [Walkthrough](./rooms/07_Cyber%20Kill%20Chain.md)            |
+|  Linux Fundamentals Part 1      |    🖥️ System  | Info       | [Walkthrough](./rooms/08_Linux%20Fundamentals%20Part%201.md) |
+| Python Basics               |     🖥️ System | Easy       | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
+| Common Attacks                 |    	🟥 Red Team   | Easy       | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
+| Network Services                 |    🌐 Networking   | Easy       | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
 
 
 ## 工具與筆記
