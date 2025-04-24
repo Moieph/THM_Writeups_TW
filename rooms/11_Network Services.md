@@ -1,6 +1,6 @@
 # Network Services
 
-**🌐 網路服務 **
+**🌐 網路服務**
 
 THM路徑：https://tryhackme.com/room/networkservices
 
