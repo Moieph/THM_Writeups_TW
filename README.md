@@ -19,7 +19,7 @@
 | Governance & Regulation        |   🧾 Governance | Easy       | [Walkthrough](./rooms/06_Governance%20&%20Regulation.md)     |
 | Cyber Kill Chain              |        🟦 Blue Team    | Easy       | [Walkthrough](./rooms/07_Cyber%20Kill%20Chain.md)            |
 |  Linux Fundamentals Part 1      |    🖥️ System  | Info       | [Walkthrough](./rooms/08_Linux%20Fundamentals%20Part%201.md) |
-| Python Basics               |     🖥️ System | Easy       | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
+| Python Basics               |     🖥️ System | Easy       | [Walkthrough](./rooms/09_Python%20Basics.md)               |
 | Common Attacks                 |    	🟥 Red Team   | Easy       | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
 | Network Services                 |    🌐 Networking   | Easy       | 🔧[Walkthrough](./rooms/name1/walkthrough.md)                |
 

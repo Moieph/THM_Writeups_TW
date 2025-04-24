@@ -2,9 +2,9 @@
 
 **🐧 Linux 基礎知識 部分 1**
 
-- THM路徑：https://tryhackme.com/room/linuxfundamentalspart1
+THM路徑：https://tryhackme.com/room/linuxfundamentalspart1
 
-- 官方影片：https://youtu.be/42u_2e6eNF4?si=5G3x-KfvIMHzU84a
+官方影片：https://youtu.be/42u_2e6eNF4?si=5G3x-KfvIMHzU84a
 
 ---
 
