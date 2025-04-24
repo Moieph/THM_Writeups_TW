@@ -93,7 +93,7 @@ THM路徑：https://tryhackme.com/room/pythonbasics
 
 - 📦 例子：
 
-  - name = "Moe"       （把字串 "Moe" 放進 name 這個變數裡）<br>
+  - name = "Moieph"       （把字串 "Moieph" 放進 name 這個變數裡）<br>
   - age = 28           （把數字 28 放進 age 裡）<br>
   - is_hungry = True   （把布林值 True 放進 is_hungry 裡）<br>
 
@@ -329,7 +329,7 @@ print("You have spent:" + str(spent))</pre>
 
 <pre># 寫入檔案
 
-location = "/Users/moe/Desktop/AAA.txt"
+location = "/Users/moieph/Desktop/AAA.txt"
 text = ("哈哈是我啦")
 
 # write
@@ -348,7 +348,7 @@ with open(location,'w') as file:
 ---
 `file.read()` ：讀取檔案內容
 
-<pre>str = "/Users/moe/Desktop/text.txt"
+<pre>str = "/Users/moieph/Desktop/text.txt"
 with open(str) as file:
     print(file.read())</pre>
 
