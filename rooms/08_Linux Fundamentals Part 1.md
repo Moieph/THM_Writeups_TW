@@ -132,5 +132,33 @@ wc 計算：
 &nbsp;&nbsp;&nbsp;&nbsp; `THM{ACCESS}`
 
 >> #### Task 7：Shell 運算符簡介
+> 
+| 運算符 | 功能說明                           | 備註                           |
+|--------|------------------------------------|--------------------------------|
+| `&`    | 在背景執行指令                     | 可同時做其他事                 |
+| `&&`   | 串接多個指令，**前一個成功才執行下一個** | 具「依序且條件成立才執行」的效果 |
+| `>`    | 輸出導向（覆蓋檔案內容）           | 建立或覆寫檔案                 |
+| `>>`   | 輸出導向（追加內容至檔案末端）     | 不會覆蓋，只會往後加內容       |
 
->> #### Task 8：結論和總結
+`echo "hello" > greet.txt` <br>建立 greet.txt 並寫入 "hello"（若已有檔案會整個覆蓋）
+
+`echo "world" >> greet.txt` <br>把 "world" 加到檔案 greet.txt 的末尾
+
+##### 🔐 答題：
+1. If we wanted to run a command in the background, what operator would we want to use?
+   
+   如果我們想在後台運行命令，我們想使用什麼運算符？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `&`
+
+2. If I wanted to replace the contents of a file named "passwords" with the word "password123", what would my command be?
+   
+   如果我想用單詞 「password123」 替換名為 「passwords」 的文件的內容，我的命令是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `echo password123 > passwords`
+
+3. Now if I wanted to add "tryhackme" to this file named "passwords" but also keep "passwords123", what would my command be
+   
+   現在，如果我想將 「tryhackme」 添加到名為 「passwords」 的檔中，但同時保留 「passwords123」，我的命令會是什麼
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `echo tryhackme >> passwords`
