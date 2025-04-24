@@ -1,8 +1,10 @@
 # Http in Detail
 
-**🔍 常見攻擊**
+**📡 HTTP 詳細資訊**
 
-THM路徑：https://tryhackme.com/room/commonattacks
+THM路徑：https://tryhackme.com/room/httpindetail
+
+官方影片：https://youtu.be/XZyapIKV3Rw?si=auDQQuXpd-wBoyFv
 
 ---
 
