@@ -383,6 +383,29 @@ THM路徑：https://tryhackme.com/room/commonattacks
 - ✅ 解法：<br>
 盡快升級到受支援版本，如不能升級，請隔離設備，避免連入網路。
 
-<details>
-<summary><strong>Software Updates</strong></summary>
+</details>
 
+<details>
+<summary><strong>Antivirus Updates</strong></summary>
+
+運作原理：
+1. 防毒軟體靠<strong>「病毒特徵碼（Signature）」</strong>來辨識惡意程式
+2. 每當發現新病毒，廠商會更新資料庫 → 傳送到所有用戶端
+    - 若不更新防毒：
+      - **資料庫過舊**，辨識不到新病毒
+      - 儘管還有行為偵測，但會降低偵測率
+    - 解法：
+      - **永遠讓防毒自動更新**
+      - 不要手動關掉「自動更新」功能
+
+</details>
+
+---
+✅ 安全建議總整理
+
+| 安全行動 | 原因 |
+|----------|------|
+| ✅ 定期更新系統與應用程式 | 修補已知漏洞，防止入侵 |
+| ✅ 安裝並更新防毒軟體     | 保持特徵碼資料最新，攔截最新的惡意程式 |
+| ❌ 使用 EOL 軟體（如 Windows 7） | 沒有更新支持，漏洞永遠不會被修正，極易成為攻擊目標 |
+| ✅ 啟用自動更新           | 讓系統與防毒主動保護自己，不靠人工記憶 |
