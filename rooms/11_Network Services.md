@@ -6,25 +6,211 @@ THM路徑：https://tryhackme.com/room/networkservices
 
 ---
 
->> #### Task 1：介紹
+>> #### Task 1：建立聯繫
 
->> #### Task 2：建立聯繫
+>> #### Task 2：瞭解 SMB
 
->> #### Task 3：瞭解 SMB
+<details>
+<summary><strong>伺服器訊息塊協定（SMB）</strong></summary>
 
->> #### Task 4：枚舉 SMB
+- Server Message Block<br><strong>是一種用來在網路中分享資源的通訊協定</strong>
 
->> #### Task 5：利用 SMB
+✅ 功能包括：
+- 檔案共享（File Sharing）
+- 印表機共享（Printer Sharing）
+- 存取串列埠（Serial Port）
+- 管道與 API 存取（Named Pipes / APIs）
 
->> #### Task 6：瞭解 Telnet
+---
 
->> #### Task 7：枚舉 Telnet
+SMB 讓「用戶端」能從遠端「像操作本機一樣」存取伺服器上的資源
+</details>
 
->> #### Task 8：利用 Telnet
+<details>
+<summary><strong>SMB 運作方式</strong></summary>
 
->> #### Task 9：瞭解 FTP
+- SMB 是一種「**請求-回應協定**（Response-Request Protocol）」
+- 用戶端（Client）和伺服器（Server）透過多次訊息互動建立連線
+- 通訊協定底層可透過：
+  - TCP/IP（最常見，含 NetBIOS over TCP/IP）
+  - NetBEUI（較舊）
+  - IPX/SPX（較罕見）
 
->> #### Task 10：枚舉 FTP
+---
+
+建立連線後，用戶端可以：
+
+- 開啟遠端共享資料夾
+- 閱讀 / 寫入檔案
+- 操作共享印表機或資源
+- 像使用自己電腦一樣操作伺服器資源（但是在網路上完成的！）
+
+</details>
+
+
+<details>
+<summary><strong> 💻 誰在使用 SMB？</strong></summary>
+
+| 作業系統 / 工具 | 說明 |
+|----------------|------|
+| **Windows**    | 從 Windows 95 開始即內建 SMB 支援 |
+| **Samba**      | 開源實作，讓 Linux/Unix 也能支援 SMB 協定（可當成 SMB 伺服器） |
+
+🧠 延伸知識
+
+- SMB 也常見於內網滲透測試中，如利用漏洞進行：
+    - SMB Relay 攻擊
+    - 未授權存取共享資料夾
+    - 利用弱密碼登入取得資料
+- 知名漏洞：EternalBlue（MS17-010） 針對 SMB
+
+##### 🔐 答題：
+1. What does SMB stand for?  
+   
+   SMB 代表什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Server Message Block`
+
+2. What type of protocol is SMB?
+   
+   SMB 是什麼類型的協定？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `response-request`
+
+3. What protocol suite do clients use to connect to the server?    
+   
+   用戶端使用什麼協定套件連接到伺服器？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `TCP/IP`
+
+4. What systems does Samba run on? 
+   
+   Samba 可以在哪些系統上運行？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Unix`
+
+>> #### Task 3：枚舉 SMB
+
+- `nmap` ：掃描網路開放的服務與主機
+
+| 功能             | 指令                                      | 解說                             |
+|------------------|-------------------------------------------|----------------------------------|
+| 探測主機是否在線 | `nmap -sn 192.168.1.0/24`                 | 只 Ping 掃，不掃 port（-sn = --sP） |
+| 快速掃描常見 port | `nmap <IP>`                               | 掃描 1000 個常見 port             |
+| 全 Port 掃描     | `nmap -p- <IP>`                            | 掃 0~65535 所有 port              |
+| 指定 Port        | `nmap -p 22,80,443 <IP>`                  | 只掃特定 port                     |
+| 指定 Port        | `nmap -sV -p 21 <IP>`                     | 掃描特定 port 的版本              |
+
+
+- `enum4linux` ：枚舉（列舉）Windows SMB 資訊
+
+| 參數 | 功能說明 |
+|------|----------|
+| `-U` | 獲取使用者清單（User list） |
+| `-M` | 獲取機器名稱清單（Machine list） |
+| `-N` | 傾印名稱清單（Name list dump，與 `-U`、`-M` 不同） |
+| `-S` | 獲取共享資源清單（Share list） |
+| `-P` | 顯示密碼政策資訊（Password policy） |
+| `-G` | 顯示群組與成員清單（Group + Members） |
+| `-a` | 執行以上所有功能（全自動基本列舉） |
+
+
+---
+
+Question 1、2：對靶機執行`nmap`掃描，找到 3 個 Port 和 SMB 在哪個 Port 上運行
+
+<p align="left">
+  <img src="/rooms/images/11_01.png" width="600">
+</p>
+
+Question 3：對靶機執行`enum4linux`，枚舉靶機的 SMB 資訊，得到工作群組名稱
+<p align="left">
+  <img src="/rooms/images/11_02.png" width="600">
+</p>
+
+Question 4：在 NetBIOS Name Table 中，機器的名稱會出現在 `00`、`03`、`20` 
+
+- `<00>`  Workstation Service（工作站服務名稱）<br>→ 通常代表主機名稱
+- `<03>` Messenger Service（訊息傳遞）
+- `<20>`  File Server Service（檔案分享服務）<br>→ 檔案伺服器名稱
+
+<p align="left">
+  <img src="/rooms/images/11_03.png" width="600">
+</p>
+
+Question 5：查看系統版本
+<p align="left">
+  <img src="/rooms/images/11_04.png" width="600">
+</p>
+
+Question 6：靶機允許匿名登錄 <br>
+`username''`、`password''`
+
+`//10.10.42.205/profiles Mapping: OK, Listing: OK`<br>
+- 「Mapping」= 允許掛載（連線）到該 SMB 分享
+- 「Listing」= 允許列出該分享資料夾的檔案與內容
+
+<p align="left">
+  <img src="/rooms/images/11_05.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/11_06.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. Conduct an nmap scan of your choosing, How many ports are open?
+   
+    執行您選擇的 nmap 掃描，打開了多少個埠？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `3`
+
+2. What ports is SMB running on? Provide the ports in ascending order.
+   
+    SMB 在哪些埠上運行？按升序提供埠。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `139/445`
+
+3. Let's get started with Enum4Linux, conduct a full basic enumeration. For starters, what is the workgroup name?    
+   
+    讓我們從 Enum4Linux 開始，進行一個完整的基本枚舉。工作群組名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `WORKGROUP`
+
+4. What comes up as the name of the machine? 
+   
+    機器的名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `POLOSMB`
+
+5. What operating system version is running?    
+   
+    運行的是什麼作系統版本 ？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `6.1`
+
+6. What share sticks out as something we might want to investigate?    
+   
+    哪些分享資料夾值得我們調查？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `profiles`
+
+>> #### Task 4：利用 SMB
+
+`smbclient`： 連接 SMB 分享的命令列工具
+
+`smbclient //[IP]/[SHARE] -User -Port`
+
+
+>> #### Task 5：瞭解 Telnet
+
+>> #### Task 6：枚舉 Telnet
+
+>> #### Task 7：利用 Telnet
+
+>> #### Task 8：瞭解 FTP
+
+>> #### Task 9：枚舉 FTP
 
 >> #### Task 11：利用 FTP
 
