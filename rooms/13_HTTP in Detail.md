@@ -10,398 +10,393 @@ THM路徑：https://tryhackme.com/room/httpindetail
 
 >> #### Task 1：什麼是 HTTP（S）？
 
->> #### Task 2：請求和回應
+- HTTP（HyperText Transfer Protocol，超文字傳輸協定）
+    - 是一種用來**瀏覽網頁的通訊協定**
+    - 由 Tim Berners-Lee 及其團隊於 1989～1991 年開發
+    - 用來與 **Web 伺服器溝通**，以傳輸網頁資料，例如：
+      - **HTML 文件**
+      - **圖片**
+      - **影片**
+
+
+- HTTPS（HyperText Transfer Protocol Secure，安全超文字傳輸協定）
+  - 是 **HTTP 的加密版。**
+  - 具備兩大特性：
+    - **資料加密**：防止其他人偷看你與網站之間的資料內容（包含你傳送與接收的資料）。
+    - **身份驗證**：確認你連接的是正確的網站伺服器，不是被冒充的假網站。
+
+<p align="left">
+  <img src="/rooms/images/13_01.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/13_02.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What does HTTP stand for?
+   
+   HTTP 代表什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `HyperText Transfer Protocol`
+
+2. What does the S in HTTPS stand for?
+   
+   HTTPS 中的 S 代表什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `secure`
+
+1. On the mock webpage on the right there is an issue, once you've found it, click on it. What is the challenge flag?
+   
+   在右側的類比網頁上有一個問題，一旦你找到它，就點擊它。什麼是挑戰旗子？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{INVALID_HTTP_CERT}`
+
+>> #### Task 2：請求和回應    
+
+<details>
+<summary><strong>URL</strong></summary>
+Uniform Resource Locator，統一資源定位符
+
+- URL 就是你在**瀏覽器輸入的網站地址**，例如：https://tryhackme.com
+- **讓瀏覽器知道「要去哪裡找資料」的指令**，用來存取網路上的資源
+
+<p align="left">
+  <img src="/rooms/images/13_03.png" width="600">
+</p>
+
+| 部分名稱        | 說明                                                                 |
+|----------------|----------------------------------------------------------------------|
+| **Scheme**     | 通訊協定（例如 `http`、`https`、`ftp`）告訴瀏覽器用哪種方式連線。          |
+| **User:Pass**  | 使用者帳號與密碼（部分服務需要驗證身份）。                             |
+| **Host**       | 主機名稱，例如 `tryhackme.com`，也可以是 IP 位址。                    |
+| **Port**       | 連接的「埠號」，常見的有：HTTP 用 80，HTTPS 用 443。                 |
+| **Path**       | 檔案或資源的位置，例如 `/view-room`。                                |
+| **Query String** | 查詢字串，傳遞額外資料，例如 `?id=1` 是告訴網站你要查 `id=1` 的資料。 |
+| **Fragment**   | 網頁中的定位錨點，例如 `#task3`，讓你直接跳到某個區塊。                |
+
+</details>
+
+```
+GET / HTTP/1.1
+# 此請求發送 GET 方法（有關此內容的更多信息，請參閱HTTP方法任務），使用 / 請求主頁並告知 Web 伺服器我們正在使用HTTP協定版本 1.1。
+
+Host: tryhackme.com
+# 我們告訴 Web 伺服器我們想要造訪網站 tryhackme.com
+
+User-Agent: Mozilla/5.0 Firefox/87.0
+# 我們告訴 Web 伺服器我們正在使用 Firefox 87 版瀏覽器
+
+Referer: https://tryhackme.com/
+# 我們告訴 Web 伺服器，引導我們造訪此網頁的頁面是https://tryhackme.com
+# HTTP請求始終以空白行結束，以通知 Web 伺服器請求已完成。
+```
+
+```
+HTTP/1.1 200 OK                 
+# 狀態行：使用 HTTP/1.1 協議，200 表示請求成功 (OK)
+
+Server: nginx/1.15.8           
+# 伺服器軟體是 nginx，版本為 1.15.8
+
+Date: Fri, 09 Apr 2021 13:34:03 GMT  
+# 回應的時間（世界標準時間 GMT）
+
+Content-Type: text/html        
+# 回傳的內容類型是 text/html，也就是網頁
+
+Content-Length: 98             
+#回傳的資料長度為 98 bytes（字節）
+
+
+<html>                        
+# <!-- HTML 主體開始 -->
+<head>
+    <title>TryHackMe</title>   
+    # <!-- 瀏覽器標籤顯示的標題 -->
+</head>
+<body>
+    Welcome To TryHackMe.com   
+    # <!-- 實際在網頁中看到的內容 -->
+</body>
+</html>                        
+# <!-- HTML 主體結束 -->
+```
+📦 小結：
+
+| 項目               | 說明                                                       |
+|--------------------|------------------------------------------------------------|
+| `200 OK`           | 成功拿到首頁                                               |
+| 回傳內容           | React SPA 的 HTML 頁面                                     |
+| 一長串 JavaScript  | Cloudflare、Intercom、TryHackMe 的追蹤腳本                 |
+| 看起來「不友善」？ | 因為是用 CLI，不會 render HTML，直接噴文字給你             |
+
+
+##### 🔐 答題：
+1. What HTTP protocol is being used in the above example?
+   
+   上面的例子中使用了什麼 HTTP 協定？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `HTTP/1.1`
+
+2. What response header tells the browser how much data to expect?
+   
+   什麼回應標頭告訴瀏覽器預期多少數據？
+
+&nbsp;&nbsp;&nbsp;&nbsp; `Content-Length`
 
 >> #### Task 3：HTTP 方法
 
+| 方法    | 用途說明                                     | 是否改變伺服器資料？          | 常見用途                       |
+|---------|----------------------------------------------|-------------------------------|--------------------------------|
+| GET     | 從伺服器「取得」資源                         | ❌（讀取而已）                 | 瀏覽網頁、API 查詢             |
+| POST    | 傳送資料到伺服器，新增或處理資料             | ✅（通常會新增）               | 表單送出、註冊帳號、登入       |
+| PUT     | 傳送資料到伺服器，整體更新現有資源           | ✅（會改變資料）               | 編輯用戶資料、更新整筆資訊     |
+| PATCH   | 局部更新資源（只改部分欄位）                 | ✅（會改變資料）               | 更新用戶的單一欄位（如名字）   |
+| DELETE  | 要求伺服器「刪除」指定資源                   | ✅（會刪除資料）               | 刪除帳號、移除某個評論         |
+| HEAD    | 和 GET 類似，但只要回應 headers，不取回內容 | ❌                             | 測試資源是否存在、抓檔案大小   |
+| OPTIONS | 詢問伺服器支援哪些 HTTP 方法                 | ❌                             | CORS 預檢請求（跨來源請求）    |
+
+##### 🔐 答題：
+1. What method would be used to create a new user account?
+   
+   使用什麼方法創建新的用戶帳戶？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `POST`
+
+2. What method would be used to update your email address?
+   
+   將使用什麼方法更新您的電子郵件位址？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `PUT`
+
+3. What method would be used to remove a picture you've uploaded to your account?
+   
+   使用什麼方法刪除您上傳到帳戶的圖片？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `DELETE`
+
+4. What method would be used to view a news article?
+   
+   使用什麼方法查看新聞文章？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `GET`
+
 >> #### Task 4：HTTP 狀態碼
+
+| 範圍 | 類別說明        | 常見碼 | 說明                                   |
+|------|------------------|--------|----------------------------------------|
+| 1xx  | 🌀 資訊回應       | 100    | Continue：繼續請求                     |
+| 2xx  | ✅ 成功處理       | 200    | OK：成功                                |
+|      |                  | 201    | Created：成功建立（如帳號）             |
+| 3xx  | 🌫️ 重定向        | 301    | Moved Permanently：永久搬家             |
+|      |                  | 302    | Found：臨時搬家                         |
+| 4xx  | ❌ 用戶端錯誤     | 400    | Bad Request：請求格式錯                 |
+|      |                  | 401    | Unauthorized：需要登入認證             |
+|      |                  | 403    | Forbidden：禁止訪問（即使有登入）       |
+|      |                  | 404    | Not Found：找不到資源                   |
+|      |                  | 405    | Method Not Allowed：方法錯誤（ex. 用 GET 打 POST） |
+| 5xx  | 💥 伺服器錯誤     | 500    | Internal Server Error：伺服器爆炸       |
+|      |                  | 503    | Service Unavailable：維護中或爆掉       |
+
+🧠 小技巧記憶法：
+- 2xx = 成功
+- 3xx = 轉址
+- 4xx = 你錯了
+- 5xx = 伺服器錯了
+
+
+##### 🔐 答題：
+1. What response code might you receive if you've created a new user or blog post article?
+   
+   如果您創建了新使用者或博客文章，您可能會收到什麼回應代碼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `201`
+
+2. What response code might you receive if you've tried to access a page that doesn't exist?
+   
+   如果您嘗試存取不存在的頁面，您可能會收到什麼回應代碼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `404`
+
+3. What response code might you receive if the web server cannot access its database and the application crashes?
+   
+   如果 Web 伺服器無法存取資料庫並且應用程式崩潰，您可能會收到什麼回應代碼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `503`
+
+4. What response code might you receive if you try to edit your profile without logging in first?
+   
+   如果您嘗試在未先登錄的情況下編輯個人資料，您可能會收到什麼回應代碼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `401`
 
 >> #### Task 5：Headers
 
+- Request Headers（客戶端 ➜ 伺服器）
+
+| Header 名稱        | 功能說明                                                  |
+|--------------------|-----------------------------------------------------------|
+| `Host`             | 指定目標主機（多網站共用 IP 時必要）                     |
+| `User-Agent`       | 告訴伺服器你用的瀏覽器及版本                             |
+| `Content-Length`   | 傳送資料長度（例如送表單）                               |
+| `Accept-Encoding`  | 指定瀏覽器支援的壓縮方式（gzip、deflate 等）             |
+| `Cookie`           | 用戶端帶回的識別資料（登入狀態、偏好等）                |
+
+
+- Response Headers（伺服器 ➜ 客戶端）
+
+| Header 名稱         | 功能說明                                                        |
+|---------------------|-----------------------------------------------------------------|
+| `Set-Cookie`        | 設定 Cookie，讓瀏覽器下次帶回                                 |
+| `Cache-Control`     | 告訴瀏覽器是否 & 多久可以快取資源                             |
+| `Content-Type`      | 告訴瀏覽器這是什麼類型的資料（HTML、JS、PDF...）              |
+| `Content-Encoding`  | 資料是否壓縮，以及使用哪種壓縮方法                             |
+
+
+🔹 小重點補充：
+- **Request Header** =「你送什麼」，可自訂（如curl、Postman）
+- **Response Header** =「伺服器回什麼」，看伺服器的設定
+- Headers 是滲透測試和偵錯時的重要線索（如 Cookie、伺服器型號、編碼方式）
+
+##### 🔐 答題：
+1. What header tells the web server what browser is being used?
+   
+   哪個標頭告訴 Web 伺服器正在使用哪個瀏覽器？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `User-Agent`
+
+2. What header tells the browser what type of data is being returned?
+   
+   哪個標頭告訴瀏覽器返回什麼類型的數據？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Content-Type`
+
+3. What header tells the web server which website is being requested?
+   
+   哪個標頭告訴 Web 伺服器正在請求哪個網站？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Host`
+
 >> #### Task 6：Cookies
+_<strong>Cookie 是一小段由伺服器發送、儲存在你電腦（瀏覽器）裡的資料</strong>，可用來「記住你是誰」、「儲存網站設定」、「追蹤登入狀態」等_
+
+
+🕵️ Cookie 運作
+
+1. 你請求一個網站
+2. 伺服器回應時，用 Set-Cookie 標頭，儲存一個 Cookie
+3. 之後每次發送請求，瀏覽器會帶上 Cookie（用 Cookie 標頭送回）
+
+---
+
+因為 HTTP 是「無狀態（Stateless）」的協議，伺服器不會記住你，所以 Cookie 就是「你的身分證」
+
+---
+🍪 Cookie 常見用途：
+
+| 🧠 用途       | 說明                                                                 |
+|-------------|----------------------------------------------------------------------|
+| **登入驗證** | 儲存登入後的 `session token`，讓伺服器知道你是誰                            |
+| **偏好設定** | 像是網站語言、主題模式、介面選擇等                                     |
+| **瀏覽記錄** | 例如購物車、上次看過的商品等                                           |
+
+---
+
+Cookie 的樣子（例子）：<br>
+`Set-Cookie: sessionid=abc123xyz; Path=/; HttpOnly`
+
+之後你發送請求時，瀏覽器會自動加上<br>
+`Cookie: sessionid=abc123xyz`
+
+---
+
+🧰 如何查看 Cookie：
+    
+  1. 開啟瀏覽器開發者工具（Chrome：F12 或右鍵 ➜ 檢查）
+  2. 點選「Network」頁籤
+  3. 點任一請求（通常是網頁的主文） 
+  4. 查看「Cookies」子頁籤 ➜ 就能看到瀏覽器送出的 Cookie！
+
+---
+
+<p align="left">
+  <img src="/rooms/images/13_04.png" width="600">
+</p>
+
 
 >> #### Task 7：發出請求
 
 
-<!--**🐍 Pyhon 基礎** 
-
-
-
-
-
-
-
->> #### Task 2：Hello World
-
-`print("想輸入的字符")` 
-
+Question 1 ：
 <p align="left">
-  <img src="/rooms/images/09_01.png" width="600">
+  <img src="/rooms/images/13_05.png" width="600">
 </p>
 
-##### 🔐 答題：
-1. On the code editor, print "Hello World". What is the flag?
-   
-   在代碼編輯器上，列印 「Hello World」。旗子是什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{PRINT_STATEMENTS}`
-
->> #### Task 3：數學運算符
-
-| 算法名稱     | 語法   | 範例說明              |
-|--------------|--------|-----------------------|
-| 加法         | `+`    | 1 + 1 = 2             |
-| 減法         | `-`    | 5 - 1 = 4             |
-| 乘法         | `*`    | 10 * 10 = 100         |
-| 除法         | `/`    | 10 / 2 = 5            |
-| 餘數（取餘） | `%`    | 10 % 2 = 0            |
-| 次方（指數） | `**`   | 5**2 = 25（5 的平方） |
-
----
-| 比較意思         | 語法 |
-|------------------|------|
-| 大於             | `>`  |
-| 小於             | `<`  |
-| 等於             | `==` |
-| 不等於           | `!=` |
-| 大於或等於       | `>=` |
-| 小於或等於       | `<=` |
-
+Question 2 ：
 <p align="left">
-  <img src="/rooms/images/09_02.png" width="600">
+  <img src="/rooms/images/13_06.png" width="600">
 </p>
 
 <p align="left">
-  <img src="/rooms/images/09_03.png" width="600">
+  <img src="/rooms/images/13_07.png" width="600">
+</p>
+
+Question 3 ：
+
+<p align="left">
+  <img src="/rooms/images/13_08.png" width="600">
+</p>
+
+Question 4 ：
+
+<p align="left">
+  <img src="/rooms/images/13_09.png" width="600">
+</p>
+
+Question 5 ：
+
+<p align="left">
+  <img src="/rooms/images/13_11.png" width="600">
 </p>
 
 <p align="left">
-  <img src="/rooms/images/09_04.png" width="600">
-</p>
-
-<p align="left">
-  <img src="/rooms/images/09_05.png" width="600">
-</p>
-
-##### 🔐 答題：
-1. In the code editor, print the result of 21 + 43. What is the flag?
-   
-   在代碼編輯器中，列印 21 + 43 的結果。旗子是什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{ADDITI0N}`
-
-2. Print the result of 142 - 52. What is the flag?
-   
-   列印 142 - 52 的結果。旗子是什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{SUBTRCT}`
-
-3. Print the result of 10 * 342. What is the flag?
-   
-   列印 10 * 342 的結果。旗子是什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{MULTIPLICATION_PYTHON}`
-
-4. Print the result of 5 squared. What is the flag?
-   
-   列印 5 平方的結果。旗子是什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{EXP0N3NT_POWER}`
-
->> #### Task 4：變數與資料型別
-
-
-變數 = 幫資料取個名字！
-你可以把變數想成「資料的盒子」，你給它一個名字，放進你想記住的東西。
-
-
-- 📦 例子：
-
-  - name = "Moieph"       （把字串 "Moieph" 放進 name 這個變數裡）<br>
-  - age = 28           （把數字 28 放進 age 裡）<br>
-  - is_hungry = True   （把布林值 True 放進 is_hungry 裡）<br>
-
-
----
-
-📚 資料型別簡易筆記：
-
-- **String（字串）**  
-  就是文字！像名字、書名、任何一段話。必須加引號！  
-  例如： `"Hello"`、`'Python'`、`"123"`（雖然是數字，但因為有引號，還是字串）
-
-
-- **Integer（整數）**  
-  純數字，沒有小數點。拿來計算次數或年齡都可以。  
-  例如： `10`、`-5`、`0`
-
-
-- **Float（浮點數）**  
-  小數點數字，能表示比較精細的數值。  
-  例如： `3.14`、`0.5`、`-100.01`
-
-
-- **Boolean（布林值）**  
-  只有兩種結果：「True（真）」或「False（假）」，常用來做判斷。  
-  例如： `True`、`False`
-
-
-- **List（串列）**  
-  像一個袋子可以裝很多東西，而且順序會被記住。可以裝數字、字串、甚至其他 list！  
-  例如： `[1, 2, 3]`、`["apple", "banana"]`、`[True, 3.14, "yes"]`
-
-| String        | Float | Integer | Boolean | List          |
-|---------------|-------|---------|---------|---------------|
-| "Star Wars"    | 9.8   | 13      | True    | ["Alice", "Bob" ] |
-| "Matrix"       | 8.5   | 23      | False   | ["Charlie"]     |
-| "Indiana Jones" | 6.1   | 3       | False   | ["Daniel", "Evie"] |
-
-
-<p align="left">
-  <img src="/rooms/images/09_06.png" width="600">
-</p>
-
-##### 🔐 答題：
-3. On another new line, print out the value of height. What is the flag that appears?
-   
-   在另一行新行中，列印出 height 的值。出現的旗子是什麼？
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{VARIABL3S}`
-
->> #### Task 5：邏輯運算符及布林值
-
-| Logical Operation 邏輯運算         | Operator 運算子 | Example 例子           |
-|--------------------------------|-------------|----------------------|
-|  等於                 | `==`        | if x == 5   |
-|  小於                   | `<`         | if x < 5   |
-|  小於或等於    | `<=`        | if x <= 5  |
-|  大於                | `>=`        | if x > 5   |
-|  大於或等於 | `>=`        | if x >= 5   |
-
----
-
-| Boolean Operation 布林運算說                               | Operator 算子 | Example 例                                                              |
-|-------------------------------------------------------|----------------|-------------------------------------------------------------------------|
-| 兩個條件都要為 true         | AND            | if x >= 5 AND x <= 100 <br>如果 x 是介於 5 和 100 之間，則回傳 TRUE      |
-| 其中一個條件為 true 即可 | OR             | if x == 1 OR x == 10 <br>如果 x 為 1 或 10，則回傳 TRUE                 |
-| 條件相反                        | NOT            | if NOT y <br>如果 y 為 False，則回傳 TRUE                              |
-
->> #### Task 6：IF 語句
-
-🔹 `if`：如果…就…
-<pre>age = 18
-
-if age >= 18:
-    print("你是成年人")  </pre>
-
-👉 如果條件成立，就執行縮排內的程式。
-
----
-
-🔹 elif：否則如果…就…
-
-<pre>score = 85
-
-if score >= 90:
-    print("優等")
-elif score >= 60:
-    print("及格")</pre>
-
-👉 elif 是 「否則如果」，可接續判斷其他條件。
-
----
-
-🔹else：以上都不符合時…
-
-<pre>score = 50
-
-if score >= 90:
-    print("優等")
-elif score >= 60:
-    print("及格")
-else:
-    print("不及格")</pre>
-
-👉 else 不用寫條件，當上面條件都不成立時執行。
-
----
-- if → 如果成立，就做
-- elif → 再檢查下一個可能
-- else → 都不是，就做這個
-
----
-請寫一段程式，根據以下條件計算顧客的總金額：
-
-- 如果購物金額超過 100 元，則免運費  
-- 如果低於 100 元，則每公斤運費為 1.2 元
-- 最後請印出 總金額（含運費）
-
-<p align="left">
-  <img src="/rooms/images/09_07.png" width="600">
-</p>
-
-將 customer_basket_cost 改成 101 ： 
-
-<p align="left">
-  <img src="/rooms/images/09_08.png" width="600">
+  <img src="/rooms/images/13_12.png" width="600">
 </p>
 
 
 ##### 🔐 答題：
-2. Once you've written the application in the code editor's shipping.py tab, a flag will appear, which is the answer to this question.
+1. Make a GET request to /room
    
-   在代碼編輯器的 shipping.py 選項卡中編寫應用程式後，將出現一個旗子，這是這個問題的答案。
+   向 /room 發出 GET 請求
    
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{IF_STATEMENT_SHOPPING}`
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{YOU'RE_IN_THE_ROOM}`
 
-3. In shipping.py, on line 15 (when using the Code Editor's Hint), change the customer_basket_cost variable to 101 and re-run your code. You will get a flag (if the total cost is correct based on your code); the flag is the answer to this question.
-
-    在 shipping.py 中的第 15 行（使用代碼編輯器提示時），將 customer_basket_cost 變數更改為 101 並重新執行代碼。您將收到一個旗子（如果根據您的代碼，總成本是正確的）FLAG 是這個問題的答案。
-
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{MY_FIRST_APP}`
-
-
->> #### Task 7：Loops 迴圈
-
-1. `while` 迴圈：當條件為 True 就會一直跑（直到變 False）
-
-<pre>i = 1
-while i <= 10:
-    print(i)
-    i = i + 1</pre>
-
-2. `for...in` 迴圈（跑清單）
-<pre>websites = ["facebook.com", "google.com", "amazon.com"]
-for site in websites:
-    print(site)</pre>
-
-3. `for...in range()` 迴圈（跑固定次數）
-<pre>for i in range(5):
-    print(i)</pre>
-👉 從 0 開始跑到 4（不包含 5），共跑 5 次。
-
----
-
-逐一輸出數字 0 - 50： 
-
-<p align="left">
-  <img src="/rooms/images/09_09.png" width="600">
-</p>
-
-##### 🔐 答題：
-1. On the code editor, click back on the "script.py" tab and code a loop that outputs every number from 0 to 50.
+2. Make a GET request to /blog and using the gear icon set the id parameter to 1 in the URL field
    
-   在代碼編輯器上，按兩下「script.py」專案並編寫一個循環，輸出從 0 到 50 的每個數。
+   向 /blog 發出 GET 請求，並使用齒輪圖示在 URL 欄位中將 id 參數設置為 1
    
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{L00PS_WHILE_FOR}`
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{YOU_FOUND_THE_BLOG}`
 
->> #### Task 8：函數介紹
-
-`def `：定義函式（function）的關鍵字，函式是 一組可重複使用的程式碼
-
-<pre>def greet(name):  # name 是參數
-    print("你好" + {name})
-
-greet("Ben")
-greet("Tom")</pre>
-
----
-
-<pre>def calcCost(item):
-     if(item == "sweets"):
-          return 3.99
-     elif (item == "oranges"):
-          return 1.99
-     else:
-          return 0.99
-
-spent = 10
-spent = spent + calcCost("sweets")
-print("You have spent:" + str(spent))</pre>
-
----
-
-請建立一個名為 bitcoinToUSD 的函式，接收兩個參數：
-擁有的比特幣數量（bitcoin_amount） 、每顆比特幣的美元價格（bitcoin_value_usd）
-
-- 函式要回傳你目前比特幣的總價值（美元）
-- 使用函式來計算比特幣總價值
-- 如果低於 30,000 美元，請印出提醒訊息
-
-<p align="left">
-  <img src="/rooms/images/09_10.png" width="600">
-</p>
-
-<p align="left">
-  <img src="/rooms/images/09_11.png" width="600">
-</p>
-
-##### 🔐 答題：
-1. Once you've written the bitcoinToUSD function, use it to calculate the value of your Bitcoin in USD, and then create an if statement to determine if the value falls below $30,000; if it does, output a message to alert you (via a print statement).
+3. Make a DELETE request to /user/1
    
-   編寫 bitcoinToUSD 函數後，使用它來計算比特幣的美元價值，然後創建一個 if 語句來確定該值是否低於 30,000 美元;如果是這樣，則輸出一條消息以提醒您（通過 print 語句）。
-
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{BITC0IN_INVESTOR}`
-
->> #### Task 9：檔案處理
-`with open(路徑,'w',encoding="utf-8")as file:`<br>
-`'w'` → 寫入模式（write mode）<br>
-預設` encoding="utf-8"` → 能處理中文或特殊字元
-
----
-`file.write(內容) `： 將 text 變數的內容寫入檔案
-
-<pre># 寫入檔案
-
-location = "/Users/moieph/Desktop/AAA.txt"
-text = ("哈哈是我啦")
-
-# write
-
-with open(location,'w') as file:
-    file.write(text) </pre>
-
-| 模式   | 說明                             |
-|--------|----------------------------------|
-| `"w"`  | 寫入模式，如果檔案存在，**清空內容再寫入** |
-| `"a"`  | **追加模式**，寫入時不會覆蓋原內容         |
-| `"w+"` | 讀寫模式，先清空再寫入，可讀取內容         |
-| `"a+"` | 讀寫追加模式，不清空，可讀取內容          |
-| `"wb"` | **寫入二進位檔案**（二進位）               |
-
----
-`file.read()` ：讀取檔案內容
-
-<pre>str = "/Users/moieph/Desktop/text.txt"
-with open(str) as file:
-    print(file.read())</pre>
-
-<p align="left">
-  <img src="/rooms/images/09_12.png" width="600">
-</p>
-
-##### 🔐 答題：
-1. In the code editor, write Python code to read the flag.txt file. What is the flag in this file?
+   向 /user/1 發出 DELETE 請求
    
-   在代碼編輯器中，編寫 Python 代碼以讀取 flag.txt 檔。此檔中的標誌是什麼？
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{USER_IS_DELETED}`
 
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{F1LE_R3AD}`
+4. Make a PUT request to /user/2 with the username parameter set to admin
+   
+   向 /user/2 發出 PUT 請求，並將 username 參數設置為 admin
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{USER_HAS_UPDATED}`
 
->> #### Task 10：匯入
+5. POST the username of thm and a password of letmein to /login
+   
+   將 thm 的使用者名和 letmein 的密碼 POST 到 /login
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{HTTP_REQUEST_MASTER}`
 
-Library（函式庫）：就是別人寫好的功能集合，我們可以直接拿來用，不用自己從頭寫。
 
-- 匯入方式：用 import 關鍵字引入，例如：
-<pre>import datetime
-current_time = datetime.datetime.now()
-print(current_time)</pre>
+ 
 
-- 語法格式為：<br>
-library_name.function_name()
-（先叫出庫，再叫出裡面的功能）
 
----
-常見的實用函式庫：
-1. requests：發送 HTTP 請求
-2. scapy：封包製作、封包分析
-3. pwntools	：CTF / 漏洞利用開發常用工具庫
