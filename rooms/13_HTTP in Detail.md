@@ -78,7 +78,7 @@ Uniform Resource Locator，統一資源定位符
 </details>
 
 ---
-**請求和回應：**
+<strong> 📥 請求和回應：</strong> 
 
 ```
 GET / HTTP/1.1
