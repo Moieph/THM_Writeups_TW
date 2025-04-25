@@ -20,10 +20,10 @@
 | Cyber Kill Chain          |        🟦 Blue Team    | Easy       | [Walkthrough](./rooms/07_Cyber%20Kill%20Chain.md)            |
 | Linux Fundamentals Part 1 |    🖥️ System  | Info       | [Walkthrough](./rooms/08_Linux%20Fundamentals%20Part%201.md) |
 | Python Basics             |     🖥️ System | Easy       | [Walkthrough](./rooms/09_Python%20Basics.md)                 |
-| Common Attacks            |    	🟥 Red Team   | Easy       | 🔧[Walkthrough](./rooms/10_Common%20Attack.md)               |
+| Common Attacks            |    	🟥 Red Team   | Easy       | [Walkthrough](./rooms/10_Common%20Attack.md)               |
 | Network Services          |    🌐 Networking   | Easy       | 🔧[Walkthrough](./rooms/11_Network%20Services.md)            |
 | Network Services 2        |    🌐 Networking   | Easy       | 🔧[Walkthrough](./rooms/12_Network%20Services%202.md)        |
-| HTTP in Detail            |    🌐 Networking   | Easy       | 🔧[Walkthrough](./rooms/13_HTTP%20in%20Detail.md)            |
+| HTTP in Detail            |    🌐 Networking   | Easy       | [Walkthrough](./rooms/13_HTTP%20in%20Detail.md)            |
 
 ## 工具與筆記
 - [通用指令與工具](./assets/common-tools.md)
