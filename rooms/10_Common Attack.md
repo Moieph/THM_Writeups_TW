@@ -207,7 +207,7 @@ THM路徑：https://tryhackme.com/room/commonattacks
    
 &nbsp;&nbsp;&nbsp;&nbsp; `TryHackMe123!`
 
->> #### Task 6：多重身份驗證和密碼管理員）
+>> #### Task 6：多重身份驗證和密碼管理員
 
 <details>
 <summary><strong>Multi-Factor Authentication（MFA）</strong></summary>
