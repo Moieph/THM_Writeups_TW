@@ -46,7 +46,7 @@ THM路徑：https://tryhackme.com/room/httpindetail
    
 &nbsp;&nbsp;&nbsp;&nbsp; `secure`
 
-1. On the mock webpage on the right there is an issue, once you've found it, click on it. What is the challenge flag?
+3. On the mock webpage on the right there is an issue, once you've found it, click on it. What is the challenge flag?
    
    在右側的類比網頁上有一個問題，一旦你找到它，就點擊它。什麼是挑戰旗子？
    
@@ -76,6 +76,9 @@ Uniform Resource Locator，統一資源定位符
 | **Fragment**   | 網頁中的定位錨點，例如 `#task3`，讓你直接跳到某個區塊。                |
 
 </details>
+
+---
+**請求和回應：**
 
 ```
 GET / HTTP/1.1
@@ -352,6 +355,10 @@ Question 4 ：
 
 <p align="left">
   <img src="/rooms/images/13_09.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/13_10.png" width="600">
 </p>
 
 Question 5 ：
