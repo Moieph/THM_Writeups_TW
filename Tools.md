@@ -48,6 +48,7 @@
 
 <details>
 <summary><strong>參數說明</strong></summary>
+
 - -U [使用者名稱]：指定用哪個帳號連線（如：-U Moieph）
 - -p [埠號]：指定使用的埠號（預設是 445）
 
@@ -117,14 +118,14 @@
 ### `telnet`
 >建立 TCP 連線的工具
 
-`telnet [ip] [port]”`
+`telnet [ip] [port]`
 
 ---
 
 ### `FTP`
 >建立 FTP 連線的工具
 
-`ftp [ip] [port]”`
+`ftp [ip] [port]`
 
 ---
 
