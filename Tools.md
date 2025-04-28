@@ -4,7 +4,7 @@
 >掃描主機、開放的 port 和服務資訊
 
 <details>
-<summary><strong>參數說明</strong></summary>
+<summary>參數說明</summary>
 
 | 指令 | 功能說明 |
 |:----|:----|
@@ -25,7 +25,7 @@
 `enum4linux -a <IP>`
 
 <details>
-<summary><strong>參數說明</strong></summary>
+<summary>參數說明</summary>
 
 | 參數 | 功能說明 |
 |:----|:----|
@@ -47,10 +47,10 @@
 `smbclient //[IP]/[SHARE] -User -Port`
 
 <details>
-<summary><strong>參數說明</strong></summary>
+<summary>參數說明</summary>
 
-- -U [使用者名稱]：指定用哪個帳號連線（如：-U Moieph）
-- -p [埠號]：指定使用的埠號（預設是 445）
+- `-U` [使用者名稱]：指定用哪個帳號連線（如：-U Moieph）
+- `-p` [埠號]：指定使用的埠號（預設是 445）
 
 </details>
 
@@ -69,7 +69,7 @@
 `sudo tcpdump -i <interface>`
 
 <details>
-<summary><strong>參數說明</strong></summary>
+<summary>參數說明</summary>
 
 | 指令 | 說明 |
 |:----|:----|
@@ -92,7 +92,7 @@
 `nc <IP> <port> (connect)`
 
 <details>
-<summary><strong>參數說明</strong></summary>
+<summary>參數說明</summary>
 
 `nc -lvnp 4444`
 
@@ -139,7 +139,7 @@
 `hydra -L users.txt -P passwords.txt -vV ssh://10.10.10.6`
 
 <details>
-<summary><strong>參數說明</strong></summary>
+<summary>參數說明</summary>
 
 | 參數 | 說明 |
 |:----|:----|

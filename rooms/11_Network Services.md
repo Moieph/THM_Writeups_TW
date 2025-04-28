@@ -738,3 +738,22 @@ Question 1：用`hydra`爆破密碼<br>
 <p align="left">
   <img src="/rooms/images/11_29.png" width="600">
 </p>
+
+Question 3：登入 ftp 列出檔案，讀取 flag.txt，獲得 Flag 🎉🎉（不加「-」，會直接下載到虛擬機）
+
+<p align="left">
+  <img src="/rooms/images/11_30.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What is the password for the user "mike"?
+   
+   使用者 「mike」 的密碼是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `password`
+
+3. What is ftp.txt?
+   
+   什麼是 ftp.txt？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{y0u_g0t_th3_ftp_fl4g}`
