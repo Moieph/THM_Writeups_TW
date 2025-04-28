@@ -12,6 +12,7 @@
 | `nmap <IP>` | 快速掃描目標主機，**預設掃描前 1000 個常見 port** |
 | `nmap -p- <IP>` | 掃描 **所有 0-65535 個 port**（慢但全面） |
 | `nmap -sV <IP> -p <Port>` | 掃描指定的 port，並嘗試探測服務版本 |
+| `nmap -sC <目標IP或網址>` | 使用 Nmap 的預設腳本 (default scripts) 來掃描目標，快速檢查常見弱點 |
 | `nmap -A -p <Port> -T4 <IP>` | 掃描指定 port，且啟用 **Aggressive mode**（OS 偵測、版本偵測、traceroute、script 掃描），T4 表示速度加快 |
 
 </details>
@@ -111,5 +112,46 @@
 
 `msfvenom -p <payload> LHOST=<IP> LPORT=<port> -f <format>`
 
+---
 
+### `telnet`
+>建立 TCP 連線的工具
+
+`telnet [ip] [port]”`
+
+---
+
+### `FTP`
+>建立 FTP 連線的工具
+
+`ftp [ip] [port]”`
+
+---
+
+### `hydra`
+>密碼爆破工具
+
+爆破 FTP 密碼（單帳號）範例：<br>
+`hydra -l dale -P /usr/share/wordlists/rockyou.txt -vV ftp://10.10.10.6`
+
+爆破 SSH（多帳號）範例：<br>
+`hydra -L users.txt -P passwords.txt -vV ssh://10.10.10.6`
+
+<details>
+<summary><strong>參數說明</strong></summary>
+
+| 參數 | 說明 |
+|:----|:----|
+| `-l <帳號>` | 指定一個帳號（單一帳號測試） |
+| `-L <檔案>` | 指定帳號清單檔案（多個帳號爆破） |
+| `-p <密碼>` | 指定一個密碼（單一密碼測試） |
+| `-P <檔案>` | 指定密碼清單檔案（多個密碼爆破） |
+| `-C <檔案>` | 指定帳號:密碼格式的清單檔案（login:pass 格式） |
+| `-t 4` | 每個目標開幾個連線並行（預設 16，可調整） |
+| `-s <port>` | 指定非預設 port（例如 FTP 改其他 port） |
+| `-e nsr` | 嘗試 null 密碼 (n)、帳號=密碼 (s)、反轉 (r) |
+| `-vV` | 超詳細輸出，每一組帳密都顯示 |
+| `-f` | 找到就停止（單一目標） |
+| `-F` | 找到就停止（多目標） |
+| `-o <檔案>` | 將成功結果寫入檔案 |
 
