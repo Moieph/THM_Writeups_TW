@@ -124,12 +124,12 @@ SMB 讓「用戶端」能從遠端「像操作本機一樣」存取伺服器上�
 Question 1、2：對靶機執行`nmap`掃描，找到 3 個 Port 和 SMB 在哪個 Port 上運行
 
 <p align="left">
-  <img src="/rooms/images/11_01.png" width="600">
+  <img src="/rooms/images/11_01.jpg" width="600">
 </p>
 
 Question 3：對靶機執行`enum4linux`，枚舉靶機的 SMB 資訊，得到工作群組名稱
 <p align="left">
-  <img src="/rooms/images/11_02.png" width="600">
+  <img src="/rooms/images/11_02.jpg" width="600">
 </p>
 
 Question 4：在 NetBIOS Name Table 中，機器的名稱會出現在 `00`、`03`、`20`。
@@ -140,31 +140,32 @@ Question 4：在 NetBIOS Name Table 中，機器的名稱會出現在 `00`、`03
 - `<20>`  File Server Service（檔案分享服務）<br>→ 檔案伺服器名稱
 
 <p align="left">
-  <img src="/rooms/images/11_03.png" width="600">
+  <img src="/rooms/images/11_03.jpg" width="600">
 </p>
 
 <p align="left">
-  <img src="/rooms/images/11_07.png" width="600">
+  <img src="/rooms/images/11_07.jpg" width="600">
 </p>
 
 Question 5：查看系統版本
 <p align="left">
-  <img src="/rooms/images/11_04.png" width="600">
+  <img src="/rooms/images/11_04.jpg" width="600">
 </p>
 
 Question 6：靶機允許匿名登錄 <br>
 `username''`、`password''`
 
-`//10.10.42.205/profiles Mapping: OK, Listing: OK`<br>
+`/profiles Mapping: OK, Listing: OK`<br>`
+
 - 「Mapping」= 允許掛載（連線）到該 SMB 分享
 - 「Listing」= 允許列出該分享資料夾的檔案與內容
 
 <p align="left">
-  <img src="/rooms/images/11_05.png" width="600">
+  <img src="/rooms/images/11_05.jpg" width="600">
 </p>
 
 <p align="left">
-  <img src="/rooms/images/11_06.png" width="600">
+  <img src="/rooms/images/11_06.jpg" width="600">
 </p>
 
 ##### 🔐 答題：
@@ -234,7 +235,7 @@ Question 7：前往 .ssh 資料夾輸入`get id_rsa`下載私鑰到虛擬機上
 
 - 查看 .ssh 文件夾：「id_rsa」文件為私鑰、「id_rsa.pub」文件為公鑰
 - 在 「id_rsa.pub」 公鑰文件的內容末尾，可能會注明和密鑰相關的ssh用戶名稱
-- 在 SMB 連接中，使用get命令下載文件
+- 在 SMB 連接中，使用`get`命令下載文件
 
 <p align="left">
   <img src="/rooms/images/11_11.png" width="600">
@@ -243,7 +244,7 @@ Question 7：前往 .ssh 資料夾輸入`get id_rsa`下載私鑰到虛擬機上
 Question 8：更改 id_rsa 為 600
 
 <p align="left">
-  <img src="/rooms/images/11_12.png" width="600">
+  <img src="/rooms/images/11_12.jpg" width="600">
 </p>
 
 
@@ -265,10 +266,21 @@ Question 8：更改 id_rsa 為 600
 | 群組         | 沒有 ❌       |
 | 其他人       | 沒有 ❌       |
 
-Question 8：Task 3 透過`enum4linux`枚舉，發現有效帳戶名稱為 cactus
+Question 8：Task 3 透過`enum4linux`枚舉，發現有效帳戶名稱為 cactus，並嘗試以其私鑰 id_rsa 登入 ssh 服務
+
 
 <p align="left">
   <img src="/rooms/images/11_13.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/11_14.png" width="600">
+</p>
+
+登入後，以 `ls` 列出檔案，`cat` smb.txt，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/11_15.png" width="600">
 </p>
 
 
@@ -315,10 +327,104 @@ Question 8：Task 3 透過`enum4linux`枚舉，發現有效帳戶名稱為 cactu
    
 &nbsp;&nbsp;&nbsp;&nbsp; `THM{smb_is_fun_eh?}`
 
-
 >> #### Task 5：瞭解 Telnet
+連線語法：`telnet [ip] [port]”`
+
+---
+
+Telnet 漏洞類型（Types of Telnet Exploit）
+
+1. Telnet 本身的不安全性：
+    - ❌ **沒加密** → 所有資料明文傳送（帳密可被攔截）
+    - ❌ **存取控制薄弱** → 常見弱密碼或匿名登入
+    - ❌ **常被錯誤設定** → 最容易被攻擊的點！
+2. CVE 漏洞庫（可查 Telnet 相關漏洞）
+    - https://www.cvedetails.com/
+    - https://cve.mitre.org/<br>CVE（Common Vulnerabilities and Exposures）是已公開安全漏洞編號，每編號對應一種弱點。
+3. ✅ 實戰中更常遇到的情況是：
+    - 配置錯誤（如帳號沒設密碼、用戶名硬編在服務裡）
+    - 被當作後門或 debug 用途埋在奇怪 port
+
+##### 🔐 答題：
+1. What is Telnet?      
+   
+   什麼是 Telnet？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `application protocol`
+
+2. What has slowly replaced Telnet?     
+   
+    是什麼慢慢取代了 Telnet？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `ssh`
+
+3. How would you connect to a Telnet server with the IP 10.10.10.3 on port 23?
+   
+    您將如何連接到埠 23 上 IP 為 10.10.10.3 的 Telnet 伺服器？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `telnet 10.10.10.3 23`
+
+4. The lack of what, means that all Telnet communication is in plaintext?  
+   
+    缺少什麼，意味著所有 Telnet 通信都是明文的？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `encryption`
+
 
 >> #### Task 6：枚舉 Telnet
+
+Question 1 - 4：`nmap -p- 靶機IP` 進行全端口掃描，發現 8012 端口有開；`nmap 靶機IP` 快速掃瞄 1000 個常用端口，未發現開啟端口。
+
+<p align="left">
+  <img src="/rooms/images/11_16.png" width="600">
+</p>
+
+Question 6、7：進階掃描 8012端口 `nmap -A -p 8012 -T4 靶機IP`
+
+- fingerprint-string：**指紋字串**，是 nmap 主動送出一些常見的連線請求，看伺服器回什麼反應
+- X11Probe：nmap 嘗試模仿「X11 圖形界面」的連線行為，結果**有回應（正規服務不該有反應）**
+- SKIDY'S BACKDOOR：8012 port 上可能藏有漏洞或惡意服務！
+
+<p align="left">
+  <img src="/rooms/images/11_17.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. How many ports are open on the target machine?    
+   
+    目標計算機上打開了多少個埠 ？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `1`
+
+2. What port is this?
+   
+    這是什麼埠 ？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `8012`
+
+3. This port is unassigned, but still lists the protocol it's using, what protocol is this?     
+   
+    此埠未分配，但仍列出它使用的協定 ，這是什麼協定？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `tcp`
+
+4. Now re-run the nmap scan, without the -p- tag, how many ports show up as open?
+   
+    現在重新運行 nmap 掃描，沒有 -p- 標籤，有多少個埠顯示為打開？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `0`
+
+6. Based on the title returned to us, what do we think this port could be used for?
+   
+    根據返回給我們的標題，我們認為這個埠可以用來做什麼 ？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `a backdoor`
+
+7. Who could it belong to? Gathering possible usernames is an important step in enumeration.
+   
+    它可能屬於誰？收集可能的使用者名是枚舉中的一個重要步驟。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Skidy`
 
 >> #### Task 7：利用 Telnet
 
