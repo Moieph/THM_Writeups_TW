@@ -152,7 +152,7 @@ Question 3：用`showmount`，列出靶機的NFS共享
   <img src="/rooms/images/12_03.png" width="600">
 </p>
 
-Question 4-7：於虛擬機上創建一個掛載點，使用`mount`掛載遠程主機的 NFS，再查看 NFS 共享內容
+Question 4 - 7：於虛擬機上創建一個掛載點，使用`mount`掛載遠程主機的 NFS，再查看 NFS 共享內容
 
 - NFS共享中的文件夾名稱為：cappucino 
 - 保存SSH密鑰文件的文件夾是：.ssh文件夾
