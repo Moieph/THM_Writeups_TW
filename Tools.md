@@ -1,5 +1,179 @@
 # 🔧 Tools
 
+## Linux 系統內建
+
+### `ping`
+>測試目標是否存活（ICMP封包）
+
+>Linux內建指令
+
+`ping IP address or website URL`
+
+---
+
+### `nc`
+>_netcat_：建立 TCP/UDP 連線、傳輸資料、反向 shell
+
+>Linux內建指令 
+
+`nc -lvnp <port> (listen)`<br>
+`nc <IP> <port> (connect)`
+
+<details>
+<summary>參數說明</summary>
+
+`nc -lvnp 4444`
+
+| 參數 | 解釋 |
+|:----|:----|
+| `-l` | listen 模式 |
+| `-v` | verbose（顯示更多細節） |
+| `-n` | 不做 DNS 查詢 |
+| `-p 4444` | 指定監聽 port（可自選） |
+
+
+</details>
+
+---
+
+### `telnet`
+>建立 TCP 連線的工具
+
+>Linux內建指令  
+
+`telnet [ip] [port]`
+
+---
+
+### `FTP`
+>建立 FTP 連線的工具
+
+>Linux內建指令 
+
+`ftp [ip] [port]`
+
+
+---
+
+### `SSH`
+>建立 SSH 連線的工具
+
+>Linux內建指令
+
+<details>
+<summary>參數說明</summary>
+
+| 指令範例                            | 說明                       |
+|-------------------------------------|----------------------------|
+| `ssh 使用者名稱@目標IP`              | 連線到遠端主機             |
+| `ssh -p 連接埠 使用者名稱@目標IP`    | 指定連接埠（預設是 22）    |
+| `ssh -i 私鑰檔案 使用者名稱@目標IP` | 使用指定私鑰登入           |
+| `ssh 使用者名稱@目標IP '指令'`        | 遠端直接執行一條指令後登出 |
+
+</details>
+
+---
+### `mkdir`
+>建立新資料夾
+
+>Linux內建指令
+
+---
+### `mount`
+>掛載 NFS 的主要工具
+
+>Linux內建指令
+
+`mount -t nfs 10.10.20.187:home /tmp/mount/ -nolock`
+
+<details>
+<summary>參數說明</summary>
+
+| 部分                    | 說明                                               |
+|-------------------------|----------------------------------------------------|
+| `mount`                | 執行掛載指令                                       |
+| `-t nfs`               | 指定掛載的類型為 NFS（Network File System）        |
+| `10.10.20.187:home`    | 遠端 NFS 伺服器 IP 與分享目錄名稱                  |
+| `/tmp/mount/`          | 本地掛載點，NFS 分享內容將顯示在這個資料夾內       |
+| `-nolock`              | 停用鎖定功能，避免因為鎖定機制出錯掛載失敗         |
+
+</details>
+
+---
+### `cp`
+>複製檔案
+
+>Linux內建指令
+
+<details>
+<summary>參數說明</summary>
+
+| 指令     | 說明                         |
+|----------|------------------------------|
+| `cp 檔案1 檔案2` | 複製檔案1，並建立檔案2 |
+| `cp 檔案 資料夾/` | 複製檔案到指定資料夾   |
+| `cp -r 資料夾1 資料夾2` | 複製整個資料夾（遞迴複製） |
+| `cp -v 檔案1 檔案2` | 顯示複製過程（verbose 模式） |
+
+</details>
+
+---
+### `chmod`
+> 改變檔案或資料夾的「權限」
+
+`chmod 755 檔案`
+`chmod +x 檔案`
+
+<details>
+<summary>參數說明</summary>
+
+| 數字 | 對應權限 | 說明     |
+|------|----------|----------|
+| 7    | rwx      | 讀寫執行 |
+| 6    | rw-      | 讀寫     |
+| 5    | r-x      | 讀 + 執行 |
+| 4    | r--      | 只有讀   |
+| 0    | ---      | 無權限   |
+
+| 符號 | 對象     | 說明             |
+|------|----------|------------------|
+| u    | user     | 擁有者           |
+| g    | group    | 群組             |
+| o    | other    | 其他人           |
+| a    | all      | 所有人（u+g+o）  |
+
+| 符號 | 動作       | 說明               |
+|------|------------|--------------------|
+| +    | 增加權限   | 增加指定對象的權限 |
+| -    | 移除權限   | 移除指定對象的權限 |
+| =    | 設定權限   | 設定為指定的權限（取代原本設定） |
+
+| 權限符號 | 數值 | 英文含義  |
+|-----------|------|------------|
+| r         | 4    | read       |
+| w         | 2    | write      |
+| x         | 1    | execute    |
+
+</details>
+
+---
+### `chown`
+
+`chown [新擁有者] 檔案或資料夾`
+`chown [新擁有者]:[新群組] 檔案或資料夾`
+
+<details>
+<summary>參數說明</summary>
+
+| 指令                            | 說明                             |
+|----------------------------------|----------------------------------|
+| `chown root file.txt`           | 將擁有者改為 root                |
+| `chown root:root file.txt`      | 改為 root 擁有、root 群組        |
+| `chown -R user:group myfolder`  | 遞迴更改整個資料夾的擁有權       |
+
+
+## 套件
+
 ### `nmap`
 >掃描主機、開放的 port 和服務資訊
 
@@ -56,15 +230,6 @@
 
 ---
 
-### `ping`
->測試目標是否存活（ICMP封包）
-
->Linux內建指令
-
-`ping IP address or website URL`
-
----
-
 ### `tcpdump`
 >抓取網路封包（分析流量）
 
@@ -81,33 +246,6 @@
 | `sudo tcpdump -i eth0 -nn -vvv` | 不反解主機名稱或服務，詳細輸出 |
 | `sudo tcpdump -i eth0 -w output.pcap` | 把結果存成 `.pcap` 檔，可用 Wireshark 分析 |
 
-
-</details>
-
-
----
-
-### `nc`
->_netcat_：建立 TCP/UDP 連線、傳輸資料、反向 shell
-
->Linux內建指令 
-
-`nc -lvnp <port> (listen)`<br>
-`nc <IP> <port> (connect)`
-
-<details>
-<summary>參數說明</summary>
-
-`nc -lvnp 4444`
-
-| 參數 | 解釋 |
-|:----|:----|
-| `-l` | listen 模式 |
-| `-v` | verbose（顯示更多細節） |
-| `-n` | 不做 DNS 查詢 |
-| `-p 4444` | 指定監聽 port（可自選） |
-
-
 </details>
 
 ---
@@ -116,24 +254,6 @@
 >產生各種 payload（後門程式、shellcode）
 
 `msfvenom -p <payload> LHOST=<IP> LPORT=<port> -f <format>`
-
----
-
-### `telnet`
->建立 TCP 連線的工具
-
->Linux內建指令  
-
-`telnet [ip] [port]`
-
----
-
-### `FTP`
->建立 FTP 連線的工具
-
->Linux內建指令 
-
-`ftp [ip] [port]`
 
 ---
 
@@ -165,18 +285,6 @@
 | `-o <檔案>` | 將成功結果寫入檔案 |
 
 </details>
-
----
-### `mkdir`
->建立新資料夾
-
->Linux內建指令
-
----
-### `mount`
->掛載 NFS 的主要工具
-
->Linux內建指令
 
 ---
 ### `showmount`

