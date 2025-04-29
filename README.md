@@ -22,7 +22,7 @@
 | Python Basics             |     🖥️ System | Easy       | [Walkthrough](./rooms/09_Python%20Basics.md)                 |
 | Common Attacks            |    	🟥 Red Team   | Easy       | [Walkthrough](./rooms/10_Common%20Attack.md)               |
 | Network Services          |    🌐 Networking   | Easy       | [Walkthrough](./rooms/11_Network%20Services.md)            | [nmap](Tools.md#nmap)、[enum4linux](Tools.md#enum4linux)、 [smbclient](Tools.md#smbclient)、[ping](Tools.md#ping)、[tcpdump](Tools.md#tcpdump)、[nc](Tools.md#nc)、[msfvenom](Tools.md#msfvenom)、[telnet](Tools.md#telnet)、[ftp](Tools.md#ftp)、[hydra](Tools.md#hydra) |
-| Network Services 2        |    🌐 Networking   | Easy       | 🔧[Walkthrough](./rooms/12_Network%20Services%202.md)        |
+| Network Services 2        |    🌐 Networking   | Easy       | 🔧[Walkthrough](./rooms/12_Network%20Services%202.md)        |[mkdir](Tools.md#mkdir)、[mount](Tools.md#mount)
 | HTTP in Detail            |    🌐 Networking   | Easy       | [Walkthrough](./rooms/13_HTTP%20in%20Detail.md)            |
 
 ## 工具與筆記

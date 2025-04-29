@@ -59,6 +59,8 @@
 ### `ping`
 >測試目標是否存活（ICMP封包）
 
+>Linux內建指令
+
 `ping IP address or website URL`
 
 ---
@@ -87,6 +89,8 @@
 
 ### `nc`
 >_netcat_：建立 TCP/UDP 連線、傳輸資料、反向 shell
+
+>Linux內建指令 
 
 `nc -lvnp <port> (listen)`<br>
 `nc <IP> <port> (connect)`
@@ -118,12 +122,16 @@
 ### `telnet`
 >建立 TCP 連線的工具
 
+>Linux內建指令  
+
 `telnet [ip] [port]`
 
 ---
 
 ### `FTP`
 >建立 FTP 連線的工具
+
+>Linux內建指令 
 
 `ftp [ip] [port]`
 
@@ -156,3 +164,33 @@
 | `-F` | 找到就停止（多目標） |
 | `-o <檔案>` | 將成功結果寫入檔案 |
 
+</details>
+
+---
+### `mkdir`
+>建立新資料夾
+
+>Linux內建指令
+
+---
+### `mount`
+>掛載 NFS 的主要工具
+
+>Linux內建指令
+
+---
+### `showmount`
+>查詢 NFS 伺服器有哪些「共享的資料夾（exports）」
+
+`/usr/sbin/showmount -e <IP>`
+
+<details>
+<summary>參數說明</summary>
+
+| 部分                    | 意思                            |
+|-----------------------|---------------------------------|
+| `/usr/sbin/showmount` | 使用 showmount 指令，查詢 NFS 分享 |
+| `-e`                  | exported，列出伺服器開放的共享目錄 |
+| `IP`                  | 目標 NFS 伺服器的 IP 位址         |
+
+</details>
