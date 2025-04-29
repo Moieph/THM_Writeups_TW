@@ -155,7 +155,7 @@ Question 5：查看系統版本
 Question 6：靶機允許匿名登錄 <br>
 `username''`、`password''`
 
-`/profiles Mapping: OK, Listing: OK`<br>`
+`/profiles Mapping: OK, Listing: OK`<br>
 
 - 「Mapping」= 允許掛載（連線）到該 SMB 分享
 - 「Listing」= 允許列出該分享資料夾的檔案與內容
@@ -484,7 +484,7 @@ Question 6：另開終端機，`sudo tcpdump ip proto \\icmp -i ens5`，選擇�
   <img src="/rooms/images/11_20.png" width="600">
 </p>
 
-從`telnet`介面`.RUN ping 虛擬機IP -c 1`，查看是否能夠在目標機的telnet服務器上執行系統命令。
+從`telnet`介面`.RUN ping 虛擬機IP -c 1`，查看是否能夠在目標機的 telnet 服務器上執行系統命令。
 
 <p align="left">
   <img src="/rooms/images/11_22.png" width="600">
