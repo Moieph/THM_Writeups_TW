@@ -466,7 +466,28 @@ Question 1：掃描靶機後，發現 smtp 對應的端口為 25，並且可以�
   <img src="/rooms/images/12_12.png" width="600">
 </p>
 
+Question 2：啟動 Metasploit 主控台
 
+```
+msfconsole
+search smtp_version   # 搜尋 smtp_version 模組
+use 0                 # 使用搜尋結果中的第 0 個模組       
+options               # 查看此模組可設置參數
+set RHOSTS <IP>       # 設定目標 IP（可換成你的目標主機）    
+run                   # 執行模組，開始偵測
+```
+
+<p align="left">
+  <img src="/rooms/images/12_13.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_14.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_15.png" width="600">
+</p>
 
 >> #### Task 7：利用 SMTP
 
