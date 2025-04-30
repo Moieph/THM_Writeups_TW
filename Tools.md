@@ -154,6 +154,11 @@
 | w         | 2    | write      |
 | x         | 1    | execute    |
 
+- chmod +s 同時為檔案加上 Setuid + Setgid
+    - 可用 ls -l 查看，如：
+      - `-rwsr-xr-x` 表示有 Setuid
+      - `-rwxr-sr-x` 表示有 Setgid
+
 </details>
 
 ---
@@ -171,6 +176,8 @@
 | `chown root:root file.txt`      | 改為 root 擁有、root 群組        |
 | `chown -R user:group myfolder`  | 遞迴更改整個資料夾的擁有權       |
 
+
+</details>
 
 ## 套件
 
@@ -302,3 +309,11 @@
 | `IP`                  | 目標 NFS 伺服器的 IP 位址         |
 
 </details>
+
+---
+
+### `msfconsole` 
+> 啟動 Metasploit 主控台
+
+---
+

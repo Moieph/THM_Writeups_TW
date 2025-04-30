@@ -267,7 +267,7 @@ ssh -i id_rsa cappucino@10.10.20.187
 
 ---
 
-Question 3、4：從 Github 下載 bash 到虛擬機（如為免費AttackBox，無法下載）
+Question 3：從 Github 下載 bash 到虛擬機（如為免費AttackBox，無法下載）
 `wget https://github.com/polo-sec/writing/raw/master/Security%20Challenge%20Walkthroughs/Networks%202/bash`
 
 <p align="left">
@@ -311,13 +311,162 @@ ls -la
 ./bash -p
 ```
 
+- `ls -la`<br>	顯示所有檔案（含隱藏檔）+ 詳細資料
+
+Question 4：該 bash 權限為 `-rwsr-sr-x`
+
+- `rws` ： **擁有者（user）** 有 讀、寫、執行 權限，但 s 代表 啟用 SUID（Set User ID）
+- `r-s` ：群組 有 讀、執行 權限，且 s 代表 啟用 SGID（Set Group ID）
+- `r-x` ：其他人 有 讀、執行 權限
+
 <p align="left">
   <img src="/rooms/images/12_09.png" width="600">
 </p>
 
+Question 5：進入 bash shell 後讀取 root.txt，
+
+- `/bash -p` 是一個常見的 權限提升技巧，它的用途在於：
+<br>✅ 以保留原本權限（尤其是 root 權限）方式開啟 bash shell，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/12_10.png" width="600">
+</p>
+
+##### 🔐 答題：
+2. Now, we're going to add the SUID bit permission to the bash executable we just copied to the share using "sudo chmod +[permission] bash". What letter do we use to set the SUID bit set using chmod?
+   
+   現在，我們將使用 「sudo chmod +[permission] bash」 將 SUID 位許可權添加到剛剛複製到共用的 bash 可執行檔中。我們使用什麼字母來設置使用 chmod 設置的 SUID 位？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `s`
+
+3. Let's do a sanity check, let's check the permissions of the "bash" executable using "ls -la bash". What does the permission set look like? Make sure that it ends with -sr-x.
+   
+   讓我們做一個健全性檢查，讓我們使用 「ls -la bash」 檢查 「bash」 可執行文件的許可權。許可權集是什麼樣的？確保它以 -sr-x 結尾。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `-rwsr-sr-x`
+
+5. Great! If all's gone well you should have a shell as root! What's the root flag?
+   
+   偉大！如果一切順利，你應該有一個 shell 作為 root！什麼是旗子？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{nfs_got_pwned}`
+
 >> #### Task 5：瞭解 SMTP
 
+- **SMTP** 是什麼？
+    - 全名：**Simple Mail Transfer Protocol**
+    - 功能：**負責寄出電子郵件**
+    - 配對協議：需與 **POP 或 IMAP** 搭配，用於收信
+
+
+- **SMTP** 的基本功能
+    - 驗證寄件者身份
+    - 負責**寄出郵件**
+    - 若寄送失敗，會**退信給寄件人**
+  
+
+- SMTP 常用 Port
+    - 預設使用 **25 號 Port**
+    - 加密版本可能使用 465 或 587
+
+
+- SMTP 運行環境
+  - **Windows / Linux** 都能安裝 SMTP Server
+  - 常見伺服器軟體如：Postfix、Sendmail、Exim
+  
+
+<details>
+<summary><strong>🔹 SMTP 工作流程（簡化版）</strong></summary>
+
+1. 郵件客戶端（如 Outlook）連線到 SMTP 伺服器（如 smtp.google.com）
+2. 發送者填入寄件人、收件人、信件內容
+3. 檢查寄件者與收件者是否同網域
+4. 發件伺服器連線到收件伺服器，若失敗則加入「SMTP 排隊」
+5. 收件伺服器驗證信件 → 傳給 POP / IMAP 伺服器
+6. 使用者就能在收件匣看到信件了！
+
+<p align="left">
+  <img src="/rooms/images/12_11.png" width="600">
+</p>
+
+</details>
+
+---
+
+📥 POP vs IMAP（收信協議比較）：
+
+| 協議 | 特性說明 |
+|------|----------|
+| POP  | 下載郵件到本機，不同步其他裝置 |
+| IMAP | 與伺服器同步，多裝置可見一致信件內容 ✅ |
+
+##### 🔐 答題：
+1. What does SMTP stand for?
+   
+   SMTP 代表什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Simple Mail Transfer Protocol`
+
+2. What does SMTP handle the sending of? (answer in plural)
+   
+   SMTP 處理什麼發送？（答案為複數）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `emails`
+
+3. What is the first step in the SMTP process?
+   
+   SMTP 流程的第一步是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `SMTP handshake`
+
+4. What is the default SMTP port?
+   
+   什麼是預設 SMTP 連接埠？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `25    `
+
+5. Where does the SMTP server send the email if the recipient's server is not available?
+   
+   如果收件者的伺服器不可用，SMTP 伺服器會將電子郵件發送到何處？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `smtp queue`
+
+6. On what server does the Email ultimately end up on?
+   
+   電子郵件最終會在哪個伺服器上結束？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `POP/IMAP`
+
+7. Can a Linux machine run an SMTP server? (Y/N)
+   
+   Linux 機器可以運行 SMTP 伺服器嗎？（是/否）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Y`
+
+8. Can a Windows machine run an SMTP server? (Y/N)
+    
+   Windows 機器可以運行 SMTP 伺服器嗎？（是/否）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Y`
+
 >> #### Task 6：枚舉 SMTP
+
+🔍 **枚舉 Mail Server 資訊**
+- 工具： Metasploit 模組 `smtp_version`
+  <br> → 掃描 IP 區段並判斷是否為 SMTP 服務與其版本。
+    
+👤 **SMTP 用戶枚舉**
+- 工具： Metasploit 模組 `smtp_enum`<br>
+→ 指定目標主機與使用者清單，即可自動執行枚舉。
+  - VRFY： 確認使用者名稱是否存在
+  - EXPN： 顯示別名或郵件清單的實際地址
+
+Question 1：掃描靶機後，發現 smtp 對應的端口為 25，並且可以允許 `VRFY` 命令
+<p align="left">
+  <img src="/rooms/images/12_12.png" width="600">
+</p>
+
+
 
 >> #### Task 7：利用 SMTP
 
