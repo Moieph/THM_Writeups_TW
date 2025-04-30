@@ -477,6 +477,11 @@ set RHOSTS <IP>       # 設定目標 IP（可換成你的目標主機）
 run                   # 執行模組，開始偵測
 ```
 
+- 要使用的完整模組名稱是：auxiliary/scanner/smtp/smtp_version
+- 目標機器使用的系統郵件名稱是： polosmtp.home
+- 目標機器使用的郵件傳輸代理是： Postfix
+
+
 <p align="left">
   <img src="/rooms/images/12_13.png" width="600">
 </p>
@@ -488,6 +493,51 @@ run                   # 執行模組，開始偵測
 <p align="left">
   <img src="/rooms/images/12_15.png" width="600">
 </p>
+
+##### 🔐 答題：
+1. First, lets run a port scan against the target machine, same as last time. What port is SMTP running on?
+   
+   首先，讓我們對目標計算機運行埠掃描，與上次相同。SMTP 在哪個埠上運行？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `25`
+
+2. Okay, now we know what port we should be targeting, let's start up Metasploit. What command do we use to do this?
+   
+   好了，現在我們知道應該針對哪個埠了，讓我們啟動 Metasploit。我們使用什麼命令來執行此作？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `msfconsole`
+
+3. Let's search for the module "smtp_version", what's it's full module name?
+   
+   讓我們搜索模組 「smtp_version」，它的完整模組名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `auxiliary/scanner/smtp/smtp_version`
+
+4. Great, now- select the module and list the options. How do we do this?
+   
+   太好了，現在 - 選擇模組並列出選項。我們是如何做到的？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `options`
+
+5. Have a look through the options, does everything seem correct? What is the option we need to set?
+   
+   看看這些選項，一切似乎都正確嗎？我們需要設置什麼選項？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `RHOSTS`
+
+6. Set that to the correct value for your target machine. Then run the exploit. What's the system mail name?
+   
+   將其設置為目標計算機的正確值。然後運行漏洞利用。系統郵件名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `polosmtp.home`
+
+7. What Mail Transfer Agent (MTA) is running the SMTP server? This will require some external research.
+   
+   哪個郵件傳輸代理 （MTA） 正在運行 SMTP 伺服器？這將需要一些外部研究。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Postfix`
+
+
 
 >> #### Task 7：利用 SMTP
 
