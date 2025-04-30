@@ -107,9 +107,9 @@ THM路徑：https://tryhackme.com/room/networkservices2
 
 >> #### Task 3：枚舉 NFS
 
-🛠️ 工具需求：nfs-common
+🛠️ 工具需求：`nfs-common`
 - 對象：需要掛載 NFS 的客戶端／伺服器。
-- 包含指令：showmount、mount.nfs（本次重點）。
+- 包含指令：`showmount`、`mount.nfs`（本次重點）。
 
 ---
 
@@ -182,7 +182,7 @@ cd ~/.ssh
 ls -a
 cat id_rsa.pub
 chmod 600 id_rsa
-ssh -i id_rsa cappucino@10.10.20.187
+ssh -i id_rsa cappucino@<IP>
 ```
 <p align="left">
   <img src="/rooms/images/12_05.png" width="600">
@@ -300,7 +300,7 @@ ssh -i id_rsa cappucino@10.10.20.187
 - `chmod +s /tmp/mount/cappucino/bash` <br>開啟 SUID bit，讓任何人執行時以 root 身份執行
 
 
-- `ssh -i id_rsa cappucino@1<IP>` <br>以 SSH 登入目標機器（低權限帳號）
+- `ssh -i id_rsa cappucino@<IP>` <br>以 SSH 登入目標機器（低權限帳號）
 
 <p align="left">
   <img src="/rooms/images/12_08.png" width="600">
@@ -316,8 +316,8 @@ ls -la
 Question 4：該 bash 權限為 `-rwsr-sr-x`
 
 - `rws` ： **擁有者（user）** 有 讀、寫、執行 權限，但 s 代表 啟用 SUID（Set User ID）
-- `r-s` ：群組 有 讀、執行 權限，且 s 代表 啟用 SGID（Set Group ID）
-- `r-x` ：其他人 有 讀、執行 權限
+- `r-s` ： **群組**  有 讀、執行 權限，且 s 代表 啟用 SGID（Set Group ID）
+- `r-x` ： **其他人** 有 讀、執行 權限
 
 <p align="left">
   <img src="/rooms/images/12_09.png" width="600">
@@ -458,8 +458,8 @@ Question 5：進入 bash shell 後讀取 root.txt，
 👤 **SMTP 用戶枚舉**
 - 工具： Metasploit 模組 `smtp_enum`<br>
 → 指定目標主機與使用者清單，即可自動執行枚舉。
-  - VRFY： 確認使用者名稱是否存在
-  - EXPN： 顯示別名或郵件清單的實際地址
+  - `VRFY`： 確認使用者名稱是否存在
+  - `EXPN`： 顯示別名或郵件清單的實際地址
 
 Question 1：掃描靶機後，發現 smtp 對應的端口為 25，並且可以允許 `VRFY` 命令
 <p align="left">
