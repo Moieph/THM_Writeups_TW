@@ -466,7 +466,8 @@ Question 1：掃描靶機後，發現 smtp 對應的端口為 25，並且可以�
   <img src="/rooms/images/12_12.png" width="600">
 </p>
 
-Question 2：啟動 Metasploit 主控台
+Question 2 - 6：啟動 Metasploit 主控台<br>
+搜尋 smtp 版本檢測模組 --> 選擇該模組並列出模組相關的參數選項 --> 完成參數設置並最終執行該模組。
 
 ```
 msfconsole
@@ -493,6 +494,37 @@ run                   # 執行模組，開始偵測
 <p align="left">
   <img src="/rooms/images/12_15.png" width="600">
 </p>
+
+Question 7：關於郵件傳輸代理（MTA）
+
+<p align="left">
+  <img src="/rooms/images/12_16.png" width="600">
+</p>
+
+Question 8 - 12：啟動 Metasploit 主控台<br>
+
+```
+msfconsole                      # 啟動 Metasploit 主控台
+search smtp_enum                # 搜尋可用的 SMTP 使用者列舉模組          
+use 0                           # 使用搜尋結果中的第 0 個模組
+options
+set USER_FILE /usr/share/wordlists/SecLists/Usernames/top-usernames-shortlist.txt  
+#基於虛擬機上的SecLists實際安裝路徑 # 設定使用者帳號字典檔，這個字典檔會用來測試每個帳號是否存在
+set RHOSTS <IP> #此處IP為靶機IP  # 設定靶機 IP，會對這個目標進行 VRFY 或 EXPN 指令來列舉使用者帳號
+run                             # 執行模組，開始進行 SMTP 使用者列舉
+```
+
+<p align="left">
+  <img src="/rooms/images/12_17.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_18.png" width="600">
+</p>
+
+- 要使用的完整模組名稱是：auxiliary/scanner/smtp/smtp_enum
+- 找到一個使用者，使用者名稱為：administrator
+
 
 ##### 🔐 答題：
 1. First, lets run a port scan against the target machine, same as last time. What port is SMTP running on?
@@ -537,7 +569,29 @@ run                   # 執行模組，開始偵測
    
 &nbsp;&nbsp;&nbsp;&nbsp; `Postfix`
 
+8. Good! We've now got a good amount of information on the target system to move onto the next stage. Let's search for the module "smtp_enum", what's it's full module name?
+   
+   好！現在，我們已經獲得了有關目標系統的大量資訊，可以進入下一階段。讓我們搜尋模組 「smtp_enum」 它完整模組名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `auxiliary/scanner/smtp/smtp_enum`
 
+9. What option do we need to set to the wordlist's path?
+   
+   我們需要為 wordlist 的 path 設置什麼選項？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `USER_FILE`
+
+10. Once we've set this option, what is the other essential paramater we need to set?
+   
+    一旦我們設置了這個選項，我們需要設置的另一個基本參數是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `RHOSTS`
+
+12. Okay! Now that's finished, what username is returned?
+   
+    好！現在完成後，返回的使用者名是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `administrator`
 
 >> #### Task 7：利用 SMTP
 
