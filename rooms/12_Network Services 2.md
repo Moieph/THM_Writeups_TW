@@ -595,6 +595,63 @@ run                             # 執行模組，開始進行 SMTP 使用者列�
 
 >> #### Task 7：利用 SMTP
 
+由前兩個章節，進行 `hydra` 密碼破解，都入 ssh 服務
+
+Question 1：輸入 `hydra -t 16 -l 使用者帳號 -P /usr/share/wordlists/rockyou.txt -vV <IP> ssh`
+
+<details>
+<summary>參數說明</summary>
+
+| 參數 | 說明 |
+|:----|:----|
+| `-l <帳號>` | 指定一個帳號（單一帳號測試） |
+| `-L <檔案>` | 指定帳號清單檔案（多個帳號爆破） |
+| `-p <密碼>` | 指定一個密碼（單一密碼測試） |
+| `-P <檔案>` | 指定密碼清單檔案（多個密碼爆破） |
+| `-C <檔案>` | 指定帳號:密碼格式的清單檔案（login:pass 格式） |
+| `-t 4` | 每個目標開幾個連線並行（預設 16，可調整） |
+| `-s <port>` | 指定非預設 port（例如 FTP 改其他 port） |
+| `-e nsr` | 嘗試 null 密碼 (n)、帳號=密碼 (s)、反轉 (r) |
+| `-vV` | 超詳細輸出，每一組帳密都顯示 |
+| `-f` | 找到就停止（單一目標） |
+| `-F` | 找到就停止（多目標） |
+| `-o <檔案>` | 將成功結果寫入檔案 |
+
+</details>
+
+<p align="left">
+  <img src="/rooms/images/12_19.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_20.png" width="600">
+</p>
+
+- administrator 使用者的 ssh 登錄密碼為：alejandro
+
+Question 2：登入 ssh 列出檔案，讀取 stmp.txt，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/12_21.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_22.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What is the password of the user we found during our enumeration stage?
+   
+   我們在枚舉階段找到的用戶的密碼是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `alejandro`
+
+2. Great! Now, let's SSH into the server as the user, what is contents of smtp.txt
+   
+   偉大！現在，讓我們以使用者身份 SSH 進入伺服器，smtp.txt 的內容是什麼
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{who_knew_email_servers_were_c00l?}`
+
 >> #### Task 8：瞭解 MySQL
 
 >> #### Task 9：利用 MySQL 

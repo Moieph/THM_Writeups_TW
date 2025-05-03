@@ -60,6 +60,8 @@
 
 >Linux內建指令
 
+`ssh <ID>@<目標IP>`
+
 <details>
 <summary>參數說明</summary>
 
