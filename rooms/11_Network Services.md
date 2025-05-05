@@ -360,7 +360,7 @@ Telnet 漏洞類型（Types of Telnet Exploit）
 
 3. How would you connect to a Telnet server with the IP 10.10.10.3 on port 23?
    
-    您將如何連接到埠 23 上 IP 為 10.10.10.3 的 Telnet 伺服器？
+    您將如何連接到 IP 為 10.10.10.3 端口 23 的 Telnet 伺服器？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `telnet 10.10.10.3 23`
 
@@ -601,7 +601,7 @@ Passive 模式在現代應用中更常見，尤其是在 NAT、防火牆後面�
 
 2. What's the standard FTP port?
    
-   準的 FTP 連接埠是什麼？
+   標準的 FTP 連接埠是什麼？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `21`
 
@@ -622,10 +622,10 @@ Question 1 - 3：對靶機執行`nmap -sC -sV -T4 <IP>`掃描
 </p>
 
 - 靶機開放兩個端口
-- ftp 在 21端口上運行，
+- ftp 在 21 端口上運行，
 - 目標機上所運行的FTP是：vsftpd
 
-Question 4、5嘗試匿名登入 ftp，列出檔案後，`get PUBLIC_NOTICE.txt -`（不加「-」，會直接下載到虛擬機），取得可能使用者名稱：Mike
+Question 4、5：嘗試匿名登入 ftp，列出檔案後，`get PUBLIC_NOTICE.txt -`（不加「-」，會直接下載到虛擬機），取得可能使用者名稱：Mike
 
 <p align="left">
   <img src="/rooms/images/11_28.png" width="600">
@@ -646,13 +646,13 @@ Question 4、5嘗試匿名登入 ftp，列出檔案後，`get PUBLIC_NOTICE.txt 
 
 3. What variant of FTP is running on it?  
    
-   它上運行的 FTP 是什麼變體 ？
+   運行的 FTP 是什麼變體 ？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `vsftpd`
 
 4. What is the name of the file in the anonymous FTP directory?
 
-   它上運行的 FTP 是什麼變體 ？
+   匿名 FTP 目錄中的檔案名稱是什麼？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `PUBLIC_NOTICE.txt`
 
