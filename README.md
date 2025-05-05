@@ -7,7 +7,7 @@
 ---
 [![](https://tryhackme-badges.s3.amazonaws.com/Moieph.png?cb=01234)](https://tryhackme.com/p/Moieph)
 
-## 已完成房間數：12
+## 已完成房間數：13
 
 | Room                      |                 Field                | Difficulty | Writeup Link                                                 | Tools                                                                                                                                                                                                                                                                                                                                              | 
 |---------------------------|--------------------------------------|------------|--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -22,7 +22,7 @@
 | Python Basics             |     🖥️ System | Easy       | [Walkthrough](./rooms/09_Python%20Basics.md)                 |
 | Common Attacks            |    	🟥 Red Team   | Easy       | [Walkthrough](./rooms/10_Common%20Attack.md)               |
 | Network Services          |    🌐 Networking   | Easy       | [Walkthrough](./rooms/11_Network%20Services.md)            | [nmap](Tools.md#nmap)、[enum4linux](Tools.md#enum4linux)、 [smbclient](Tools.md#smbclient)、[ping](Tools.md#ping)、[tcpdump](Tools.md#tcpdump)、[nc](Tools.md#nc)、[msfvenom](Tools.md#msfvenom)、[telnet](Tools.md#telnet)、[ftp](Tools.md#ftp)、[hydra](Tools.md#hydra)、[ssh](Tools.md#ssh)、[chmod](Tools.md#chmod) | 
-| Network Services 2        |    🌐 Networking   | Easy       | 🔧[Walkthrough](./rooms/12_Network%20Services%202.md)        | [mkdir](Tools.md#mkdir)、[mount](Tools.md#mount)、[ssh](Tools.md#ssh)、[cp](Tools.md#cp)、[chown](Tools.md#chown)、[chmod](Tools.md#chmod)、[msfconsole](Tools.md#msfconsole) 、[SMTP Response Codes](Tools.md#SMTP%20Response%20Codes)、[hydra](Tools.md#hydra)、[smtp_version](Tools.md#smtp_version)、[smtp_enum](Tools.md#smtp_enum)、[ssh](Tools.md#ssh)                                                                                                               
+| Network Services 2        |    🌐 Networking   | Easy       | [Walkthrough](./rooms/12_Network%20Services%202.md)        | [mkdir](Tools.md#mkdir)、[mount](Tools.md#mount)、[ssh](Tools.md#ssh)、[cp](Tools.md#cp)、[chown](Tools.md#chown)、[chmod](Tools.md#chmod)、[msfconsole](Tools.md#msfconsole) 、[SMTP Response Codes](Tools.md#SMTP%20Response%20Codes)、[hydra](Tools.md#hydra)、[smtp_version](Tools.md#smtp_version)、[smtp_enum](Tools.md#smtp_enum)、[ssh](Tools.md#ssh)、[mysql_sql](Tools.md#mysql_sql)、[mysql_schemadump](Tools.md#mysql_schemadump)、[mysql_hashdump](Tools.md#mysql_hashdump)   
 | HTTP in Detail            |    🌐 Networking   | Easy       | [Walkthrough](./rooms/13_HTTP%20in%20Detail.md)            | [HTTP Status Codes](Tools.md#HTTP%20Status%20Codes)                                                                                                                                                                                                                                                                                                
 
 ## 工具與筆記

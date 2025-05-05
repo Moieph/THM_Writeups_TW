@@ -314,6 +314,14 @@
 
 ---
 
+### `john`
+> 密碼破解工具，主要針對「加密後的密碼雜湊值（hash）」進行暴力破解或字典破解。
+
+`john hash.txt`<br>
+會自動嘗試使用內建的字典與規則破解 hash.txt 裡的雜湊。
+
+---
+
 ### `msfconsole` 
 > 啟動 Metasploit 主控台
 
@@ -322,10 +330,32 @@
 ### `smtp_version`
 > 版本檢測模組
 
+> `msfconsole`模組
 ---
 
 ### `smtp_enum`
 > 進行 SMTP 使用者枚舉
+
+> `msfconsole`模組
+---
+
+### `mysql_sql`
+> 用來對 MySQL 執行 SQL 指令，例如：查詢版本、測試連線等
+
+> `msfconsole`模組 
+---
+
+### `mysql_schemadump`
+> MySQL 架構（Schema）枚舉模組，自動列出遠端 MySQL 資料庫結構內容。
+
+> `msfconsole`模組 
+---
+
+### `mysql_hashdump`
+> 從 MySQL 資料庫中導出使用者帳號與密碼的雜湊值（hash）
+
+> `msfconsole`模組 
+
 
 ## 系統規範
 

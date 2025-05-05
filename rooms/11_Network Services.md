@@ -430,13 +430,13 @@ Question 6、7：進階掃描 8012 端口 `nmap -A -p 8012 -T4 靶機IP`
 
 - Reverse Shell
 
-| 項目 | 說明 |
-|:---|:---|
-| 🔷 Shell | 控制終端，可執行指令的介面（如 Bash、CMD） |
+| 項目               | 說明 |
+|:-----------------|:---|
+| 🔷 Shell         | 控制終端，可執行指令的介面（如 Bash、CMD） |
 | 🔷 Reverse Shell | 被控主機主動連線回攻擊者主機，建立 shell |
-| 🔷 攻擊者 | 開一個監聽 port（用 `nc -lvnp` 等），等待連線 |
-| 🔷 被控端 | 通過 `telnet`、`nc`、`bash`、`python` 等方式，反向打回連線到攻擊端 |
-| ✅ 優勢 | 能繞過某些防火牆，避免被監控系統阻擋 |
+| 🔷 反制者           | 開一個監聽 port（用 `nc -lvnp` 等），等待連線 |
+| 🔷 目標端           | 通過 `telnet`、`nc`、`bash`、`python` 等方式，反向打回連線到攻擊端 |
+| ✅ 優勢             | 能繞過某些防火牆，避免被監控系統阻擋 |
 
 ---
 
@@ -496,7 +496,7 @@ Question 6：另開終端機，`sudo tcpdump ip proto \\icmp -i ens5`，選擇�
   <img src="/rooms/images/11_21.png" width="600">
 </p>
 
-Question 8：另開終端機，使用 `msfvenom` 生成一個 netcat 反向 shell 有效 payload，最下面那段為 payload。
+Question 8：另開終端機，使用 `msfvenom` 生成一個 `netcat` 反向 shell 有效 payload，最下面那段為 payload。
 
 <p align="left">
   <img src="/rooms/images/11_23.png" width="600">

