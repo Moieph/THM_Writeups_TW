@@ -12,14 +12,14 @@ THM路徑：https://tryhackme.com/room/dnsindetail
 
 **DNS（Domain Name System）= 網際網路的「電話簿」**
 
-- 📌 主要功能：
+- **📌 主要功能：**
   - 將人類可讀的網址（如 tryhackme.com）
   - ➡️ 轉換成電腦可讀的 IP 位址
 
 
-- 🧠 為什麼需要 DNS？:
+- **🧠 為什麼需要 DNS？:**
   - IP 位址是每台電腦的唯一地址（像是收件地址）
-  - 但人類不方便記憶這種數字組合
+  - 人類不方便記憶這種數字組合
   - DNS 讓你只需記住「tryhackme.com」就能連到正確的網站
 
 ```
@@ -27,7 +27,7 @@ IPv4 範例：104.26.10.229
 結構：四組數字（0 ~ 255）以句點分隔
 ```
 
-- 🎯 小結：<br>
+- **🎯 小結：**<br>
     DNS 幫你把「網域名稱」翻譯成「IP 位址」，就像幫你查電話號碼或寄信地址一樣，是現代網路不可或缺的基礎。
 
 ##### 🔐 答題：
@@ -39,7 +39,7 @@ IPv4 範例：104.26.10.229
 
 >> #### Task 2：域層次結構 
 
-🌍 網域名稱結構總覽：
+🌍 網域名稱結構總覽：<br>
 以`admin.tryhackme.com`為例，結構拆解如下：
 
 ```
@@ -74,17 +74,16 @@ TLD 是網域名稱最右邊的部分，例如：.com、.org、.edu
 ---
 
 - 🔹 Subdomain（子網域）：<br>
-Subdomain 是附加在主網域前方的名稱，例如：
-
-- `admin.tryhackme.com` → `admin` 為子網域
-- `jupiter.servers.tryhackme.com` → 多層子網域
+Subdomain 是附加在主網域前方的名稱，例如：<br>
+`admin.tryhackme.com` → `admin` 為子網域
+`jupiter.servers.tryhackme.com` → 多層子網域
 
 **⚠️ 命名限制：**
 
 - 每層最長 **63 個字元**
 - 整體長度不超過 **253 字元**
 - 無子網域數量限制
-- 命名規則與 Second-Level Domain 相同
+- 命名規則與 **Second-Level Domain** 相同
 
 ##### 🔐 答題：
 1. What is the maximum length of a subdomain?
