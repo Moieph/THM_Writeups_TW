@@ -24,7 +24,8 @@
 | Network Services          |    🌐 Networking   | Easy       | [Walkthrough](./rooms/11_Network%20Services.md)              | [Tools](./rooms/11_Network%20Services%20Tools.md)                                                                                                                                                                                                                                                                                                                                                                                                                         | 
 | Network Services 2        |    🌐 Networking   | Easy       | [Walkthrough](./rooms/12_Network%20Services%202.md)          | [Tools](./rooms/12_Network%20Services%202%20Tools.md)
 | HTTP in Detail            |    🌐 Networking   | Easy       | [Walkthrough](./rooms/13_HTTP%20in%20Detail.md)              | [HTTP Status Codes](Tools.md#HTTP%20Status%20Codes)                                                                                                                                                                                                                                                                                                                                                                                                                       
-| DNS in Detail             |    🌐 Networking   | Easy       | 🔧 [Walkthrough](./rooms/14_DNS%20in%20Detail.md)            | [nslookup](Tools.md#nslookup) 
+| DNS in Detail             |    🌐 Networking   | Easy       |  [Walkthrough](./rooms/14_DNS%20in%20Detail.md)            | [nslookup](Tools.md#nslookup) 
+| How Websites Work         |    🌐 Networking   | Easy       | 🔧 [Walkthrough](./rooms/14_DNS%20in%20Detail.md)            |  
 
 ## 工具與筆記
 - [通用指令與工具](Tools.md)
