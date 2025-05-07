@@ -232,18 +232,75 @@ DNS 不只是解析網站網址，還有多種記錄類型。
    
    哪個欄位指定 DNS 記錄應緩存多長時間？
    
-&nbsp;&nbsp;&nbsp;&nbsp; ``
+&nbsp;&nbsp;&nbsp;&nbsp; `TTL`
 
 2. What type of DNS Server is usually provided by your ISP?
    
    您的 ISP 通常提供什麼類型的 DNS 伺服器？
    
-&nbsp;&nbsp;&nbsp;&nbsp; ``
+&nbsp;&nbsp;&nbsp;&nbsp; `Recursive`
 
 3. What type of server holds all the records for a domain?
    
    什麼類型的伺服器保存域的所有記錄？
    
-&nbsp;&nbsp;&nbsp;&nbsp; ``
+&nbsp;&nbsp;&nbsp;&nbsp; `Authoritative`
 
 >> #### Task 5：實際操作
+
+打開右側網站實作。
+
+Question 1：
+
+<p align="left">
+  <img src="/rooms/images/14_02.png" width="600">
+</p>
+
+Question 2：
+
+<p align="left">
+  <img src="/rooms/images/14_03.png" width="600">
+</p>
+
+Question 3：
+
+<p align="left">
+  <img src="/rooms/images/14_04.png" width="600">
+</p>
+
+Question 4：
+
+<p align="left">
+  <img src="/rooms/images/14_04.png" width="600">
+</p>
+
+Question 5：
+
+<p align="left">
+  <img src="/rooms/images/14_05.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What is the CNAME of shop.website.thm?
+   
+   shop.website.thm 的別名記錄是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `shops.myshopify.com`
+
+2. What is the value of the TXT record of website.thm?
+   
+   website.thm 的 TXT 記錄值是多少？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{7012BBA60997F35A9516C2E16D2944FF}`
+
+3. What is the numerical priority value for the MX record?
+   
+   MX 記錄的數字優先順序值是多少？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `30`
+
+4. What is the IP address for the A record of www.website.thm?
+   
+   www.website.thm 的 A 記錄的 IP 地址是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `10.10.10.10`

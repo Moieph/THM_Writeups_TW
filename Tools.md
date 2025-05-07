@@ -183,6 +183,30 @@
 
 ---
 
+### `nslookup`
+
+> 查詢 DNS 記錄的命令列工具。
+它可以幫你查出一個網域名稱對應的 IP 位址、DNS 記錄、名稱伺服器（NS） 等資訊。
+
+`nslookup [選項] [網域名稱]`
+
+<details>
+<summary>參數說明</summary>
+
+## ✅ 常見用法範例
+
+| 查詢內容        | 指令範例                           | 說明                           |
+|-----------------|------------------------------------|--------------------------------|
+| A 紀錄（IPv4）  | `nslookup tryhackme.com`           | 查詢對應的 IPv4 位址          |
+| 指定 DNS 伺服器 | `nslookup tryhackme.com 8.8.8.8`   | 使用 Google DNS 查詢          |
+| MX 記錄         | `nslookup -type=mx gmail.com`      | 查詢處理郵件的伺服器地址       |
+| NS 記錄         | `nslookup -type=ns google.com`     | 查詢該網域的名稱伺服器         |
+| TXT 記錄        | `nslookup -type=txt example.com`   | 查詢 SPF、驗證碼等文字記錄     |
+| 反查 IP         | `nslookup 8.8.8.8`                  | 查詢該 IP 對應的主機名稱       |
+
+
+</details>
+
 ## 套件
 
 ### `nmap`
