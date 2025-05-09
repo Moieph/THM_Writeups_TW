@@ -25,7 +25,7 @@ THM路徑：https://tryhackme.com/room/howwebsiteswork
    
    哪個術語最能描述瀏覽器呈現的 Web 應用程式元件？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `63`
+&nbsp;&nbsp;&nbsp;&nbsp; `front end`
 
 
 >> #### Task 2：HTML
