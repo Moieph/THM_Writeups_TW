@@ -27,10 +27,73 @@ THM路徑：https://tryhackme.com/room/howwebsiteswork
    
 &nbsp;&nbsp;&nbsp;&nbsp; `front end`
 
+>> #### Task 2：HTML (Hypertext Markup Language)
 
->> #### Task 2：HTML
+🌐 建立網站的三大技術：
+- **HTML**：建構網頁結構
+- **CSS**：美化網頁外觀
+- **JavaScript**：讓網頁具有互動功能
+
+---
+
+HTML 基本結構：
+
+````
+<!DOCTYPE html>      <!-- 定義為 HTML5 文件 -->
+<html>               <!-- 根元素 -->
+  <head>             <!-- 頁面資訊，例如標題 -->
+  </head>
+  <body>             <!-- 頁面主要內容 -->
+    <h1>標題</h1>    <!-- 大標題 -->
+    <p>段落</p>      <!-- 文字段落 -->
+  </body>
+</html>
+````
+
+---
+
+🏷️ 常見標籤與屬性：
+- `<button>`：**按鈕**
+- `<img src="img/cat.jpg">`：**圖片**，src 是圖片路徑
+- `<p class="bold-text">`：class 用來**套用 CSS 樣式**
+- `<p id="example">`：id 用於唯一識別元素，常**搭配 JavaScript 使用**
+
+Question 2：
+
+<p align="left">
+  <img src="/rooms/images/15_02.png" width="600">
+</p>
+
+Question 3：
+
+<p align="left">
+  <img src="/rooms/images/15_03.png" width="600">
+</p>
+
+##### 🔐 答題：
+2. One of the images on the cat website is broken - fix it, and the image will reveal the hidden text answer!
+   
+   貓咪網站上的一張圖片壞了 - 修復它，圖片就會露出隱藏的文字答案！
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `HTMLHERO`
+
+3. Add a dog image to the page by adding another img tag (`<img>`) on line 11. The dog image location is img/dog-1.png. What is the text in the dog image?
+   
+   通過在第 11 行添加另一個 img 標籤，向頁面添加狗圖像 <`img`>。狗的圖像位置為 img/dog-1.png。狗圖片中的文字是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `DOGHTML`
 
 >> #### Task 3：JavaScript
+
+💡 JavaScript 是什麼？
+- **JavaScript（JS）** 是全球最流行的程式語言之一
+- 專門用來讓網頁「有互動性」
+- 搭配 **HTML** 使用，讓靜態網頁變成動態互動頁面
+
+⚙️ JavaScript 可以做什麼？
+- 實現 **點擊按鈕改變文字、滑鼠移動觸發動畫**
+- 即時更新頁面內容（無需重新載入）
+- 例如：按鈕被點擊時，改變樣式或顯示新文字
 
 >> #### Task 4：敏感數據洩露
 
