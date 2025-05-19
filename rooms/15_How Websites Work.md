@@ -29,10 +29,10 @@ THM路徑：https://tryhackme.com/room/howwebsiteswork
 
 >> #### Task 2：HTML (Hypertext Markup Language)
 
-🌐 建立網站的三大技術：
-- **HTML**：建構網頁結構
-- **CSS**：美化網頁外觀
-- **JavaScript**：讓網頁具有互動功能
+🌐 建立網站的**三大技術**：
+- HTML：建構網頁結構
+- CSS：美化網頁外觀
+- JavaScript：讓網頁具有互動功能
 
 ---
 
@@ -89,6 +89,8 @@ Question 3：
 - **JavaScript（JS）** 是全球最流行的程式語言之一
 - 專門用來讓網頁「有互動性」
 - 搭配 **HTML** 使用，讓靜態網頁變成動態互動頁面
+
+---
 
 ⚙️ JavaScript 可以做什麼？
 - 實現 **點擊按鈕改變文字、滑鼠移動觸發動畫**
