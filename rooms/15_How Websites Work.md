@@ -54,6 +54,7 @@ HTML 基本結構：
 
 🏷️ 常見標籤與屬性：
 - `<button>`：**按鈕**
+- `<div>` : division，意思是 **「區塊 / 區段」**
 - `<img src="img/cat.jpg">`：**圖片**，src 是圖片路徑
 - `<p class="bold-text">`：class 用來**套用 CSS 樣式**
 - `<p id="example">`：id 用於唯一識別元素，常**搭配 JavaScript 使用**
@@ -97,6 +98,35 @@ Question 3：
 - 即時更新頁面內容（無需重新載入）
 - 例如：按鈕被點擊時，改變樣式或顯示新文字
 
+---
+<details>
+<summary><strong>🔗 JavaScript 的使用方式：</strong></summary>
+
+- 直接寫在 `<script>` 標籤中
+- 或用外部檔案引入： `<script src="/js/filename.js"></script>`
+
+---
+
+🧪 實例 1：改變文字內容 <br>
+`document.getElementById("demo").innerHTML = "Hack the Planet";`
+
+---
+
+🧪 實例 2：點擊事件改變文字 <br>
+`<button onclick='document.getElementById("demo").innerHTML = "Button Clicked";'>Click Me!</button>`
+
+---
+📌 常見事件（event）：<br>
+事件可以寫在 HTML 元素上，也可以寫在 `<script>` 裡
+
+- onclick：點擊
+- onhover：滑鼠懸停
+
+Question 1：
+
+<p align="left">
+  <img src="/rooms/images/15_04.png" width="600">
+</p>
 
 >> #### Task 4：敏感數據洩露
 
