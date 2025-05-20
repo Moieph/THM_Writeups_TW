@@ -113,10 +113,25 @@ Question 3：
 🧪 實例 1：改變文字內容 <br>
 `document.getElementById("demo").innerHTML = "Hack the Planet";`
 
+| 元件                             | 意思與功能                                |
+|----------------------------------|--------------------------------------|
+| `document.getElementById("demo")`| 透過 id 選擇器 找出網頁中 id 為 `"demo"` 的元素    |
+| `.innerHTML = "Button Clicked";` | 把該元素的內容（HTML）修改成 `"Hack the Planet"` |
+
 ---
 
 🧪 實例 2：點擊事件改變文字 <br>
 `<button onclick='document.getElementById("demo").innerHTML = "Button Clicked";'>Click Me!</button>`
+
+| 元件                             | 意思與功能                                     |
+|----------------------------------|------------------------------------------------|
+| `<button>`                       | 建立一個按鈕元件                                |
+| `onclick='...'`                  | 當按鈕被「點擊」時，執行 JavaScript 裡的程式碼   |
+| `document.getElementById("demo")`| 透過 id 選擇器 找出網頁中 id 為 `"demo"` 的元素 |
+| `.innerHTML = "Button Clicked";` | 把該元素的內容（HTML）修改成 `"Button Clicked"` |
+
+- onclick 是一種 事件屬性，指定使用者點擊後要執行的行為
+- innerHTML 會將元素中的內容直接替換（可用文字或 HTML）
 
 ---
 📌 常見事件（event）：<br>
@@ -134,6 +149,13 @@ Question 1：在第九行輸入<br>
 
 <p align="left">
   <img src="/rooms/images/15_04.png" width="600">
+</p>
+
+Question 2：在第 11 行輸入程式碼，之後點擊「Click Me!」<br>
+`<button onclick='document.getElementById("demo").innerHTML = "Button Clicked";'>Click Me!</button>`
+
+<p align="left">
+  <img src="/rooms/images/15_05.png" width="600">
 </p>
 
 ##### 🔐 答題：
@@ -186,7 +208,7 @@ Question 1：在第九行輸入<br>
 Question 1：
 
 <p align="left">
-  <img src="/rooms/images/15_05.png" width="600">
+  <img src="/rooms/images/15_06.png" width="600">
 </p>
 
 ##### 🔐 答題：
@@ -201,3 +223,58 @@ Question 1：
 💥 什麼是 HTML Injection？
 - 一種前端漏洞。
 - 當網站**未過濾使用者輸入**，直接在頁面上顯示時，就可能被注入 HTML 或 JavaScript 代碼。
+
+<p align="left">
+  <img src="/rooms/images/15_07.png" width="600">
+</p>
+
+---
+
+🧪 發生條件
+- 使用者輸入的內容沒有「淨化 / 過濾」
+- 輸入內容被直接用於：
+  - 頁面顯示
+  - JavaScript 函式處理（如 `sayHi()`）
+
+---
+
+⚠️ 攻擊範例：`<input name="name">` 
+
+使用者輸入：`<h1>我是駭客</h1>` <br>
+如果沒有過濾，就會在頁面上看到大字標題「我是駭客」。
+
+---
+
+❌ 為什麼危險？
+- 可以改變頁面外觀
+- 可進一步嘗試 JavaScript 注入（XSS）
+- 被用來誘導使用者點擊、釣魚、植入惡意代碼等
+
+---
+
+🛡️ 防範方法：
+- 永遠不要相信使用者輸入
+- 在顯示前進行 輸入淨化（Sanitisation） 
+  - 去除所有 `< >` 等標籤
+  - 或轉為純文字顯示（使用 `textContent` 而非 `innerHTML`）
+
+---
+
+Question 1：在輸入欄，輸入 `<a href="http://hacker.com">hacker link</a>`
+
+| 元件                           | 意思與功能                              |
+|--------------------------------|------------------------------------------|
+| `<a>`                          | 建立一個超連結（anchor）元素             |
+| `href="http://hacker.com"`     | 設定連結目標網址，這裡導向 `hacker.com` |
+| `hacker link`                  | 顯示在畫面上的連結文字                  |
+
+<p align="left">
+  <img src="/rooms/images/15_08.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. View the website on this task and inject HTML so that a malicious link to http://hacker.com is shown.
+   
+   查看此任務的網站並注入 HTML，以便顯示指向 http://hacker.com 的惡意連結。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `HTML_INJ3CTI0N`
