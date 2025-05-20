@@ -27,7 +27,6 @@ THM路徑：https://tryhackme.com/room/howwebsiteswork
    
 &nbsp;&nbsp;&nbsp;&nbsp; `front end`
 
----
 
 >> #### Task 2：HTML (Hypertext Markup Language)
 
