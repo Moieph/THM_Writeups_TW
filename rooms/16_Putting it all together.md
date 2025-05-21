@@ -116,8 +116,6 @@ THM路徑：https://tryhackme.com/room/puttingitalltogether
 
 ---
 
-🧱 靜態 vs. 動態內容
-
 - 📄 靜態內容（Static Content）：
   - 永遠不變，直接從硬碟送出。
     - 如：圖片、CSS、JavaScript、固定 HTML
@@ -132,9 +130,71 @@ THM路徑：https://tryhackme.com/room/puttingitalltogether
 🧠 後端（Backend）與前端（Frontend）
 - 前端（Frontend）：<br>瀏覽器看到的畫面（HTML、CSS、JS）
 - 後端（Backend）：<br>伺服器端的運算與資料處理，用來產生前端畫面
-  - 使用者看不到後端程式碼，只看到產生的結果
+- 使用者看不到後端程式碼，只看到產生的結果
 
+---
+
+💻 常見後端語言
+- PHP、Python、Ruby、NodeJS、Perl 等
+  - 處理資料庫互動
+  - 接收並處理使用者輸入
+  - 呼叫外部服務
+
+---
+
+網址：`http://example.com/index.php?name=adam`
+- `index.php` → 網站要執行的檔案<br>
+- `?name=adam` → 給網站的參數（用來帶資料）
+-  GET 方法（使用網址傳參數）
+
+**PHP 程式碼：**<br>
+`<html><body>Hello <?php echo $_GET["name"]; ?></body></html>`
+
+- `$_GET["name"]`：從網址參數中抓出「name」的值（也就是 "adam"）<br>
+- `echo`：把抓到的字印出來
+
+**輸出：**<br>
+`<html><body>Hello adam</body></html>`
+
+👉 使用者看不到 `<?php echo $_GET["name"]; ?>`，因爲是後端在處理
+
+---
+
+##### 🔐 答題：
+1. What does web server software use to host multiple sites?
    
+   Web 伺服器軟體使用什麼來託管多個網站？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Virtual Hosts`
 
+2. What is the name for the type of content that can change?
+   
+   可以更改的內容類型的名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Dynamic`
+
+3. Does the client see the backend code? Yay/Nay
+   
+   用戶端是否看到後端代碼？是/否
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Nay`
 
 >> #### Task 4：測驗
+
+<p align="left">
+  <img src="/rooms/images/16_04.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/16_05.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/16_06.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. Flag？
+
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{YOU_GOT_THE_ORDER}`
