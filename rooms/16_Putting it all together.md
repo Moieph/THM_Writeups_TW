@@ -97,12 +97,12 @@ THM路徑：https://tryhackme.com/room/puttingitalltogether
 >> #### Task 3：伺服器的工作原理
 
 🌐 什麼是 Web Server？
-- 是軟體，透過 **HTTP 協定** 傳送網頁內容給使用者。
+- 軟體，透過 **HTTP 協定** 傳送網頁內容給使用者。
 - 常見軟體：**Apache、Nginx、IIS、NodeJS**
 - 預設根目錄（儲存網站檔案的地方）：
   - Linux：`/var/www/html`
   - Windows（IIS）：`C:\inetpub\wwwroot`
-- 例：請求 http://example.com/pic.jpg → 傳送 /var/www/html/pic.jpg
+- 如請求 http://example.com/pic.jpg → 傳送 `/var/www/html/pic.jpg`
 
 ---
 
@@ -118,21 +118,21 @@ THM路徑：https://tryhackme.com/room/puttingitalltogether
 
 🧱 靜態 vs. 動態內容
 
-- 📄 靜態內容（Static Content）： <br> 永遠不變，直接從硬碟送出。
+- 📄 靜態內容（Static Content）：
+  - 永遠不變，直接從硬碟送出。
+    - 如：圖片、CSS、JavaScript、固定 HTML
 
-    例如：圖片、CSS、JavaScript、固定 HTML
-
-
-- ⚙️ 動態內容（Dynamic Content）：<br> 根據請求內容改變畫面（變化由後端程式語言控制）
-
-    例如：部落格首頁會顯示最新文章，或是搜尋結果頁
+- ⚙️ 動態內容（Dynamic Content）：
+  - 根據請求內容改變畫面
+  - 變化由後端程式語言控制
+    - 例如：首頁顯示最新文章，或搜尋結果建議
 
 ---
 
 🧠 後端（Backend）與前端（Frontend）
-- 前端（Frontend）：瀏覽器看到的畫面（HTML、CSS、JS）
-- 後端（Backend）：伺服器端的運算與資料處理，用來產生前端畫面
-- 使用者看不到後端程式碼，只看到產生的結果
+- 前端（Frontend）：<br>瀏覽器看到的畫面（HTML、CSS、JS）
+- 後端（Backend）：<br>伺服器端的運算與資料處理，用來產生前端畫面
+  - 使用者看不到後端程式碼，只看到產生的結果
 
    
 
