@@ -186,4 +186,52 @@ Question 2：點擊 「View Site」 打開網頁，點擊該 IP 流量事件時�
 
 >> #### Task 5：事件回應流程
 
+🛡️ DFIR 在資安營運中的核心用途：**事件回應（IR）**
+
+- 在資安營運（Security Operations, SecOps）中，**數位鑑識**（Digital Forensics） 的主要目的是支援 **事件回應**（Incident Response, IR），幫助有效調查、控制與回復系統。
+
+---
+
+🔁 標準事件回應流程：**NIST vs. SANS**
+
+✅ NIST SP 800-61 定義的 IR 流程：
+1. Preparation（準備）
+2. Detection and Analysis（偵測與分析）
+3. Containment, Eradication, and Recovery（圍堵、清除與回復）
+4. Post-incident Activity（事後活動）
+
+✅ SANS 事件處理流程（PICERL）：
+1. Preparation（準備）
+2. Identification（識別）
+3. Containment（圍堵）
+4. Eradication（清除）
+5. Recovery（回復）
+6. Lessons Learned（經驗回顧）
+
+📌 雖然步驟名稱略有不同，實質內容相同。SANS 更細分，有助記憶與操作。
+
+---
+
+🧠PICERL 流程說明
+
+| 階段                         | 說明                                                                 |
+|------------------------------|----------------------------------------------------------------------|
+| Preparation（準備）          | 建立團隊、流程與技術工具，預先防範與演練，準備好應對未來的資安事件         |
+| Identification（識別）       | 透過告警與日誌發現異常，進行分析、篩除誤報，並通知相關單位                   |
+| Containment（圍堵）          | 限制事件影響範圍，可能包含短期與長期的隔離或修補行動                         |
+| Eradication（清除）          | 根除威脅，清理惡意程式與後門，必須確保進入點已封鎖，否則攻擊者會再次滲透     |
+| Recovery（回復）             | 恢復受影響的系統與服務，並確認系統安全與穩定，避免舊威脅再次觸發             |
+| Lessons Learned（經驗回顧）  | 撰寫事件報告，討論處理過程、成功與失誤，優化下次事件應變能力                 |
+
+
+---
+
+🧩 DFIR 如何輔助 IR？
+- <b>鑑識資料（Artifacts）</b>協助識別與圍堵來源
+- **記憶體分析與日誌調查** 支援威脅根除與橫向移動追蹤
+- **時間軸重建** 幫助理清整體攻擊過程
+- **證據保存與報告撰寫** 強化經驗回顧與組織記錄
+
+
+
 >> #### Task 6：結論
