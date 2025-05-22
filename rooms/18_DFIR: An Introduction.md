@@ -7,7 +7,7 @@ THM路徑：https://tryhackme.com/room/introductoryroomdfirmodule
 ---
 
 >> #### Task 1：介紹
-DFIR ➜ Digital Forensics and Incident Response **數位鑑識與事件回應**
+DFIR ➜ Digital Forensics and Incident Response <br>**數位鑑識與事件回應**
 
 >> #### Task 2：對 DFIR 的需求
 🧠 什麼是 DFIR？
@@ -232,6 +232,21 @@ Question 2：點擊 「View Site」 打開網頁，點擊該 IP 流量事件時�
 - **時間軸重建** 幫助理清整體攻擊過程
 - **證據保存與報告撰寫** 強化經驗回顧與組織記錄
 
+##### 🔐 答題：
+1. At what stage of the IR process are disrupted services brought back online as they were before the incident?
+   
+   在 IR 流程的哪個階段，中斷的服務會像事件發生前一樣恢復在線？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `recovery`
 
+2. At what stage of the IR process is the threat evicted from the network after performing the forensic analysis?
+   
+   執行取證分析後，在 IR 流程的哪個階段將威脅從網路中驅逐出去？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `eradication`
 
->> #### Task 6：結論
+3. What is the NIST-equivalent of the step called "Lessons learned" in the SANS process?
+   
+   在 SANS 流程中，「經驗教訓」的步驟的 NIST 等價物是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Post-incident Activity`
