@@ -41,11 +41,15 @@
 
 **[Free Roadmap]** <br>Security Analyst (0 / 10)：
 
-| Room                          |                 Field                | Difficulty | Writeup Link                                           | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|-------------------------------|--------------------------------------|------------|--------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 🔧Junior Security Analyst Intro |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/17_Junior%20Security%20Analyst%20Intro.md) |
-| 🔧DFIR: An Introduction |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/18_DFIR:%20An%20Introduction.md) |
-| 🔧Intro to IR and IM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md) |
+| Room                          |                 Field                | Difficulty | Writeup Link                                                     | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|-------------------------------|--------------------------------------|------------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Junior Security Analyst Intro |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/17_Junior%20Security%20Analyst%20Intro.md) |
+| 🔧DFIR: An Introduction |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/18_DFIR:%20An%20Introduction.md)           |
+| 🔧Intro to IR and IM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md)          |
+| 🔧Introduction to SIEM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/20_Introduction%20to%20SIEM.md)            |
+| 🔧Intro to Endpoint Security |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)    |
+| 🔧Intro to Detection Engineering |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md)          |
+
 
 
 Network Fundamentals (1 / 1）：
