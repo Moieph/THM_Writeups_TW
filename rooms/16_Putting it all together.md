@@ -142,7 +142,7 @@ THM路徑：https://tryhackme.com/room/puttingitalltogether
 
 ---
 
-網址：`http://example.com/index.php?name=adam`
+**網址**：`http://example.com/index.php?name=adam`
 - `index.php` → 網站要執行的檔案<br>
 - `?name=adam` → 給網站的參數（用來帶資料）
 -  GET 方法（使用網址傳參數）
