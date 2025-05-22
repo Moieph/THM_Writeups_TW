@@ -107,6 +107,7 @@ IR/IM 重要角色職責表：
 | Executive               | 重大事件時進入應變小組（CMT），包含 CEO、COO、CTO、CISO 等人                |
 
 
+
 >> #### Task 4：事件管理流程
 
 >> #### Task 5：事件期間的常見陷阱
