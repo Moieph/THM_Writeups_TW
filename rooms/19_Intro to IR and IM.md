@@ -106,10 +106,183 @@ IR/IM 重要角色職責表：
 | Crisis Manager          | 危機應變領導者，通常為高階主管如 CIO、COO，負責指揮最高層級的回應行動      |
 | Executive               | 重大事件時進入應變小組（CMT），包含 CEO、COO、CTO、CISO 等人                |
 
+Question 1：輸入各角色的職責描述，獲得 Flag 🎉🎉
 
+<p align="left">
+  <img src="/rooms/images/19_01.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/19_02.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/19_03.png" width="600">
+</p>
+
+1. What is the value of the flag you receive after matching the roles and responsibilities?
+   
+   在匹配角色和職責后，您收到的旗幟為何？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{Roles.and.Responsibilities.of.IR.and.IM}`
 
 >> #### Task 4：事件管理流程
 
+🧭 **NIST 事件管理流程（Incident Management Framework）**
+
+根據 NIST SP 800-61，事件管理分為 **四大階段**：
+
+| 階段名稱                                         | 核心任務說明                                                              |
+|--------------------------------------------------|---------------------------------------------------------------------------|
+| 1. Preparation（準備）                           | 建立處理事件所需人員、聯繫網絡、SOP、演練與威脅狩獵準則                     |
+| 2. Detection & Analysis（偵測與分析）            | 發現事件、評估嚴重性、執行鑑識調查與攻擊分析，協助定義事件範圍             |
+| 3. Containment, Eradication, Recovery（圍堵、清除、回復） | 阻止擴散 ➝ 移除攻擊者 ➝ 恢復環境回到正常運作                               |
+| 4. Post-Incident Activity（事後回顧）            | 撰寫事件總結報告、整理經驗教訓，優化下次事件的應變效率                     |
+
+<p align="left">
+  <img src="/rooms/images/19_04.png" width="600">
+</p>
+
+---
+
+**Preparation（準備）**:
+
+&nbsp;&nbsp;&nbsp;&nbsp;_關鍵觀念：事前準備越完善，事件發生時越不慌張、越少錯誤。_ <br>
+
+準備工作包含：
+
+- 📞 建立聯絡樹（Call Tree）與重要關係人列表
+- 📚 撰寫並持續更新事件應變 Playbooks
+- 🧠 執行桌上兵推 / 網攻演練（War Game）
+- 🔍 持續進行威脅狩獵（Threat Hunting）建立偵測規則
+
+---
+
+**Detection & Analysis（偵測與分析）**:
+
+&nbsp;&nbsp;&nbsp;&nbsp;_關鍵問題：到底發生什麼事了？_ <br>
+
+此階段是 **事件回應的核心**，重點在於釐清事件真相、定義範圍：
+
+- 檢查 AV / EDR / SIEM 警示儀表板
+- 分析主機與網路鑑識資料（Artifacts）
+- 拆解分析惡意程式（Malware）與建立對應偵測簽名
+- 📍 含 **Triage 判斷警示是否升級為事件**（若企業有內部分拆）
+
+---
+
+**Containment, Eradication, Recovery**：<br>
+（圍堵 ➝ 清除 ➝ 回復）
+
+這是 **事件管理的核心階段**，目標是恢復 BAU（Business as Usual）：
+
+| 子階段       | 說明                                                         |
+|--------------|--------------------------------------------------------------|
+| Containment  | 快速阻止事件擴大（例如斷網、停用帳號）                       |
+| Eradication  | 根除攻擊者存活點（後門、帳號、惡意程式等）                   |
+| Recovery     | 恢復系統運作，並確保無後門、系統正常                         |
+
+---
+
+**Post-Incident Activity（事後活動）**：
+
+&nbsp;&nbsp;&nbsp;&nbsp;_關鍵問題：這次事件教會了我們什麼？_ <br>
+
+- 撰寫完整報告（事件發生、處置、影響、回應時程）
+- 分析哪些 SOP 有效、哪些地方延誤或出錯
+- 更新 Playbook / 偵測規則 / 回應流程
+- 內部教學分享與改進流程
+
+---
+
+🌀 為什麼「偵測分析」和「圍堵回復」是循環的？
+
+在事件調查過程中：
+- 初期無法完全了解攻擊範圍，但不能等待
+- 所以要邊調查邊行動 ➝ 看行動效果，再判斷下一步
+- 最終以 **能回復到 BAU（正常業務運作）** 為結束依據
+
+Question 1：輸入IM 流程步驟，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/19_05.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/19_06.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/19_07.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What is the value of the flag you receive after correctly matching the steps of the incident management process?
+   
+   在正確匹配事件管理流程的步驟后，您收到的旗幟為何？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{Preparation.is.Key.for.Incident.Management}`
+
 >> #### Task 5：事件期間的常見陷阱
 
+| 失誤類型                        | 說明                                                                                   |
+|----------------------------------|----------------------------------------------------------------------------------------|
+| Insufficient Hardening           | 系統未經強化即上線，為求效率而略過安全配置，增加被攻擊的可能性                         |
+| Insufficient Logging             | 未完整收集與保存日誌，導致藍隊無法偵測或調查事件，等於「盲飛」                         |
+| Insufficient / Over-Alerting     | 警示過少導致漏報，警示過多導致誤報疲乏；皆可能讓真正的事件被忽略                         |
+| Insufficient Determination of Scope | 事件範圍誤判，低估導致未清除乾淨，高估造成業務中斷與資源浪費                             |
+| Insufficient Accountability      | 任務無明確負責人，造成「大家都以為有人做了」，實際上沒人執行                             |
+| Insufficient Backups             | 備份不足或未隔離，導致勒索攻擊無法復原；現代 DR 環境可能也會被同步感染                    |
+
+Question 1：遊玩簡易判斷遊戲，獲得 Flag 🎉🎉
+<p align="left">
+  <img src="/rooms/images/19_08.png" width="600">
+</p>
+
+1. What is the value of the flag you receive when you overcome the common pitfalls of a cyber incident?
+   
+   當您克服網路事件的常見陷阱時，您收到的旗幟為何？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{Avoiding.the.Common.IM.Mistakes}`
+
 >> #### Task 6：結論
+
+**事件回應與事件管理 總結整理（Summary）**
+
+1. 資安事件是「常態」
+   - 資安事件無法完全避免，重點是 **如何做好準備、有效應對**
+
+
+2. 並非所有警示都是事件
+   - **警示（Alert） ≠ 事件（Incident）** 
+   - 透過 **Triage（三分類）** 決定是否升級為事件，並依嚴重性分級（L1~L4）
+   
+
+3.  IR vs IM：兩者互補，缺一不可
+    
+   | 類型               | 關注核心           | 功能說明                                           |
+   |--------------------|--------------------|----------------------------------------------------|
+   | Incident Response   | What happened?     | 技術面調查、數位鑑識、了解攻擊範圍                  |
+   | Incident Management | How to respond?    | 流程管控、人員調度、行動記錄、回復業務營運          |
+
+4. 多元角色參與事件處理
+   - 即使你不是藍隊，也可能是：
+        - **第一發現人（First Responder）**
+        - **領域專家（SME）**
+    - 每個人都有可能被納入事件回應流程中
+   
+
+5. 多數企業採用 NIST 四階段事件管理架構：
+
+   | 階段                                               | 功能                                                   |
+   |----------------------------------------------------|--------------------------------------------------------|
+   | Preparation（準備）                                | 建立流程、演練應變、制定通報與回應策略                  |
+   | Detection & Analysis（偵測與分析）                 | 偵測事件、判斷範圍、進行數位鑑識調查                    |
+   | Containment, Eradication, Recovery（圍堵 ➝ 清除 ➝ 回復） | 實際處理事件，復原系統、恢復正常營運                    |
+   | Post-Incident Activity（事後回顧）                 | 撰寫報告、教訓檢討、優化未來應變策略                    |
+
+
+6. 常見失誤（Pitfalls）需要事前預防
+
+- 如：紀錄不全、警示過多、角色責任不明、備份不足等
+- **事前準備與清晰分工** 可降低災難擴散與誤判風險
