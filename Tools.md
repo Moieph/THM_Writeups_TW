@@ -456,7 +456,7 @@
 
 ---
 
-### `Core Windows Processes`
+### `CoreWindowsProcesses`
 
 <details>
 <summary>狀態碼說明</summary>

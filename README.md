@@ -47,7 +47,7 @@
 | DFIR: An Introduction |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/18_DFIR:%20An%20Introduction.md)            |
 | Intro to IR and IM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md)           |
 | Introduction to SIEM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/20_Introduction%20to%20SIEM.md)             |
-| 🔧Intro to Endpoint Security |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)     | [Core Windows Processes](Tools.md#Core%20Windows%20Processes)
+| 🔧Intro to Endpoint Security |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)     | [Core_Windows_Processes](Tools.md#Core_Windows_Processes)
 | 🔧Intro to Detection Engineering |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/22_Intro%20to%20Detection%20Engineering.md) |
 | 🔧Traffic Analysis Essentials |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/23_Traffic%20Analysis%20Essentials.md)      |
 | 🔧Intro to Cyber Threat Intel |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/24_Intro%20to%20Cyber%20Threat%20Intel.md)  |
