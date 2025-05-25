@@ -390,7 +390,7 @@
 
 ## 系統規範
 
-### `HTTP Status Codes`
+### `HTTP_Status_Codes`
 
 <details>
 <summary>狀態碼說明</summary>
