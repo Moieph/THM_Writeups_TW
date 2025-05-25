@@ -420,7 +420,7 @@
 
 ---
 
-### `SMTP Response Codes`
+### `SMTP_Response_Codes`
 
 <details>
 <summary>狀態碼說明</summary>
