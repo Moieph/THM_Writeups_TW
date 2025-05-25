@@ -453,3 +453,26 @@
 | 334    | 等待用戶輸入驗證信息 |
 
 </details>
+
+---
+
+### `Core Windows Processes`
+
+<details>
+<summary>狀態碼說明</summary>
+
+| 程序層級結構（Parent > Child）         | 說明                                           |
+|----------------------------------------|------------------------------------------------|
+| System                                 | 最底層核心程序，其父程序為 System Idle (PID 0) |
+| System > smss.exe                      | Session 管理器                                 |
+| csrss.exe                              | Client/Server Runtime 子系統                   |
+| wininit.exe                            | Windows 初始化                                 |
+| wininit.exe > services.exe             | 系統服務管理器                                 |
+| services.exe > svchost.exe             | 多數服務會由 svchost.exe 執行                  |
+| lsass.exe                              | 本地安全授權子系統                             |
+| winlogon.exe                           | 登入管理程序                                   |
+| explorer.exe                           | 使用者桌面與檔案總管界面                       |
+
+📌 除了 System 以外，**若有程序「無父程序」或異常繼承鏈，需特別留意。**
+
+</details>
