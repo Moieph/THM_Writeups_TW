@@ -336,7 +336,7 @@ Question 6：判斷後獲得 Flag 🎉🎉
    
    查找導致警報的事件，哪個使用者負責流程執行？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `cudominer.exe`
+&nbsp;&nbsp;&nbsp;&nbsp; `Chris.fort`
 
 3. What is the hostname of the suspect user?
    
