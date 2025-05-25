@@ -88,7 +88,7 @@ THM路徑：https://tryhackme.com/room/introtosiem
 
 >> #### Task 3：日誌源和日誌引入
 
-🧾 **常見設備的日誌來源（Log Sources by Device）**
+🧾 常見設備的日誌來源（Log Sources by Device）
 
 | 裝置類型           | 日誌來源與描述                                                                                               |
 |--------------------|-------------------------------------------------------------------------------------------------------|
@@ -178,6 +178,7 @@ Web Server：Apache Logs
 ---
 
 👨‍💻 SOC 分析師的工作職責（SOC Analyst Responsibilities）：
+
 &nbsp;&nbsp;&nbsp;&nbsp;_SOC 分析師是第一線資安守門人，依賴 SIEM 系統掌握網路環境中一切活動。_ <br>
 
 ---
@@ -259,7 +260,7 @@ Web Server：Apache Logs
 
 ---
 🔎  **警示調查流程（Alert Investigation）：**<br>
-分析師主要工作集中在 Dashboard 上，一旦觸發警示後 :
+分析師主要工作集中在 Dashboard 上，觸發警示流程 :
 
 1️⃣ 檢查警示關聯事件（Event/Flow）  
 2️⃣ 驗證規則觸發條件是否合理  
