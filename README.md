@@ -7,7 +7,7 @@
 ---
 [![](https://tryhackme-badges.s3.amazonaws.com/Moieph.png?cb=02)](https://tryhackme.com/p/Moieph)
 
-## 已完成房間數：18
+## 已完成房間數：19
 
 **[Free Roadmap]** <br>Introduction to Cyber Security (2 / 2)：
 
@@ -45,7 +45,7 @@
 |-------------------------------|--------------------------------------|------------|------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Junior Security Analyst Intro |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/17_Junior%20Security%20Analyst%20Intro.md) |
 | DFIR: An Introduction |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/18_DFIR:%20An%20Introduction.md)           |
-| 🔧Intro to IR and IM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md)          |
+| Intro to IR and IM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md)          |
 | 🔧Introduction to SIEM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/20_Introduction%20to%20SIEM.md)            |
 | 🔧Intro to Endpoint Security |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)    |
 | 🔧Intro to Detection Engineering |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md)          |
