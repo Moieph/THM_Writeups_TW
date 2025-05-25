@@ -289,8 +289,75 @@ Web Server：Apache Logs
    
 &nbsp;&nbsp;&nbsp;&nbsp; `False Alarm`
 
-
-
 >> #### Task 6：實驗室工作
 
->> #### Task 7：結論
+Question 1：進入 SIEM 介面，點擊 Start Suspicious Activity，發現可疑活動
+
+<p align="left">
+  <img src="/rooms/images/20_10.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/20_11.png" width="600">
+</p>
+
+Question 2、3：查看可疑事件，發現其可疑活動執行者及主機名稱
+
+<p align="left">
+  <img src="/rooms/images/20_12.png" width="600">
+</p>
+
+Question 4：查看規則，發現該可疑活動觸發條件 
+
+<p align="left">
+  <img src="/rooms/images/20_13.png" width="600">
+</p>
+
+Question 5：判斷該可疑活動，是否為誤報
+
+<p align="left">
+  <img src="/rooms/images/20_14.png" width="600">
+</p>
+
+Question 6：判斷後獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/20_15.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. Click on Start Suspicious Activity, which process caused the alert?
+   
+   單擊 Start Suspicious Activity（開始可疑活動），哪個進程導致了警報？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `cudominer.exe`
+
+2. Find the event that caused the alert, which user was responsible for the process execution?
+   
+   查找導致警報的事件，哪個使用者負責流程執行？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `cudominer.exe`
+
+3. What is the hostname of the suspect user?
+   
+   可疑使用者的主機名是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `HR_02`
+
+4. Examine the rule and the suspicious process; which term matched the rule that caused the alert?
+   
+   檢查規則和可疑過程;哪個術語與導致警報的規則匹配？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `miner`
+
+5. What is the best option that represents the event? Choose from the following:
+   
+   代表事件的最佳選擇是什麼？從以下選項中選擇：
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `True-Positive`
+
+6. Selecting the right ACTION will display the FLAG. What is the FLAG?
+   
+   選擇正確的 ACTION 將顯示 FLAG。什麼是 FLAG？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{000_SIEM_INTRO}`
