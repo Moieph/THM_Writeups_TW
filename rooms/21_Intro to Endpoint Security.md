@@ -104,9 +104,84 @@ Sysinternals 是一套微軟官方提供的 70+ 種 Windows 深度分析工具�
 
    此任務中引入的網路實用程式工具的名稱是什麼？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `wininit.exe`
+&nbsp;&nbsp;&nbsp;&nbsp; `TCPView`
 
 >> #### Task 3：端點日誌記錄和監控
+
+🧠為什麼要進行端點日誌記錄（Endpoint Logging）？
+
+即使你能用工具查看當下系統狀態（如 Process Explorer），但：
+
+⚠️ 若無「日誌歷史記錄」，就無法：
+
+- **回溯攻擊時間點與路徑**
+- **跨機器比對活動**
+- **自動化建立偵測規則**
+
+因此，**端點日誌記錄是威脅偵測與數位鑑識的基礎**。
+
+---
+
+🧾 常見端點日誌來源與分析工具
+
+| 工具               | 說明與用途                                                                 | 特點 / 優勢                                                         |
+|--------------------|------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| Windows Event Logs | Windows 內建日誌系統，儲存於 `.evtx` 格式，可用 **Event Viewer**、**PowerShell** 或 **Wevtutil** 存取 | 基礎事件來源，含登入、程序建立、系統錯誤等                          |
+| Sysmon             | 微軟 Sysinternals 套件之一，提供高解析度事件記錄，可客製化追蹤項目（如進程、網路、註冊表等） | 提供 27 類事件 ID，可與 SIEM 整合，自訂規則強大                     |
+| Osquery            | Facebook 開源工具，使用 SQL 語法查詢端點資訊，支援跨平台（Win / Linux / Mac / BSD）     | 用戶端查詢為主，支援 Kolide Fleet 遠端集中查詢                     |
+| Wazuh              | 開源 EDR 解決方案，採用 Agent/Manager 架構，可大規模部署於企業環境               | 提供威脅監控、視覺化圖表、異常行為比對、CVE 掃描等多元功能         |
+
+---
+🗂️ 使用場景簡述：
+
+- 🔹 Windows Event Log：<br>
+   - 基本系統活動：登入、系統異常、程式執行
+   - 可作為 SIEM 或 Forensics 的基礎來源
+   - 儲存的 `.evtx`，通常位於  `C:\Windows\System32\winevt\Logs`
+
+使用 Event Viewer 查看 **Windows Event Log**日誌：
+<p align="left">
+  <img src="/rooms/images/21_04.png" width="600">
+</p>
+
+---
+
+- 🔹 Sysmon：<br>
+   - 建議安裝於伺服器與重要端點
+   - 與 SIEM 結合效果極佳（可直接觸發規則）
+  
+使用 Event Viewer 查看 **Sysmon** 日誌：
+<p align="left">
+  <img src="/rooms/images/21_05.png" width="600">
+</p>
+
+
+- 🔹 Osquery：<br>
+   - 偵測特定程序是否執行
+   - 透過 SQL 查詢，即時分析系統資訊 
+   - 搭配 Kolide Fleet 可進行集中式查詢
+
+請打開 CMD（或 PowerShell）並執行 `osqueryi`，
+
+<p align="left">
+  <img src="/rooms/images/21_06.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/21_07.png" width="600">
+</p>
+
+藉助 Kolide Fleet，您可以從 Kolide Fleet UI 查詢多個終端節點，而不是在本地使用 `osquery` 查詢機器內部的事件
+
+
+##### 🔐 答題：
+
+1. Where do the Windows Event logs (.evtx files) typically reside?
+
+   Windows 事件日誌（.evtx 檔）通常位於何處？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `wininit.exe`
+
 
 >> #### Task 4：端點日誌分析
 
