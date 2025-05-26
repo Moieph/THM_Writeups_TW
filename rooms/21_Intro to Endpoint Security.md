@@ -180,7 +180,7 @@ Sysinternals 是一套微軟官方提供的 70+ 種 Windows 深度分析工具�
 
    Windows 事件日誌（.evtx 檔）通常位於何處？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `wininit.exe`
+&nbsp;&nbsp;&nbsp;&nbsp; `C:\Windows\System32\winevt\Logs`
 
 
 >> #### Task 4：端點日誌分析
