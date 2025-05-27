@@ -155,6 +155,7 @@ Sysinternals 是一套微軟官方提供的 70+ 種 Windows 深度分析工具�
   <img src="/rooms/images/21_05.png" width="600">
 </p>
 
+---
 
 - 🔹 Osquery：<br>
    - 偵測特定程序是否執行
@@ -173,6 +174,20 @@ Sysinternals 是一套微軟官方提供的 70+ 種 Windows 深度分析工具�
 
 藉助 Kolide Fleet，您可以從 Kolide Fleet UI 查詢多個終端節點，而不是在本地使用 `osquery` 查詢機器內部的事件
 
+<p align="left">
+  <img src="/rooms/images/21_08.png" width="600">
+</p>
+
+---
+
+- 🔹 Wazuh
+  - 作為完整 EDR 解決方案（Endpoint detection and response）
+  - 支援漏洞掃描、持續監控、視覺化威脅地圖
+  - 適用企業部署、大規模端點監控
+
+<p align="left">
+  <img src="/rooms/images/21_09.gif" width="600">
+</p>
 
 ##### 🔐 答題：
 
@@ -182,7 +197,114 @@ Sysinternals 是一套微軟官方提供的 70+ 種 Windows 深度分析工具�
    
 &nbsp;&nbsp;&nbsp;&nbsp; `C:\Windows\System32\winevt\Logs`
 
+2. Provide the command used to enter OSQuery CLI.
+
+   提供用於進入 OSQuery CLI 的命令。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `osqueryi`
+
+3. What does EDR mean? Provide the answer in lowercase.
+
+   EDR 是什麼意思？以小寫形式提供答案。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Endpoint detection and response`
 
 >> #### Task 4：端點日誌分析
+🔗 **事件關聯分析（Event Correlation）**：
+
+&nbsp;&nbsp;&nbsp;&nbsp;_<b>事件關聯</b>是指從多個不同來源的日誌中，找出彼此之間有意義的關聯關係。_ <br>
+
+🎯 目的：
+- 將來自 **應用程式 / 端點 / 網路** 的日誌碎片拼成完整事件流程
+- 將一連串看似無關的事件，**「連點成線」**，形成可追查的攻擊路徑
+
+🔍 舉例：網路連線事件可能出現在以下來源
+
+| 資料來源              | 提供資訊                             |
+|-----------------------|--------------------------------------|
+| Sysmon (Event ID 3)   | 程序名稱、使用者、啟動連線的行為     |
+| Firewall Logs         | IP、Port、協定、動作（Allow / Block） |
+
+✅ 可關聯欄位包括：
+- Source / Destination IP
+- Source / Destination Port
+- Protocol
+- Process Name
+- User Account
+- Action Taken
+- Hostname / Machine Name
+
+📌 「事件關聯」就像把拼圖拼起來，還原真實攻擊情境，是進階分析的關鍵技巧。
+
+---
+
+📈 **行為基準建立（Baselining）**：
+
+&nbsp;&nbsp;&nbsp;&nbsp;_<b>Baselining</b> 是定義「什麼是正常行為」的過程，有了基準才能識別異常。_ <br>
+
+✅ 為什麼需要建立 Baseline？
+- 沒有基準，就無法定義什麼是 異常
+- 所有事件都像乾草堆中的針，難以辨識威脅
+
+📋 範例對照表：
+
+| 正常行為（Baseline）                                      | 異常行為（Unusual Activity）                       |
+|-----------------------------------------------------------|----------------------------------------------------|
+| 公司員工皆位於倫敦，正常上下班時間為 9:00–18:00           | 有人在凌晨 3 點從新加坡透過 VPN 登入              |
+| 每人分配一台工作機                                        | 同一帳號嘗試登入多台工作機                        |
+| 僅允許 O365 網站（如 OneDrive、SharePoint）              | 有使用者上傳 3GB 資料到 Google Drive               |
+| 僅安裝 Microsoft 相關應用（Word, Excel, Teams, Chrome 等） | 多台電腦出現 firefox.exe 程序                     |
+
+---
+
+🧪 **調查實作活動（Investigation Activity）**：
+
+現在是時候換上 Blue Team 帽子，根據前面所學的概念：
+
+- 檢視端點事件
+- 建立關聯
+- 對比基準
+- 判斷是否異常並深入調查
+
+Question 2：進入 Baseline Document 確認正常行為
+
+<p align="left">
+  <img src="/rooms/images/21_10.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/21_11.png" width="600">
+</p>
+
+發現可疑程序為 beacon.exe
+
+<p align="left">
+  <img src="/rooms/images/21_12.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/21_13.png" width="600">
+</p>
+
+輸入惡意 IP 地址，並清除威脅，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/21_14.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/21_15.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/21_16.png" width="600">
+</p>
+
+##### 🔐 答題：
+2. Provide the flag for the simulated investigation activity.
+   
+   為類比調查活動提供旗幟。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{3ndp01nt_s3cur1ty!}`
 
 >> #### Task 5：結論
