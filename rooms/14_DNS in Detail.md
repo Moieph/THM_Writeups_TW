@@ -156,7 +156,7 @@ DNS 不只是解析網站網址，還有多種記錄類型。
    
    將使用什麼類型的記錄來建議將電子郵件發送到何處？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `63`
+&nbsp;&nbsp;&nbsp;&nbsp; `MX`
 
 2. What type of record handles IPv6 addresses?
    

@@ -731,7 +731,7 @@ Question 1：透過`nmap`掃描，找出 `mysql` 的 Port：3306
   <img src="/rooms/images/12_23.png" width="600">
 </p>
 
-Question 2 - 4：啟動 `msfconle`，搜尋 `mysql_sql`，設置參數（已知條件：用戶和密碼是root/password）後執行
+Question 2 - 4：啟動 `msfconsle`，搜尋 `mysql_sql`，設置參數（已知條件：用戶和密碼是root/password）後執行
 
 ```
 msfconsole
