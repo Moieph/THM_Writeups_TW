@@ -28,7 +28,7 @@ Network Traffic Analysis（NTA）➜ **網路流量分析**
 
 ---
 
-三層控制層級（Base Control Levels）：
+三層安全控制層級（Base Control Levels）：
 
 | 層級 | 說明 |
 |------|------|
@@ -94,8 +94,119 @@ Network Traffic Analysis（NTA）➜ **網路流量分析**
 | 🚨 事件應變 | 快速識別、隔離、移除資安事件      |
 | 📈 行為分析 | 建立使用者 / 系統行為模型，偵測異常 |
 
+---
 
+##### 🔐 答題：
+1. Which Security Control Level covers contain creating security policies?
+   
+   哪些安全控制級別涵蓋創建安全策略？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Administrative`
+
+2. Which Access Control element works with data metrics to manage data flow?
+   
+   哪個 Access Control 元素與數據量度配合使用以管理數據流？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Load Balancing`
+
+3. Which Access Control element works with data metrics to manage data flow?
+   
+   哪種技術有助於關聯不同的工具輸出和數據源？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `SOAR`
 
 >> #### Task 3：流量分析
 
->> #### Task 4：結論
+📌 Traffic Analysis 重點整理：
+
+| 類別       | 說明                                                                                                         |
+| -------- | ---------------------------------------------------------------------------------------------------------- |
+| **定義**   | 透過攔截、紀錄、分析網路資料與通訊模式，找出系統健康問題、異常與威脅。                                                                        |
+| **用途**   | 安全面：偵測異常與攻擊行為<br>營運面：檢查系統可用性與效能表現                                                                          |
+| **隸屬領域** | - 網路嗅探 / 封包分析（Wireshark）<br> - 網路監控（Zeek）<br> - 入侵偵測 / 防禦（Snort）<br> - 網路鑑識（NetworkMiner）<br> - 威脅獵捕（Brim） |
+
+---
+
+🧪 Traffic Analysis 技術比較：
+
+| 技術                                     | 說明                 | 優點      | 缺點            |
+| -------------------------------------- | ------------------ | ------- | ------------- |
+| **Flow Analysis**<br>（流量分析）            | 從網路設備收集資料摘要，產出統計結果 | 易於收集與分析 | 無法深入得知封包細節與根因 |
+| **Packet Analysis**<br>（封包分析 / 深度封包檢查） | 收集完整封包內容，做深入檢查     | 可掌握事件根因 | 需較高技術門檻與時間    |
+
+---
+
+🎯 Traffic Analysis 優勢：
+- 建立全面網路可視性（Full Visibility）
+- 協助資產追蹤與基線建構
+- 偵測並回應異常或威脅
+
+❓為何重要？
+- 即使攻擊者改用雲端、加密技術來迴避偵測，網路流量仍能反映出「異常模式」。即便內容被加密，也能透過行為模式辨識出異狀。因此流量分析仍是資安分析師的基本能力之一。
+
+---
+
+Question 1：過濾可疑 IP 位址
+
+<p align="left">
+  <img src="/rooms/images/23_02.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/23_03.png" width="600">
+</p>
+
+重新檢測後，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/23_04.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/23_05.png" width="600">
+</p>
+
+Question 2：過濾可疑端口
+
+<p align="left">
+  <img src="/rooms/images/23_06.png" width="600">
+</p>
+
+Port 4444（與 10.10.99.99 一起顯示）：<br>
+與已知可利用的行為或工具 （Metasploit） 相關聯。<br>
+
+
+<p align="left">
+  <img src="/rooms/images/23_07.png" width="600">
+</p>
+
+Port 7777（在 10.10.99.199 中顯示）：<br>不常見，通常與自定義或惡意後門相關聯。
+
+<p align="left">
+  <img src="/rooms/images/23_08.png" width="600">
+</p>
+
+Port 2222（在 10.10.99.199 中顯示）：<br>經常用於暗示惡意活動的模式（作為 SSH 的替代方法）
+
+重新檢測後，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/23_09.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/23_10.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What is the flag?  
+   
+   旗幟是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{PACKET_MASTER}`
+
+2. What is the flag?  
+   
+   旗幟是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{DETECTION_MASTER}`

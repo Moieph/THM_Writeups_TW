@@ -94,11 +94,11 @@ Part 2：獲得 Flag 🎉🎉
    
 &nbsp;&nbsp;&nbsp;&nbsp; `Octet`
 
-3. What does the term "MAC" stand for?
+3. How many sections (in digits) does an IPv4 address have? 
 
-     “MAC”一詞代表什麼？
+    IPv4 位址有多少個部分（以數位為單位）？
 
-&nbsp;&nbsp;&nbsp;&nbsp; `Media Access Control`
+&nbsp;&nbsp;&nbsp;&nbsp; `4`
 
 4. What does the term "MAC" stand for?å
 
@@ -120,8 +120,11 @@ Ping 是一個基本網路工具，用來檢查兩台設備間的連線是否正
   - 目標回傳「echo reply」封包 
   - 依此測量延遲時間（毫秒），確認是否能通訊
 
-  
 `ping IP address or website URL`
+
+<p align="left">
+  <img src="/rooms/images/04_06.png" width="600">
+</p>
 
 ---
 Part 1：於上方輸入 IP address: 8.8.8.8

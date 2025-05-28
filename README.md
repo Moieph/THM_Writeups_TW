@@ -7,7 +7,7 @@
 ---
 [![](https://tryhackme-badges.s3.amazonaws.com/Moieph.png?cb=093)](https://tryhackme.com/p/Moieph)
 
-## 已完成房間數：21
+## 已完成房間數：23
 
 **[Free Roadmap]** <br>Introduction to Cyber Security (2 / 2)：
 
@@ -39,7 +39,7 @@
 | How Websites Work         |    🌐 Networking   | Easy       | [Walkthrough](./rooms/15_How%20Websites%20Work.md)           |  
 | Putting it all together |    🌐 Networking   | Easy       | [Walkthrough](./rooms/16_Putting%20it%20all%20together.md)   | 
 
-**[Free Roadmap]** <br>Security Analyst (5 / 10)：
+**[Free Roadmap]** <br>Security Analyst (6 / 10)：
 
 | Room                          |                 Field                | Difficulty | Writeup Link                                                      | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |-------------------------------|--------------------------------------|------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +49,7 @@
 | Introduction to SIEM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/20_Introduction%20to%20SIEM.md)             |
 | Intro to Endpoint Security |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)     | [Core_Windows_Processes](Tools.md#core_windows_processes)
 | Intro to Detection Engineering |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/22_Intro%20to%20Detection%20Engineering.md) |
-| 🔧Traffic Analysis Essentials |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/23_Traffic%20Analysis%20Essentials.md)      |
+| Traffic Analysis Essentials |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/23_Traffic%20Analysis%20Essentials.md)      |
 | 🔧Intro to Cyber Threat Intel |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/24_Intro%20to%20Cyber%20Threat%20Intel.md)  |
 | 🔧Threat Intelligence Tools|    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/25_Threat%20Intelligence%20Tools.md)        |
 | 🔧Phishing Analysis Fundamentals |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/26_Phishing%20Analysis%20Fundamentals.md)   |
