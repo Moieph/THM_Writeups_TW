@@ -50,10 +50,21 @@
 | Intro to Endpoint Security       |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)     | [Core_Windows_Processes](Tools.md#core_windows_processes)
 | Intro to Detection Engineering   |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/22_Intro%20to%20Detection%20Engineering.md) |
 | Traffic Analysis Essentials      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/23_Traffic%20Analysis%20Essentials.md)      |
-| Intro to Cyber Threat Intel    |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/24_Intro%20to%20Cyber%20Threat%20Intel.md)  |
+| Intro to Cyber Threat Intel      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/24_Intro%20to%20Cyber%20Threat%20Intel.md)  |
 | 🔧Threat Intelligence Tools      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/25_Threat%20Intelligence%20Tools.md)        |
 | 🔧Phishing Analysis Fundamentals |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/26_Phishing%20Analysis%20Fundamentals.md)   |
 
+**[Free Roadmap]** <br>Penetration Tester (0 / 7)：
+
+| Room                        | Field         | Difficulty | Writeup Link                                                      | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|-----------------------------|---------------|------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 🔧Pentesting Fundamentals   | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/27_Pentesting%20Fundamentals.md)            |
+| 🔧Red Team Fundamentals     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/28_Red%20Team%20Fundamentals.md)            |
+| 🔧Red Team Engagements      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/29_Red%20Team%20Engagements.md)             |
+| 🔧Active Reconnaissance     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/30_Active%20Reconnaissance.md)              |
+| 🔧Passive Reconnaissance    | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/31_Passive%20Reconnaissance.md)             | 
+| 🔧Nmap                      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/32_Nmap.md) |
+| 🔧 Metasploit: Introduction | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/33_Metasploit:%20Introduction.md)      
 
 Network Fundamentals (1 / 1）：
 
