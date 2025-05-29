@@ -8,12 +8,14 @@ THM路徑：https://tryhackme.com/room/introtoirandim
 
 >> #### Task 1：介紹
 
-IR ➜ Incident Response **事件回應**
+IR ➜ Incident Response **事件回應** <br>
 IM ➜ Incident Management **事件管理**
 
 >> #### Task 2：事件回應和管理
 
-🧭 事件從哪裡開始？——SOC 運作流程
+🧭 事件從哪裡開始？
+
+- SOC 運作流程
 
 | 項目                  | 說明                                                    |
 |-----------------------|-------------------------------------------------------|
@@ -255,7 +257,7 @@ Question 1：遊玩簡易判斷遊戲，獲得 Flag 🎉🎉
 
 2. 並非所有警示都是事件
    - **警示（Alert） ≠ 事件（Incident）** 
-   - 透過 **Triage（三分類）** 決定是否升級為事件，並依嚴重性分級（L1~L4）
+   - 透過 **Triage（分類法）** 決定是否升級為事件，並依嚴重性分級（L1~L4）
    
 
 3.  IR vs IM：兩者互補，缺一不可

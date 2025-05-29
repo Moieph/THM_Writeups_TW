@@ -8,6 +8,8 @@ THM路徑：https://tryhackme.com/room/cyberthreatintel
 
 >> #### Task 1：介紹
 
+Cyber Threat Intelligence（CTI）➜ **資安威脅情資** 
+
 >> #### Task 2：網路威脅情報
 
 >> #### Task 3：CTI 生命週期
