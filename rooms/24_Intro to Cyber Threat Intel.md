@@ -69,13 +69,13 @@ Cyber Threat Intelligence（CTI）➜ **網路威脅情資**
    
    CTI 代表什麼？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{PACKET_MASTER}`
+&nbsp;&nbsp;&nbsp;&nbsp; `Cyber Threat Intelligence`
 
 2. IP addresses, Hashes and other threat artefacts would be found under which Threat Intelligence classification?
    
    IP 位址、哈希和其他威脅工件將在哪個威脅情報分類下找到？
    
-&nbsp;&nbsp;&nbsp;&nbsp; `THM{PACKET_MASTER}`
+&nbsp;&nbsp;&nbsp;&nbsp; `Technical Intel`
 
 >> #### Task 3：CTI 生命週期
 
