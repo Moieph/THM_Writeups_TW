@@ -1,6 +1,6 @@
 # Intro to Cyber Threat Intel
 
-**🟦 網路威脅情報簡介**
+**🟦 Cyber Threat Intel 簡介**
 
 THM路徑：https://tryhackme.com/room/cyberthreatintel
 

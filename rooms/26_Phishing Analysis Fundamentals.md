@@ -1,6 +1,6 @@
 # Phishing Analysis Fundamentals
 
-**🟦 網路釣魚分析基礎知識**
+**🟦 Phishing Analysis 基礎知識**
 
 THM路徑：https://tryhackme.com/room/phishingemails1tryoe
 
