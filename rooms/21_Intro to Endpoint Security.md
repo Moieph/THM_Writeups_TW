@@ -108,7 +108,7 @@ Sysinternals 是一套微軟官方提供的 70+ 種 Windows 深度分析工具�
 
 >> #### Task 3：端點日誌記錄和監控
 
-🧠為什麼要端點日誌記錄（Endpoint Logging）？
+🧠為什麼要**端點日誌記錄**（Endpoint Logging）？
 
 即使能用工具查看當下系統狀態（如 Process Explorer），但：
 

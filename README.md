@@ -18,12 +18,12 @@
 
 **[Free Roadmap]** <br>Cyber Security Learning Roadmap (4 / 4)：
 
-| Room                       |                 Field                | Difficulty | Writeup Link                                                 | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|----------------------------|--------------------------------------|------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Careers in Cyber           |           🔧Fundamental    | Info       | [Walkthrough](./rooms/03_Careers%20in%20Cyber.md)            |
-| Security Principles        |   🧾 Governance | Easy       | [Walkthrough](./rooms/05_Security%20Principles.md)           |
-| Governance & Regulation    |   🧾 Governance | Easy       | [Walkthrough](./rooms/06_Governance%20&%20Regulation.md)     |
-| Cyber Kill Chain           |        🟦 Blue Team    | Easy       | [Walkthrough](./rooms/07_Cyber%20Kill%20Chain.md)            |
+| Room                    |                 Field                | Difficulty | Writeup Link                                                 | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|-------------------------|--------------------------------------|------------|--------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Careers in Cyber        |           🔧Fundamental    | Info       | [Walkthrough](./rooms/03_Careers%20in%20Cyber.md)            |
+| Security Principles     |   🧾 Governance | Easy       | [Walkthrough](./rooms/05_Security%20Principles.md)           |
+| Governance & Regulation |   🧾 Governance | Easy       | [Walkthrough](./rooms/06_Governance%20&%20Regulation.md)     |
+| Cyber Kill Chain        |        🟦 Blue Team    | Easy       | [Walkthrough](./rooms/07_Cyber%20Kill%20Chain.md)            |
 
 **[Free Roadmap]** <br>Fundamental skills (9 / 9)：
 
@@ -37,21 +37,21 @@
 | HTTP in Detail            |    🌐 Networking   | Easy       | [Walkthrough](./rooms/13_HTTP%20in%20Detail.md)              | [HTTP_Status_Codes](Tools.md#http_status_codes)                                                                                                                                                                                                                                                                                                                                                                                                                       
 | DNS in Detail             |    🌐 Networking   | Easy       | [Walkthrough](./rooms/14_DNS%20in%20Detail.md)               | [nslookup](Tools.md#nslookup) 
 | How Websites Work         |    🌐 Networking   | Easy       | [Walkthrough](./rooms/15_How%20Websites%20Work.md)           |  
-| Putting it all together |    🌐 Networking   | Easy       | [Walkthrough](./rooms/16_Putting%20it%20all%20together.md)   | 
+| Putting it all together   |    🌐 Networking   | Easy       | [Walkthrough](./rooms/16_Putting%20it%20all%20together.md)   | 
 
 **[Free Roadmap]** <br>Security Analyst (6 / 10)：
 
-| Room                          |                 Field                | Difficulty | Writeup Link                                                      | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-|-------------------------------|--------------------------------------|------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Junior Security Analyst Intro |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/17_Junior%20Security%20Analyst%20Intro.md)  |
-| DFIR: An Introduction |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/18_DFIR:%20An%20Introduction.md)            |
-| Intro to IR and IM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md)           |
-| Introduction to SIEM |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/20_Introduction%20to%20SIEM.md)             |
-| Intro to Endpoint Security |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)     | [Core_Windows_Processes](Tools.md#core_windows_processes)
-| Intro to Detection Engineering |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/22_Intro%20to%20Detection%20Engineering.md) |
-| Traffic Analysis Essentials |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/23_Traffic%20Analysis%20Essentials.md)      |
-| 🔧Intro to Cyber Threat Intel |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/24_Intro%20to%20Cyber%20Threat%20Intel.md)  |
-| 🔧Threat Intelligence Tools|    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/25_Threat%20Intelligence%20Tools.md)        |
+| Room                             |                 Field                | Difficulty | Writeup Link                                                      | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|----------------------------------|--------------------------------------|------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Junior Security Analyst Intro    |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/17_Junior%20Security%20Analyst%20Intro.md)  |
+| DFIR: An Introduction            |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/18_DFIR:%20An%20Introduction.md)            |
+| Intro to IR and IM               |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/19_Intro%20to%20IR%20and%20IM.md)           |
+| Introduction to SIEM             |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/20_Introduction%20to%20SIEM.md)             |
+| Intro to Endpoint Security       |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)     | [Core_Windows_Processes](Tools.md#core_windows_processes)
+| Intro to Detection Engineering   |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/22_Intro%20to%20Detection%20Engineering.md) |
+| Traffic Analysis Essentials      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/23_Traffic%20Analysis%20Essentials.md)      |
+| 🔧Intro to Cyber Threat Intel    |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/24_Intro%20to%20Cyber%20Threat%20Intel.md)  |
+| 🔧Threat Intelligence Tools      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/25_Threat%20Intelligence%20Tools.md)        |
 | 🔧Phishing Analysis Fundamentals |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/26_Phishing%20Analysis%20Fundamentals.md)   |
 
 
