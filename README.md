@@ -49,7 +49,7 @@
 | Introduction to SIEM             |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/20_Introduction%20to%20SIEM.md)             |
 | Intro to Endpoint Security       |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/21_Intro%20to%20Endpoint%20Security.md)     | [Core_Windows_Processes](Tools.md#core_windows_processes)
 | Intro to Detection Engineering   |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/22_Intro%20to%20Detection%20Engineering.md) |
-| 🔧🔧Traffic Analysis Essentials      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/23_Traffic%20Analysis%20Essentials.md)      |
+| Traffic Analysis Essentials      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/23_Traffic%20Analysis%20Essentials.md)      |
 | 🔧Intro to Cyber Threat Intel    |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/24_Intro%20to%20Cyber%20Threat%20Intel.md)  |
 | 🔧Threat Intelligence Tools      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/25_Threat%20Intelligence%20Tools.md)        |
 | 🔧Phishing Analysis Fundamentals |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/26_Phishing%20Analysis%20Fundamentals.md)   |
