@@ -193,6 +193,29 @@
 <details>
 <summary>參數說明</summary>
 
+| 參數                   | 用途                      | 範例                                 |
+| -------------------- | ----------------------- | ---------------------------------- |
+| `-type=` 或 `-query=` | 指定查詢類型（如 A, MX, TXT）    | `nslookup -type=mx gmail.com`      |
+| `-debug`             | 顯示更詳細的 DNS 封包資料（進階分析）   | `nslookup -debug example.com`      |
+| `-port=`             | 改用自定義 DNS 連接埠（預設是 53）   | `nslookup -port=5353 example.com`  |
+| `-timeout=`          | 設定等待時間（秒）               | `nslookup -timeout=10 example.com` |
+| `-retry=`            | 重試次數（預設是 4）             | `nslookup -retry=1 example.com`    |
+| `-class=`            | DNS 類別，通常用不到（預設是 IN）    | `nslookup -class=IN example.com`   |
+| `-vc`                | 使用 TCP 查詢（預設是 UDP）      | `nslookup -vc example.com`         |
+| `-norecurse`         | 不讓 DNS 伺服器遞迴查詢（測試權威伺服器） | `nslookup -norecurse example.com`  |
+
+
+</details>
+
+---
+
+### `sha256sum`
+
+> 產生 SHA-256 雜湊值（hash）， 可以拿來驗證檔案完整性、比對惡意樣本、與情資平台交叉分析。
+
+
+
+
 ## ✅ 常見用法範例
 
 | 查詢內容        | 指令範例                           | 說明                           |

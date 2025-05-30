@@ -89,7 +89,7 @@ Question 1 - 4：根據題目截圖作答
 ##### 🔐 答題：
 1. What was TryHackMe's Cisco Umbrella Rank based on the screenshot?
    
-   根據屏幕截圖，TryHackMe 的 Cisco Umbrella Rank 是多少？
+   根據螢幕截圖，TryHackMe 的 Cisco Umbrella Rank 是多少？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `345612`
 
@@ -444,8 +444,223 @@ Question 5：在郵件顯示器的 `More` 中，找到 `View source`，找到該
 
 >> #### Task 6：Cisco Talos 情報
 
+**Cisco Talos Intelligence Group**（簡稱：Talos）
+
+Cisco 成立的資安專業團隊，專門負責威脅情報、惡意程式分析、漏洞研究等工作。
+
+收集全球設備的資料轉化為 **可行動的威脅情報（Actionable Threat Intel）**，提供給企業與資安社群使用。
+
+---
+
+👥 Talos 六大團隊職能
+
+| 團隊名稱                               | 主要職能說明                                |
+| ---------------------------------- | ------------------------------------- |
+| Threat Intelligence & Interdiction | 將 IOC 提升為上下文豐富的情報（Context-rich Intel） |
+| Detection Research                 | 進行惡意程式與漏洞分析，產生規則與檢測內容（如 Snort 規則）     |
+| Engineering & Development          | 維護檢測引擎，確保可偵測新興威脅                      |
+| Vulnerability Research & Discovery | 與廠商合作，負責漏洞發掘、通報、建立流程                  |
+| Communities                        | 維護 Talos 團隊形象與開源解決方案                  |
+| Global Outreach                    | 對外發布情資與報告，提供教育與警示                     |
+
+---
+
+🖥️ Talos Intelligence Platform **功能模組**
+
+
+1️⃣ **Reputation Center**（聲譽查詢中心）
+
+- 查詢 IP / 檔案（SHA256）/ 網域名的聲譽狀態（合法 / Spam / Malware）
+- 世界地圖顯示即時 Email 威脅流量
+- 可深入查看每個 IP 的：
+    - Hostname
+    - 今日流量（Volume）
+    - 攻擊類型（Spam、Malware 等）
+  
+<p align="left">
+  <img src="/rooms/images/25_33.gif" width="600">
+</p>
+
+---
+
+2️⃣ **Vulnerability Information**（漏洞資訊）
+
+- 提供完整漏洞報告（含 CVE 編號與 CVSS 分數）
+- 有：
+    - Cisco 自家設備漏洞
+    - 微軟等第三方廠商漏洞資訊
+    - 搭配 Snort 規則，方便防禦部署
+- 點擊後可查看：
+    - 漏洞技術細節
+    - 發現與公開時間線
+    - 影響系統與修補建議
+    
+<p align="left">
+  <img src="/rooms/images/25_32.gif" width="600">
+</p>
+
+
+---    
+    
+3️⃣ **Email & Spam Data**
+
+- 查看垃圾郵件與惡意信件的全球流量資料
+
+<p align="left">
+  <img src="/rooms/images/25_34.gif" width="600">
+</p>
+
+---
+
+🛠️ 實務應用建議（SOC / IR 分析師視角）
+
+| 任務場景           | 建議操作                                               |
+| -------------- | -------------------------------------------------- |
+| 懷疑某 IP 有惡意行為   | 前往 Reputation Center 搜尋 IP，檢視其國家、聲譽分數與歷史記錄         |
+| 對某惡意附件進行驗證     | 搜尋該檔案的 SHA256 雜湊值，查看是否已被 Talos 標記為惡意               |
+| 防禦新興威脅（如 0day） | 查看 Vulnerability 頁面，閱讀最新 CVE 資訊，並部署對應 Snort/IDS 規則 |
+| 情資整合報告撰寫       | 使用 Talos 的公開報告內容，補充內部情資，提升報告的可讀性與可信度               |
+
+---
+
+Question 1：透過 **Talos Intelligence** 找出上一個 Task 6 中 `204.93.183.11` 的 Domain（網域）名稱
+
+進入 https://talosintelligence.com/reputation_center 查詢 `204.93.183.11`
+
+<p align="left">
+  <img src="/rooms/images/25_35.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_36.png" width="600">
+</p>
+
+Question 2：找出 IP 地址的客戶名稱 （**Talos Intelligence** 內無法使用 whois 服務）
+
+<p align="left">
+  <img src="/rooms/images/25_37.png" width="600">
+</p>
+
+進入 https://who.is/ 查詢 `204.93.183.11`，找到其客戶名稱
+
+<p align="left">
+  <img src="/rooms/images/25_38.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_39.png" width="600">
+</p>
+
+
 >> #### Task 7：場景 1
+
+Question 1：打開 Emails 資料夾，選取 `Email2.eml`，右鍵以 Thunderbird Mail 開啟
+
+<p align="left">
+  <img src="/rooms/images/25_23.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_40.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_41.png" width="600">
+</p>
+
+
+Question 2：從終端機產生信件（.eml）檔案的 SHA-256 雜湊值
+
+📌 注意：對附件產生 SHA-256 雜湊值，查詢不到答案
+
+```
+ls
+cd Desktop
+ls
+cd Emails
+ls
+sha256sum email2.eml
+```
+<p align="left">
+  <img src="/rooms/images/25_42.png" width="600">
+</p>
+
+到 Virustotal 網站 https://www.virustotal.com/gui/home/upload 查詢此 hash 值，找到以 `H` 開頭的檢測別名
+
+<p align="left">
+  <img src="/rooms/images/25_43.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_44.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. According to Email2.eml, what is the recipient's email address?
+   
+   根據 Email2.eml，收件者的電子郵件地址是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `chris.lyons@supercarcenterdetroit.com`
+
+2. On VirusTotal, the attached file can also be identified by a Detection Alias, which starts with an H.
+   
+   在 VirusTotal 上，附件還可以通過以 H 開頭的檢測別名來標識 。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `HIDDENEXT/Worm.Gen`
 
 >> #### Task 8：場景 2
 
->> #### Task 9：結論
+Question 1：打開 Emails 資料夾，選取 `Email3.eml`，右鍵以 Thunderbird Mail 開啟
+
+<p align="left">
+  <img src="/rooms/images/25_23.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_45.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_46.png" width="600">
+</p>
+
+Question 2：從終端機產生信件（.eml）檔案的 SHA-256 雜湊值
+
+📌 注意：對附件產生 SHA-256 雜湊值，查詢不到答案
+
+```
+ls
+cd Desktop
+ls
+cd Emails
+ls
+sha256sum email3.eml
+```
+
+<p align="left">
+  <img src="/rooms/images/25_47.png" width="600">
+</p>
+
+到 Virustotal 網站 https://www.virustotal.com/gui/home/upload 查詢此 hash 值，找到其相關聯惡意軟體系列
+
+<p align="left">
+  <img src="/rooms/images/25_48.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_49.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What is the name of the attachment on Email3.eml?
+   
+   Email3.eml 上的附件名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Sales_Receipt 5606.xls`
+
+2. What malware family is associated with the attachment on Email3.eml?
+   
+   哪個惡意軟體系列與 Email3.eml 上的 附件相關聯？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Dridex`
+
