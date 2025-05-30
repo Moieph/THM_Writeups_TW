@@ -122,14 +122,14 @@ THM路徑：https://tryhackme.com/room/phishingemails1tryoe
 
 📤 Email 發送流程（簡化版）
 
-1️⃣ Alexa 用 email client 撰寫信件並按下「傳送」<br>
-2️⃣ SMTP 伺服器查詢 johndoe.com 的 DNS 記錄<br>
-3️⃣ DNS 回傳 johndoe.com 的 mail server 資訊<br>
-4️⃣ SMTP 發送信件，橫跨多個中繼站<br>
-5️⃣ 抵達收件方的 SMTP 伺服器<br>
-6️⃣ 郵件進入 POP3/IMAP server<br>
-7️⃣ Billy 啟動 email client，向伺服器查詢是否有新郵件<br>
-8️⃣ 郵件透過 IMAP 複製或 POP3 下載到 Billy 的裝置
+1️⃣ Alexa 用 email client 撰寫信件並按下「傳送」。\<br>
+2️⃣ SMTP 伺服器查詢 johndoe.com 的 DNS 記錄。<br>
+3️⃣ DNS 回傳 johndoe.com 的 mail server 資訊。<br>
+4️⃣ SMTP 發送信件，橫跨多個中繼站。<br>
+5️⃣ 抵達收件方的 SMTP 伺服器。<br>
+6️⃣ 郵件進入 POP3/IMAP server。<br>
+7️⃣ Billy 啟動 email client，向伺服器查詢是否有新郵件。<br>
+8️⃣ 郵件透過 IMAP 複製或 POP3 下載到 Billy 的裝置。
 
 <p align="left">
   <img src="/rooms/images/26_01.png" width="600">
