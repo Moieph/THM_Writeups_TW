@@ -299,7 +299,150 @@ Question 4：進入 Feodo Tracker 之網站資料庫，搜尋題目給予之 IP�
 
 >> #### Task 5：網路釣魚工具
 
->> #### Task 6：思科 Talos 情報
+🧠 Email Phishing 總覽
+
+**Email Phishing（電子郵件釣魚）** 是一種社交工程攻擊，攻擊者偽裝成可信對象，誘導收件人點擊連結、開啟附件或洩漏敏感資訊。
+
+---
+
+🎯 攻擊目的：
+- 植入惡意程式（Malware）
+- 收集帳號密碼（Credential Harvesting）
+- 金融詐騙
+- 資料外洩或勒索攻擊
+
+---
+
+🛠️ PhishTool 工具總覽
+
+| 功能區塊                       | 說明                                |
+| -------------------------- | --------------------------------- |
+| **分析郵件**                   | 解析郵件的標頭、連結、附件、內容，辨識攻擊意圖與行為        |
+| **Heuristic Intelligence** | 整合 OSINT 資源，自動提供威脅來源與可能的 TTP 解析   |
+| **分類與報告**                  | 依據分析結果標記為惡意/可疑/安全，產出可供調查與訓練用的鑑識報告 |
+
+---
+
+🧰 社群版功能（免費）：
+- 上傳 .eml 郵件檔案進行分析
+- 顯示 Headers、Security、Attachments、Message URLs
+- 產出標記與解決報告（Resolution）
+
+🏢 企業版額外功能：
+- 整合 Gmail / Microsoft 365
+- 管理用戶回報信件
+- 回饋調查結果給使用者
+
+
+ PhishingTool 查看 Email 的 Plaintext 和 Source 詳細資訊：
+<p align="left">
+  <img src="/rooms/images/25_31.gif" width="600">
+</p>
+
+---
+
+🔎 Email 分析重點欄位
+
+| 分析區塊                   | 重點檢查項目                                       |
+| ---------------------- | -------------------------------------------- |
+| **Headers**            | 檢查來源信箱、真實 IP、時間戳記，偵測冒用寄件者                    |
+| **Received**           | SMTP 傳遞路徑，追蹤信件是否經過異常跳板                       |
+| **X-Headers**          | 收件伺服器加上的額外資訊（如安全過濾記錄、Spam Score）             |
+| **Security**           | 檢查 SPF、DKIM、DMARC 是否通過驗證                     |
+| **Attachments**        | 列出所有檔案，確認是否有惡意可執行檔或帶毒文件                      |
+| **Message URLs**       | 所有信中連結，搭配 URLScan、VirusTotal 驗證              |
+| **Plaintext / Source** | 查看郵件原始碼，檢查是否有隱藏 script 或 base64 資料段          |
+| **Resolve**            | 設定結案判斷（Phishing、Malware、Safe 等），供內部記錄與報告生成使用 |
+
+---
+
+💡 實務應用建議
+
+當你接到 **.eml 信件樣本**：
+
+1. 先用 **Thunderbird** 開啟查看基本資訊
+2. 丟進 **PhishTool** 進行進階分析與解析
+3. 補充查詢連結 / 雜湊值：
+   - urlscan.io
+   - VirusTotal
+   - Abuse.ch
+
+---
+
+Question 1 - 3：打開 Emails 資料夾，選取 `Email1.eml`，右鍵以 Thunderbird Mail 開啟
+
+<p align="left">
+  <img src="/rooms/images/25_23.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_24.png" width="600">
+</p>
+    
+<p align="left">
+  <img src="/rooms/images/25_25.png" width="600">
+</p>
+
+Question 4：在郵件顯示器的 `More` 中，找到 `View source`，查看原始 IP 地址為何？
+
+<p align="left">
+  <img src="/rooms/images/25_26.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_27.png" width="600">
+</p>
+
+`204.93.183.11` 可能為是原始 IP 位址。它是第一個提到的非內部 IP，表示電子郵件的來源或首次處理的伺服器。
+
+從題目提示中，開啟 `https://gchq.github.io/CyberChef/` ，對該 IP 進行 Defang 處理，得到原始 IP 地址
+
+<p align="left">
+  <img src="/rooms/images/25_28.png" width="600">
+</p>
+
+<p align="left">
+  <img src="/rooms/images/25_29.png" width="600">
+</p>
+
+Question 5：在郵件顯示器的 `More` 中，找到 `View source`，找到該郵件經過多少躍點到達收件者
+
+<p align="left">
+  <img src="/rooms/images/25_30.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. What social media platform is the attacker trying to pose as in the email?
+   
+   攻擊者試圖在電子郵件中偽裝成哪個社交媒體平臺？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `LinkedIn`
+
+2. What is the senders email address?
+   
+   寄件者的電子郵件地址是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `darkabutla@sc500.whpservers.com`
+
+3. What is the recipient's email address?
+   
+   收件者的電子郵件地址是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `cabbagecare@hotsmail.com`
+
+4. What is the Originating IP address? Defang the IP address.
+   
+   什麼是原始 IP 位址？Defang 該 IP 位址。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `204[.]93[.]183[.]11`
+
+5. How many hops did the email go through to get to the recipient?
+   
+   電子郵件經過多少個躍點才到達收件者？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `4`
+
+>> #### Task 6：Cisco Talos 情報
 
 >> #### Task 7：場景 1
 
