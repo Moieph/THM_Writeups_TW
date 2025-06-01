@@ -116,7 +116,7 @@ THM路徑：https://tryhackme.com/room/redteamengagements
 
 >> #### Task 3：交戰規則
 
-📄 **紅隊演練規則文件**（Rules of Engagement，RoE）
+📄 **紅隊演練規則**（Rules of Engagement，RoE）
 
 - RoE 是一份 **具有法律效力的正式文件**，明確記錄紅隊與客戶雙方的行動範圍與權責。
 - 通常為第一份進入規劃階段的正式文件。
@@ -192,7 +192,7 @@ THM路徑：https://tryhackme.com/room/redteamengagements
 
 ---
 
-📊 紅隊活動的 4 大技術計畫文件（Campaign Plan）
+📊 紅隊活動的 4 大技術計畫（Campaign Plan）
 
 | 計畫類型                       | 說明                                | 常見內容                      |
 |----------------------------| --------------------------------- | ------------------------- |
@@ -217,8 +217,93 @@ THM路徑：https://tryhackme.com/room/redteamengagements
 | **CONOPS（作戰概念）**        | 用非技術性的語言說明：紅隊將如何實現客戶目標、攻擊目標。適合讓業主閱讀理解。 |
 | **Resource Plan（資源規劃）** | 時程、紅隊所需資源（人力、設備、雲端環境等）。這些資訊對任務成功至關重要。  |
 
+---
+
+📄 **Operations Plan**（作戰計畫）
+
+| 元件                               | 說明                           |
+|----------------------------------| ---------------------------- |
+| **Personnel（人員配置）**              | 任務所需的成員、職位與技能。               |
+| **Stopping Conditions（中止條件）**    | 遇到哪些情況要中止？如：觸發防禦、影響業務等。      |
+| **RoE（Optional）**                | 可以複製或簡化 RoE 的關鍵條款，用來提醒技術執行者。 |
+| **Technical Requirements（技術需求）** | 為了成功完成任務，紅隊需具備的知識、技能或先備資訊。   |
+
+---
+
+📄 **Mission Plan**（任務計畫）
+
+| 元件                         | 說明                                   |
+| -------------------------- | ------------------------------------ |
+| **Command Playbooks（Optional）**  | 寫出具體的指令、工具、執行時機與原因。適用於大隊伍、有新手或複雜行動時。 |
+| **Execution Times（執行時程）**  | 不只起始時間，也可能規範某個工具何時執行、持續多久。           |
+| **Responsibilities（任務分工）** | 誰負責哪段流程與任務，避免重疊與疏漏。                  |
+
+---
+
+📄 **Remediation Plan**（補救計畫，Optional）
+
+| 元件                                   | 說明                               |
+| ------------------------------------ | -------------------------------- |
+| **Report（報告）**                       | 總結活動成果、發現的問題與漏洞報告。               |
+| **Remediation / Consultation（補救建議）** | 提出修補建議，或與客戶召開修復協調會議。可併入報告中或另行進行。 |
+
 
 >> #### Task 6：作戰構想
+
+✅ CONOPS （作戰概念）的核心精神
+
+&nbsp;&nbsp;&nbsp;&nbsp;_「寫給不懂技術的客戶，但又不能太空泛。」_ <br>
+
+- 給 **客戶 / 業主** 一個清晰、無需技術背景就能理解的計畫概要
+- 給 **紅隊成員** 一個統整概覽，作為後續 Campaign 計畫的基礎文件
+
+---
+
+📄 CONOPS 應包含的關鍵要素
+
+| 項目                                       | 說明                                               |
+| ---------------------------------------- | ------------------------------------------------ |
+| **Client Name（客戶名稱）**                    | 公司或組織名稱                                          |
+| **Service Provider（紅隊執行單位）**             | 紅隊服務提供者                                          |
+| **Timeframe（測試時程）**                      | 例如：2025/06/01 \~ 2025/06/14                      |
+| **General Objectives / Phases（總目標與階段）**  | 例如：模擬外部駭客滲透、內部橫向移動、無檔案持久化等                       |
+| **Other Training Objectives（附加訓練目標）**    | 如模擬資料外洩 (exfiltration)、側錄指令等                     |
+| **High-Level Tools/Techniques（高階工具與技巧）** | 不需太細，但可以列：如使用 Cobalt Strike、OSINT、Spear Phishing |
+| **Threat Group to Emulate（模擬對象的威脅組織）**   | 如：APT38、Lazarus Group（如果適用）                      |
+
+範例：
+
+````
+# CONOPS - Concept of Operations
+
+## Client Name
+ACME Financial Corporation
+
+## Service Provider
+FH Cyber Red Team Unit
+
+## Timeframe
+June 1st, 2025 – June 14th, 2025
+
+## General Objectives / Phases
+- Assess perimeter defenses through external adversary emulation
+- Gain internal access and simulate lateral movement
+- Assess incident response readiness of Blue Team
+
+## Other Training Objectives
+- Simulate data exfiltration without triggering detection
+- Test endpoint resilience against known attack techniques
+
+## High-Level Tools / Techniques
+- Open-source reconnaissance (OSINT)
+- Spear phishing (custom payloads)
+- Cobalt Strike for command and control
+- Mimikatz for credential harvesting
+
+## Threat Group to Emulate
+APT38 – a financially motivated North Korean state-sponsored group known for targeting banking infrastructure
+````
+
 
 >> #### Task 7：資源計劃
 
