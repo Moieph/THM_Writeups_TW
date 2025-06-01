@@ -152,7 +152,7 @@ THM路徑：https://tryhackme.com/room/redteamengagements
 
 ---
 
----
+
 閱讀題旨下載 ROE 文件，閱讀並回答題目
 
 <p align="left">
@@ -405,6 +405,37 @@ APT38 – a financially motivated North Korean state-sponsored group known for t
 - Pre-approved C2 IP whitelist
 - Internal test accounts (provided by client)
 ````
+
+---
+
+依題旨點擊 `View site`
+
+<p align="left">
+  <img src="/rooms/images/29_04.png" width="600">
+</p>
+
+
+---
+
+##### 🔐 答題：
+2. When will the engagement end? (MM/DD/YYYY)
+   
+   演練何時結束？（MM/DD/YYYY）  
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `11/14/2021`
+
+3. What is the budget the red team has for AWS cloud cost?
+   
+   紅隊的 AWS 雲成本預算是多少？   
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `$1000`
+
+4. Are there any miscellaneous requirements for the engagement? (Y/N)
+   
+   參與是否有任何其他要求？（是/否）  
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `N`
+
 
 >> #### Task 8：作戰計畫
 
