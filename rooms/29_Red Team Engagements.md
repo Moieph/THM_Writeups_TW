@@ -218,11 +218,11 @@ THM路徑：https://tryhackme.com/room/redteamengagements
 | **Resource Plan（資源規劃）** | 時程、紅隊所需資源（人力、設備、雲端環境等）。這些資訊對任務成功至關重要。  |
 
 
->> #### Task 6：運營概念
+>> #### Task 6：作戰構想
 
 >> #### Task 7：資源計劃
 
->> #### Task 8：運營計劃
+>> #### Task 8：作戰計畫
 
 >> #### Task 9：任務計劃
 
