@@ -304,8 +304,107 @@ June 1st, 2025 – June 14th, 2025
 APT38 – a financially motivated North Korean state-sponsored group known for targeting banking infrastructure
 ````
 
+---
+
+閱讀題旨並依序作答
+
+<p align="left">
+  <img src="/rooms/images/29_03.png" width="600">
+</p>
+
+---
+
+##### 🔐 答題：
+3. How long will the engagement last?
+   
+   參與將持續多長時間？   
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `1 Month`
+
+4. How long is the red cell expected to maintain persistence?
+   
+   紅細胞預計能維持多長時間？    
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `3 Weeks`
+
+5. What is the primary tool used within the engagement?
+   
+   參與中使用的主要工具是什麼？   
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Cobalt Strike`
 
 >> #### Task 7：資源計劃
+
+✅ Resource Plan 的核心精神
+
+&nbsp;&nbsp;&nbsp;&nbsp;_直接、明確、可執行，不要像 CONOPS 一樣敘述，要用清單方式列出。_ <br>
+
+---
+
+📄 Resource Plan 範本架構
+
+````
+# Resource Plan
+
+## Header
+- Engagement Resource Plan – ACME Financial Corporation
+- Drafted by: Red Team Lead – FH Cyber
+- Date: 2025/05/20
+
+## Customer
+- ACME Financial Corporation
+
+---
+
+## Engagement Timeline
+
+- **Engagement Period**: 2025/06/01 ~ 2025/06/14
+- **Reconnaissance Phase**: 2025/06/01 ~ 2025/06/02
+- **Initial Compromise**: 2025/06/03 ~ 2025/06/06
+- **Post-Exploitation & Persistence**: 2025/06/07 ~ 2025/06/12
+- **Reporting & Remediation**: 2025/06/13 ~ 2025/06/14
+
+---
+
+## Knowledge Required (Optional)
+
+### Reconnaissance
+- OSINT collection (social media, domain intel)
+- Passive subdomain enumeration (Amass, Sublist3r)
+
+### Initial Compromise
+- Spear phishing techniques
+- Payload generation (Cobalt Strike, msfvenom)
+
+### Post-Exploitation
+- Credential dumping (Mimikatz)
+- Lateral movement (WMI, PSExec)
+- Persistence techniques (Registry, Scheduled Tasks)
+
+---
+
+## Resource Requirements
+
+### Personnel
+- 1x Red Team Lead
+- 1x Operator (Phishing & Payload)
+- 1x Operator (Lateral Movement & Persistence)
+- 1x Report Writer
+
+### Hardware
+- 2x Kali Linux laptops
+- 1x VPN Gateway Server
+- 1x Dedicated C2 Server
+
+### Cloud
+- 1x AWS EC2 instance (for redirector)
+- 1x DigitalOcean droplet (for phishing site hosting)
+
+### Miscellaneous
+- Custom phishing domain
+- Pre-approved C2 IP whitelist
+- Internal test accounts (provided by client)
+````
 
 >> #### Task 8：作戰計畫
 
