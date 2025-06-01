@@ -253,7 +253,94 @@ Penetration Test（滲透測試）：
 | Active Directory Attack Cycle | 專注於針對 AD（目錄服務）系統的攻擊流程。            |
 | MITRE ATT\&CK Framework    | 攻擊技術最細節的矩陣型資料庫，常被用於 **TTP 對應分析**。 |
 
-  
+---
+
+🧨 **Lockheed Martin Cyber Kill Chain** 模型（7 大階段）
+
+| 階段                                 | 目的         | 實例                       |
+| ---------------------------------- | ---------- | ------------------------ |
+| 🔎 **Reconnaissance**（偵察）          | 取得目標相關資訊   | OSINT、收集 Email、子網、域名     |
+| 🧪 **Weaponization**（武器化）          | 將漏洞與惡意載荷結合 | Word 巨集 + 後門程式           |
+| ✉️ **Delivery**（投遞）                | 傳送武器化載荷至目標 | Email 附件、惡意網站、USB        |
+| 💥 **Exploitation**（利用漏洞）          | 利用漏洞執行程式碼  | MS17-010、ZeroLogon       |
+| 🛠 **Installation**（安裝）            | 安裝惡意程式或工具  | Mimikatz、Rubeus、C2 Agent |
+| 📡 **Command & Control**（遠端控制）     | 與受害機器建立通訊  | Cobalt Strike、Empire     |
+| 🎯 **Actions on Objectives**（實現目標） | 執行最終目的     | 加密、資料竊取、內網橫移             |
+
+<p align="left">
+  <img src="/rooms/images/28_05.png" width="600">
+</p>
+
+---
+🔁 紅隊如何應用 Kill Chain？
+
+- Engagement 前
+  - 建立模擬場景（例如釣魚 → 內網滲透 → 竊取資料）
+- Engagement 中
+  - 對照各步驟，評估是否成功執行、是否被藍隊偵測
+- Engagement 後
+  - 交叉比對藍隊日誌與行動，修正策略、強化防禦
+
+---
+
+##### 🔐 答題：
+1. If an adversary deployed Mimikatz on a target machine, where would they be placed in the Lockheed Martin cyber kill chain?
+   
+   如果對手在目標機器上部署了 Mimikatz，那麼它們將被放置在 Lockheed Martin 網路殺傷鏈中的哪個位置？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Installation`
+
+2. What technique's purpose is to exploit the target's system to execute code?
+   
+   什麼技術的目的是利用目標的系統來執行代碼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Exploitation`
+
 >> #### Task 6：紅隊參與概述
 
->> #### Task 7：結論
+Question 1：依題旨點擊 `View site`
+
+紅隊演練介紹
+
+<p align="left">
+  <img src="/rooms/images/28_06.png" width="600">
+</p>
+
+情資收集階段
+
+<p align="left">
+  <img src="/rooms/images/28_07.png" width="600">
+</p>
+
+紅隊進行 Phishing 攻擊
+
+<p align="left">
+  <img src="/rooms/images/28_08.png" width="600">
+</p>
+
+紅隊成功利用 BOB-PC 上的漏洞進行攻擊
+
+<p align="left">
+  <img src="/rooms/images/28_09.png" width="600">
+</p>
+
+紅隊試圖對受感染裝置進行橫向移動
+
+<p align="left">
+  <img src="/rooms/images/28_10.png" width="600">
+</p>
+
+演習結束，獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/28_11.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. Click the "View Site" button and follow the example engagement to get the flag
+   
+   按兩下 「View Site」 按鈕並按照示例 engagement 獲取標記
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{RED_TEAM_ROCKS}`
+
+

@@ -8,6 +8,8 @@ THM路徑：https://tryhackme.com/room/redteamengagements
 
 >> #### Task 1：介紹
 
+📌 常見的紅隊演練類型（Types of Engagements）
+
 >> #### Task 2：定義範圍和目標
 
 >> #### Task 3：交戰規則

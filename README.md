@@ -7,7 +7,7 @@
 ---
 [![](https://tryhackme-badges.s3.amazonaws.com/Moieph.png?cb=1)](https://tryhackme.com/p/Moieph)
 
-## 已完成房間數：27
+## 已完成房間數：28
 
 **[Free Roadmap]** <br>Introduction to Cyber Security (2 / 2)：
 
@@ -54,12 +54,12 @@
 | Threat Intelligence Tools      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/25_Threat%20Intelligence%20Tools.md)        | [sha256sum](Tools.md#sha256sum)
 | Phishing Analysis Fundamentals |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/26_Phishing%20Analysis%20Fundamentals.md)   |
 
-**[Free Roadmap]** <br>Penetration Tester (1 / 7)：
+**[Free Roadmap]** <br>Penetration Tester (2 / 7)：
 
 | Room                        | Field         | Difficulty | Writeup Link                                                      | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |-----------------------------|---------------|------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Pentesting Fundamentals   | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/27_Pentesting%20Fundamentals.md)            |
-| 🔧Red Team Fundamentals     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/28_Red%20Team%20Fundamentals.md)            |
+| Red Team Fundamentals     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/28_Red%20Team%20Fundamentals.md)            |
 | 🔧Red Team Engagements      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/29_Red%20Team%20Engagements.md)             |
 | 🔧Active Reconnaissance     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/30_Active%20Reconnaissance.md)              |
 | 🔧Passive Reconnaissance    | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/31_Passive%20Reconnaissance.md)             | 
