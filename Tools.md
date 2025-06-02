@@ -23,6 +23,36 @@
 
 ---
 
+### `traceroute`
+
+>網路診斷工具，追蹤資料封包從你電腦到目標主機所經過的路由節點（預設情況下走 UDP）
+
+>Linux內建指令
+
+`traceroute IP address or website URL`
+
+
+
+<details>
+<summary>參數說明</summary>
+
+`ping -c 10 MACHINE_IP`
+
+| 參數                            | 解釋                  |
+|:------------------------------|:--------------------|
+| `-c` (Linux) / `-n` (Windows) | 自訂封包數量              |
+| `-s` (Linux) / `-l` (Windows) | 自訂封包大小（以 bytes 為單位） |
+| `-m <max_ttl>` | 設定最大跳數（預設 30）              |
+| `-q <n>`       | 每跳送幾個封包（預設 3）              |
+| `-w <sec>`     | 每次等多久再 timeout（預設 5 秒）     |
+| `-I`           | 改用 ICMP echo（像 ping）而非 UDP |
+| `-T`           | 改用 TCP SYN（有時可以繞過封包過濾）     |
+
+
+</details>
+
+---
+
 ### `nc`
 >_netcat_：建立 TCP/UDP 連線、傳輸資料、反向 shell
 
@@ -178,7 +208,7 @@
 ---
 ### `chown`
 
-`chown [新擁有者] 檔案或資料夾`
+`chown [新擁有者] 檔案或資料夾`<br>
 `chown [新擁有者]:[新群組] 檔案或資料夾`
 
 <details>

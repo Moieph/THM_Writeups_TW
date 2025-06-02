@@ -229,6 +229,11 @@ Question 4：啟動虛擬機，在終端機輸入` ping -c 10 MACHINE_IP`，觀�
 - 測量每一跳所花的時間（毫秒）
 - 偵測網路延遲或路由問題
 
+
+<p align="left">
+  <img src="/rooms/images/30_04.png" width="600">
+</p>
+
 ---
 
 ⚙️ `traceroute` 的原理
@@ -236,22 +241,94 @@ Question 4：啟動虛擬機，在終端機輸入` ping -c 10 MACHINE_IP`，觀�
 1. `traceroute` 並沒有辦法直接知道封包走哪條路徑，它是透過 **「欺騙」路由器** 來取得資訊。
 2. 主要靠的是 IP 封包裡的 `TTL`（Time To Live）欄位。
 
-🧩 TTL 是什麼？
+🧩 **TTL 是什麼？**
 
 - TTL 並不是真正的時間，而是封包最多可以通過幾個路由器
 - 每經過一個路由器，TTL 減一
 - 當 TTL = 0，路由器就會把封包丟棄，並回傳一個 ICMP 錯誤訊息
 
-🚦 traceroute 怎麼做的？
+🚦 **traceroute 怎麼做的？**
 - 第一次送一個 TTL = 1 的封包 → 第一個路由器會回 ICMP 錯誤。
 - 第二次送 TTL = 2 的封包 → 第二個路由器會回 ICMP 錯誤。
 - 以此類推，逐步逼出每一跳的 IP 和延遲時間。
 
 ---
 
+🖥️ `traceroute` 實例分析
+
+✨ Traceroute A（14 hops）
+- 最終目標是 tryhackme.com，IP：172.67.69.208
+- 封包通過了 14 個跳點（路由器）
+- 有些跳點（例如第3行）只收到一個回應，其他的丟包（* 表示沒回來）
+
+<p align="left">
+  <img src="/rooms/images/30_06.png" width="600">
+</p>
 
 
+🔀 Traceroute B（26 hops）
+- 同樣是目標網站，但這次解析到另一個 IP：104.26.11.229
+- 封包通過了 26 個跳點，比第一次更多
+- 代表封包經過不同的網路路線，或不同的 CDN 節點
 
+<p align="left">
+  <img src="/rooms/images/30_07.png" width="600">
+</p>
+
+
+---
+
+📌 重要觀察與實務應用
+
+1. **路由會變動**：就算是同一個目標、同一張網路，重複 traceroute 結果也可能不同。
+2. **部分跳點不回應**：有些路由器會封鎖 ICMP 回應，導致你看到 *。
+3. **可觀察範圍**：在滲透測試中，可以根據合法授權範圍（scope）去進一步觀察某些節點。
+
+**實戰用途**：
+- 偵錯網路問題。
+- 分析從攻擊機（如 AttackBox）到靶機的流量路徑。
+- 確認目標網站是否使用 CDN、WAF 等。
+
+---
+
+Question 1：檢視 Traceroute A 
+
+<p align="left">
+  <img src="/rooms/images/30_08.png" width="600">
+</p>
+
+Question 2、3：檢視 Traceroute B 
+
+<p align="left">
+  <img src="/rooms/images/30_09.png" width="600">
+</p>
+
+Question 4：啟動虛擬機，輸入
+
+##### 🔐 答題：
+1. In Traceroute A, what is the IP address of the last router/hop before reaching tryhackme.com?
+   
+   在 Traceroute A 中，到達 tryhackme.com 之前最後一個路由器/躍點的 IP 位址是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `172.67.69.208`
+
+2. In Traceroute B, what is the IP address of the last router/hop before reaching tryhackme.com?
+   
+   在 Traceroute B 中，到達 tryhackme.com 之前最後一個路由器/躍點的 IP 位址是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `104.26.11.229`
+
+3. In Traceroute B, how many routers are between the two systems?
+   
+   在 Traceroute B 中，兩個系統之間有多少個路由器？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `26`
+
+4. Start the attached VM from Task 3 if it is not already started. On the AttackBox, run `traceroute MACHINE_IP`. Check how many routers/hops are there between the AttackBox and the target VM.
+   
+   從任務 3 啟動附加的 VM（如果尚未啟動）。在 AttackBox 上，運行 `traceroute MACHINE_IP`。檢查 AttackBox 和目標 VM 之間有多少個路由器/躍點。
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `-s`
 
 >> #### Task 5：Telnet
 
