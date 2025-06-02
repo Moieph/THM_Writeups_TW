@@ -257,7 +257,7 @@ Question 4：啟動虛擬機，在終端機輸入` ping -c 10 MACHINE_IP`，觀�
 🖥️ `traceroute` 實例分析
 
 ✨ Traceroute A（14 hops）
-- 最終目標是 tryhackme.com，IP：172.67.69.208
+- 最終目標是 tryhackme.com，IP：`172.67.69.208`
 - 封包通過了 14 個跳點（路由器）
 - 有些跳點（例如第3行）只收到一個回應，其他的丟包（* 表示沒回來）
 
@@ -267,7 +267,7 @@ Question 4：啟動虛擬機，在終端機輸入` ping -c 10 MACHINE_IP`，觀�
 
 
 🔀 Traceroute B（26 hops）
-- 同樣是目標網站，但這次解析到另一個 IP：104.26.11.229
+- 同樣是目標網站，但這次解析到另一個 IP：`104.26.11.229`
 - 封包通過了 26 個跳點，比第一次更多
 - 代表封包經過不同的網路路線，或不同的 CDN 節點
 
@@ -303,7 +303,11 @@ Question 2、3：檢視 Traceroute B
   <img src="/rooms/images/30_09.png" width="600">
 </p>
 
-Question 4：啟動虛擬機，輸入
+Question 4：啟動虛擬機，輸入 `traceroute 10.10.56.96`
+
+<p align="left">
+  <img src="/rooms/images/30_10.png" width="600">
+</p>
 
 ##### 🔐 答題：
 1. In Traceroute A, what is the IP address of the last router/hop before reaching tryhackme.com?
@@ -323,12 +327,6 @@ Question 4：啟動虛擬機，輸入
    在 Traceroute B 中，兩個系統之間有多少個路由器？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `26`
-
-4. Start the attached VM from Task 3 if it is not already started. On the AttackBox, run `traceroute MACHINE_IP`. Check how many routers/hops are there between the AttackBox and the target VM.
-   
-   從任務 3 啟動附加的 VM（如果尚未啟動）。在 AttackBox 上，運行 `traceroute MACHINE_IP`。檢查 AttackBox 和目標 VM 之間有多少個路由器/躍點。
-   
-&nbsp;&nbsp;&nbsp;&nbsp; `-s`
 
 >> #### Task 5：Telnet
 

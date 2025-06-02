@@ -5,7 +5,7 @@
 > 從新手視角開啟，慢慢變強
 
 ---
-[![](https://tryhackme-badges.s3.amazonaws.com/Moieph.png?cb=3)](https://tryhackme.com/p/Moieph)
+[![](https://tryhackme-badges.s3.amazonaws.com/Moieph.png?cb=3we)](https://tryhackme.com/p/Moieph)
 
 ## 已完成房間數：29
 
