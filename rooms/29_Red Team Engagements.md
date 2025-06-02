@@ -436,9 +436,238 @@ APT38 – a financially motivated North Korean state-sponsored group known for t
    
 &nbsp;&nbsp;&nbsp;&nbsp; `N`
 
-
 >> #### Task 8：作戰計畫
 
+✅ Operations Plan 的核心精神
+
+&nbsp;&nbsp;&nbsp;&nbsp;_讓每位成員都知道自己要做什麼、用什麼方法、什麼時候做。_ <br>
+
+-  給客戶與團隊看的「作戰藍圖」
+
+---
+
+📄 Operations Plan  範本架構
+
+````
+
+# Operations Plan
+
+## Header
+- Operations Plan – ACME Financial Corp Red Team Engagement
+- Drafted by: Red Team Lead – FH Cyber
+- Date: 2025/05/20
+
+## Customer
+- ACME Financial Corporation
+
+---
+
+## Engagement Timeline & Dates
+
+- Engagement Period: 2025/06/01 ~ 2025/06/14
+
+---
+
+## Halting / Stopping Conditions
+
+- Any detection by blue team leading to account lockouts
+- System downtime triggered by red team action
+- Legal or HR intervention by client
+- Client's emergency stop request
+
+---
+
+## Assigned Personnel
+
+| Name           | Role                      |
+|----------------|---------------------------|
+| FH             | Red Team Lead             |
+| Alice          | Phishing & Initial Access |
+| Bob            | Lateral Movement / C2     |
+| Charlie        | Reporting & Documentation |
+
+---
+
+## Specific TTPs and Attacks
+
+### Reconnaissance
+- OSINT via LinkedIn scraping (ghunt, recon-ng)
+- DNS brute-force via amass / gobuster
+
+### Initial Access
+- Spear-phishing using spoofed domains
+- Macro-laced Excel payloads (Excel4 macro + Cobalt Strike beacon)
+
+### Post Exploitation
+- Credential dumping via Mimikatz
+- Kerberoasting
+- Lateral movement via RDP and WMI
+- Persistence using Registry Run keys and Scheduled Tasks
+
+---
+
+## Communications Plan
+
+- **Internal Red Cell**
+  - Primary: Signal Encrypted Group
+  - Secondary: ProtonMail (daily briefings)
+
+- **With Client**
+  - vectr.io Portal (Daily activity updates)
+  - Email: redteam@fhcyber.com to ciso@acme.com
+  - Emergency Hotline: +886-XXX-XXX (24/7)
+
+---
+
+## (Optional) Rules of Engagement Summary
+
+- Production systems: Do not interact
+- No data exfiltration allowed
+- Only use approved infrastructure and IP ranges
+````
+
+---
+
+依題旨點擊 `View site`
+
+<p align="left">
+  <img src="/rooms/images/29_05.png" width="600">
+</p>
+
+---
+
+##### 🔐 答題：
+2. What phishing method will be employed during the initial access phase?
+   
+   在初始訪問階段將採用哪種網路釣魚方法？  
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Spearphishing`
+
+3. What site will be utilized for communication between the client and red cell?
+   
+   客戶和 red cell 之間的通信將使用什麼網站？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `vectr.io`
+
+4. If there is a system outage, the red cell will continue with the engagement. (T/F)
+   
+   如果系統中斷，red cell 將繼續演練。（是/否）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `F`
+
 >> #### Task 9：任務計劃
+
+✅ Mission Plan 的核心精神
+
+&nbsp;&nbsp;&nbsp;&nbsp;_只給紅隊內部看的「實際攻擊腳本與執行指令」_ <br>
+
+---
+🧠 Mission Plan 需要包含的最小資訊（最低配）
+
+| 元素                       | 說明                                                                         |
+| ------------------------ | -------------------------------------------------------------------------- |
+| **Objectives**           | 明確指出本次任務目標，例如：取得 AD 控制權、內部文件 exfil、橫向移動至 HR 部門網段等。                         |
+| **Operators**            | 每位紅隊成員負責的任務與角色分配（誰打前鋒、誰做橫移、誰拍 log）。                                        |
+| **Exploits / Attacks**   | 明確列出使用哪些漏洞、攻擊手法，例如 ZeroLogon、Kerberoasting、CVE-2021-1675（PrintNightmare）等。 |
+| **Targets**              | 哪些主機、哪個帳號或哪項關鍵資產是這次的行動對象。                                                  |
+| **Execution Variations** | 如果 Plan A 失敗，有無 Plan B；像是防火牆封鎖、EDR 阻擋等應對策略。                                |
+
+---
+
+📄 Mission Plan 範例
+
+````
+# Mission Plan – ACME Red Team Operation
+
+## Objectives
+- Gain initial access to internal ACME network
+- Obtain Domain Admin credentials
+- Maintain persistence in ACME's HR subnet (10.10.4.0/24)
+- Enumerate and exfiltrate sensitive PII from HR department
+
+---
+
+## Operators and Roles
+
+| Operator | Callsign | Role                    |
+|----------|----------|-------------------------|
+| FH       | Falcon   | Initial Access / C2     |
+| Alice    | Viper    | Privilege Escalation    |
+| Bob      | Ghost    | Lateral Movement / Loot |
+
+---
+
+## Exploits and Attack Vectors
+
+- Phishing campaign: spoofed invoice email with Excel4 macros
+- CVE-2021-1675 (PrintNightmare) for privilege escalation
+- Kerberoasting for service account hash extraction
+- Pass-the-Hash with dumped NTLM hashes
+
+---
+
+## Targets
+
+| Target Type | Identifier        | Notes                          |
+|-------------|-------------------|--------------------------------|
+| User        | jane.hr@acme.com  | Target of spear-phishing email |
+| Machine     | WIN-HR-FS01       | HR file server                 |
+| Objective   | HRServer01:445    | Host containing PII            |
+
+---
+
+## Execution Variants
+
+- **If phishing fails**: fallback to exploiting public-facing VPN via CVE-2019-19781
+- **If AV detects Cobalt Strike beacon**: switch to Sliver or manually obfuscated payload
+- **If lateral move blocked by SMB restrictions**: use WMI + Invoke-Command
+
+---
+
+## Communication Channel
+
+- Internal: Encrypted Slack Channel + Offline Signal backup
+- Operator check-in: Every 6 hours or post-objective
+````
+
+---
+
+🚀 使用建議：
+
+| 場景   | 工具                                      |
+| ---- | --------------------------------------- |
+| 初始滲透 | `phishing-frenzy`、`evilginx2`、`gophish` |
+| 權限提升 | `Mimikatz`、`Rubeus`、`PrintSpoofer`      |
+| 控制通訊 | `Cobalt Strike`、`Sliver`、`Mythic C2`    |
+| 任務追蹤 | `VECTR`、`Trello`（內部追蹤用）                 |
+
+---
+
+依題旨點擊 `View site`
+
+<p align="left">
+  <img src="/rooms/images/29_06.png" width="600">
+</p>
+
+---
+
+##### 🔐 答題：
+2. When will the phishing campaign end? (mm/dd/yyyy)
+   
+   網路釣魚於何時結束？（月/日/年）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `10/23/2021`
+
+3. Are you permitted to attack 10.10.6.78? (Y/N)
+   
+   是否可以攻擊 10.10.6.78？（是/否）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `N`
+
+4. When a stopping condition is encountered, you should continue working and determine the solution yourself without a team lead. (T/F)
+   
+   遇到停止條件時，您應該繼續工作並在沒有團隊領導的情況下自行確定解決方案。（是/否）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `F`
 
 >> #### Task 10：結論
