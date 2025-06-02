@@ -9,6 +9,18 @@
 
 `ping IP address or website URL`
 
+<details>
+<summary>參數說明</summary>
+
+`ping -c 10 MACHINE_IP`
+
+| 參數                            | 解釋                  |
+|:------------------------------|:--------------------|
+| `-c` (Linux) / `-n` (Windows) | 自訂封包數量              |
+| `-s` (Linux) / `-l` (Windows) | 自訂封包大小（以 bytes 為單位） |
+
+</details>
+
 ---
 
 ### `nc`
@@ -497,5 +509,25 @@
 | explorer.exe                           | 使用者桌面與檔案總管界面                       |
 
 📌 除了 System 以外，**若有程序「無父程序」或異常繼承鏈，需特別留意。**
+
+</details>
+
+## Miscellaneous
+
+### `Google_Dork`
+
+<details>
+<summary>關鍵字說明</summary>
+
+| 語法          | 用法說明               | 範例                       |
+| ----------- | ------------------ | ------------------------ |
+| `site:`     | 限定在某個網站內搜尋         | `site:gov.tw`            |
+| `intitle:`  | 頁面標題含有指定關鍵字        | `intitle:"index of"`     |
+| `inurl:`    | URL 中包含某段文字        | `inurl:admin`            |
+| `filetype:` | 搜尋特定副檔名的文件（如 PDF）  | `filetype:xls password`  |
+| `ext:`      | 跟 `filetype:` 相同作用 | `ext:doc confidential`   |
+| `cache:`    | 查看網頁快取（即使原頁面下架）    | `cache:example.com`      |
+| `link:`     | 搜尋有指向某網址的連結頁面      | `link:example.com`       |
+| `intext:`   | 內文中包含某些字詞          | `intext:"internal only"` |
 
 </details>
