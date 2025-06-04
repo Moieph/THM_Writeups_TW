@@ -261,6 +261,23 @@
 | `-vc`                | 使用 TCP 查詢（預設是 UDP）      | `nslookup -vc example.com`         |
 | `-norecurse`         | 不讓 DNS 伺服器遞迴查詢（測試權威伺服器） | `nslookup -norecurse example.com`  |
 
+
+</details>
+
+<details>
+<summary>常見查詢類型</summary>
+
+
+| 類型    | 說明       |
+| ----- | -------- |
+| A     | IPv4 位址  |
+| AAAA  | IPv6 位址  |
+| MX    | 郵件伺服器    |
+| CNAME | 另類名稱（別名） |
+| SOA   | 授權起始記錄   |
+| TXT   | 自訂文字記錄   |
+
+
 </details>
 
 <details>
@@ -279,12 +296,20 @@
 
 </details>
 
+
 ---
 
 ### `sha256sum`
 
 > 產生 SHA-256 雜湊值（hash）， 可以拿來驗證檔案完整性、比對惡意樣本、與情資平台交叉分析。
 
+---
+
+### `whois`
+
+> 查詢網域資訊的通訊協定
+
+`whois DOMAIN_NAME`
 
 ## 套件
 
