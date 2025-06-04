@@ -7,7 +7,7 @@
 ---
 [![](https://tryhackme-badges.s3.amazonaws.com/Moieph.png?cb=3we)](https://tryhackme.com/p/Moieph)
 
-## 已完成房間數：29
+## 已完成房間數：30
 
 **[Free Roadmap]** <br>Introduction to Cyber Security (2 / 2)：
 
@@ -61,7 +61,7 @@
 | Pentesting Fundamentals   | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/27_Pentesting%20Fundamentals.md)            |
 | Red Team Fundamentals     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/28_Red%20Team%20Fundamentals.md)            |
 | Red Team Engagements      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/29_Red%20Team%20Engagements.md)             |
-| 🔧Active Reconnaissance     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/30_Active%20Reconnaissance.md)              | [Google_Dork](Tools.md#google_dork)、[ping](Tools.md#ping)、[traceroute](Tools.md#traceroute) 、[telnet](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#telnet)、[nc](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#nc)、[Active_Recon](Scripts.md#active_recon)
+| Active Reconnaissance     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/30_Active%20Reconnaissance.md)              | [Google_Dork](Tools.md#google_dork)、[ping](Tools.md#ping)、[traceroute](Tools.md#traceroute) 、[telnet](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#telnet)、[nc](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#nc)、[Active_Recon](Scripts.md#active_recon)
 | 🔧Passive Reconnaissance    | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/31_Passive%20Reconnaissance.md)             | 
 | 🔧Nmap                      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/32_Nmap.md) |
 | 🔧 Metasploit: Introduction | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/33_Metasploit:%20Introduction.md)      
