@@ -507,7 +507,7 @@ Server: nginx/1.6.2
 ---
 
 ⚠️ 注意事項
-- 有些系統預設 `netcat` 沒有 -e 功能（如 Ubuntu）→ 可改用 ncat 或 socat。
+- 有些系統預設 `netcat` 沒有 -e 功能（如 Ubuntu）→ 可改用 `ncat` 或 `socat`。
 - 在滲透環境外使用時要取得授權，否則可能觸法。
 - 某些防火牆或 IDS 會偵測 `nc` 使用痕跡，紅隊行動需注意掩飾。
 
@@ -537,8 +537,8 @@ Question 1：啟動虛擬機，進行`nc`連線到目標機與端口，得知伺
 - 🛠 使用：traceroute（Linux/mac）或 tracert（Windows）
 
 ````
-traceroute 10.10.10.10
-tracert 10.10.10.10
+traceroute 10.10.10.10      # Linux/macOS
+tracert 10.10.10.10         # Windows
 ````
 
 📌 功能：查看封包到目標主機經過的節點（hop 路徑）
@@ -590,9 +590,7 @@ nc 10.10.10.10 1234
 🔗 結合成簡易腳本（Bash 示例）
 
 ````
-#!/bin/bash
-
-TARGET=$1
+TARGET="IP"
 
 echo "[*] 路由追蹤:"
 traceroute $TARGET
