@@ -152,6 +152,56 @@ Question 1 - 3：啟動終端機，輸入 `whois tryhackme.com`
 
 🧾 `nslookup`（Name Server Lookup）
 
+用來查詢 DNS 紀錄，可指定查詢類型與 DNS 伺服器。
+
+
+
+✅ 指令語法：
+
+`nslookup -type=查詢類型 網域名稱 DNS伺服器`
+
+
+`nslookup -type=A tryhackme.com 1.1.1.1`
+
+`nslookup -type=MX tryhackme.com`
+
+
+<details>
+<summary>常見查詢類型</summary>
+
+
+| 類型    | 說明       |
+| ----- | -------- |
+| A     | IPv4 位址  |
+| AAAA  | IPv6 位址  |
+| MX    | 郵件伺服器    |
+| CNAME | 另類名稱（別名） |
+| SOA   | 授權起始記錄   |
+| TXT   | 自訂文字記錄   |
+
+
+</details>
+
+---
+
+🔍 `dig`（Domain Information Groper）
+
+功能更強大的 DNS 查詢工具，預設會顯示 TTL 等資訊。
+
+✅ 指令語法：
+
+`dig 網域 查詢類型`
+
+`dig @DNS伺服器 網域 查詢類型`
+
+`dig @1.1.1.1 tryhackme.com MX`
+
+⚠️ 偵察應用小提醒：
+- 可藉由 A 查到 IP 進行後續滲透測試
+- 可用 MX 查郵件伺服器，觀察是否為舊版或有漏洞的系統
+- TXT 記錄有時會揭露設定資訊（如 SPF、Google 驗證碼等）
+
+
 >> #### Task 5：DNSDumpster
 
 >> #### Task 6：Shodan.io

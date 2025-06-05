@@ -296,6 +296,33 @@
 
 </details>
 
+---
+
+### `dig`
+
+> 功能強大的 DNS 查詢工具，預設會顯示 TTL 等資訊。
+
+`dig 網域 查詢類型`
+
+`dig @DNS伺服器 網域 查詢類型`
+
+`dig @1.1.1.1 tryhackme.com MX`
+
+<details>
+<summary>常見查詢類型</summary>
+
+
+| 類型    | 說明       |
+| ----- | -------- |
+| A     | IPv4 位址  |
+| AAAA  | IPv6 位址  |
+| MX    | 郵件伺服器    |
+| CNAME | 另類名稱（別名） |
+| SOA   | 授權起始記錄   |
+| TXT   | 自訂文字記錄   |
+
+
+</details>
 
 ---
 
@@ -310,6 +337,8 @@
 > 查詢網域資訊的通訊協定
 
 `whois DOMAIN_NAME`
+
+
 
 ## 套件
 
@@ -580,6 +609,26 @@
 | explorer.exe                           | 使用者桌面與檔案總管界面                       |
 
 📌 除了 System 以外，**若有程序「無父程序」或異常繼承鏈，需特別留意。**
+
+</details>
+
+---
+
+### `DNS_Servers`
+
+<details>
+<summary>IP 清單</summary>
+
+| Provider         | Primary DNS     | Secondary DNS     |
+|------------------|------------------|--------------------|
+| Google           | 8.8.8.8          | 8.8.4.4            |
+| Control D        | 76.76.2.0        | 76.76.10.0         |
+| Quad9            | 9.9.9.9          | 149.112.112.112    |
+| OpenDNS Home     | 208.67.222.222   | 208.67.220.220     |
+| Cloudflare       | 1.1.1.1          | 1.0.0.1            |
+| AdGuard DNS      | 94.140.14.14     | 94.140.15.15       |
+| CleanBrowsing    | 185.228.168.9    | 185.228.169.9      |
+| Alternate DNS    | 76.76.19.19      | 76.223.122.150     |
 
 </details>
 
