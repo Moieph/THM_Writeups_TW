@@ -237,34 +237,126 @@ Question 1：開啟虛擬機，輸入`nslookup -type=TXT thmlabs.con`
 
 🔍 子網域探索方法：
 
-1. 搜尋引擎
+1. **搜尋引擎**
 
-用 Google、Bing 等關鍵字搜尋子網域
+- 用 Google、Bing 等關鍵字搜尋子網域
+- 缺點：資料分散，需看很多頁結果
 
-缺點：資料分散，需看很多頁結果
+2. **暴力破解法**（Brute Force DNS）
 
-暴力破解法（Brute Force DNS）
+- 使用字典測試常見子網域（如 admin、mail、dev 等）
+- 工具如：`Gobuster`、`Sublist3r` 等
 
-使用字典測試常見子網域（如 admin、mail、dev 等）
+3. ✅ **DNSDumpster**（推薦）
+- 線上工具，查詢完整 DNS 資訊
+- 可查出：
+  - 子網域
+  -   A、MX、TXT、NS 記錄
+  - IP 位址與地理位置
+  - 圖形化關係圖（可移動區塊）
+  - 部分主機擁有者資訊
 
-工具如：Gobuster、Sublist3r 等
+---
 
-✅ DNSDumpster（推薦）
+Question 1：進入 https://dnsdumpster.com/ 
 
-線上工具，查詢完整 DNS 資訊
+輸入 tryhackme.com 查詢子網域
 
-可查出：
+<p align="left">
+  <img src="/rooms/images/31_05.png" width="600">
+</p>
 
-子網域
+<p align="left">
+  <img src="/rooms/images/31_06.png" width="600">
+</p>
 
-A、MX、TXT、NS 記錄
 
-IP 位址與地理位置
-
-圖形化關係圖（可移動區塊）
-
-部分主機擁有者資訊
+##### 🔐 答題：
+1. Lookup tryhackme.com on DNSDumpster. What is one interesting subdomain that you would discover in addition to www and blog?
+   
+   在 DNSDumpster 上查找 tryhackme.com。除了 www 和 blog 之外，您還會發現哪個有趣的子域？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `remote`
 
 >> #### Task 6：Shodan.io
 
+🔎 Shodan 是什麼？
+- 被稱為「物聯網的 Google」，是一個搜尋連網設備的引擎
+- 不像傳統搜尋引擎搜尋網頁，Shodan 專門搜尋：
+  - 網路攝影機、工控系統、伺服器、路由器等設備
+
+---
+
+🎯 用途：
+
+1. **滲透測試（被動偵察階段）**
+    - 查詢目標設備的：
+        - IP 位址
+        - 主機位置與託管業者
+        - 開放服務 / 伺服器類型與版本
+        - SSL/TLS 憑證資訊
+
+
+2. **防禦面（資安管理）**
+    - 瞭解自家有哪些設備暴露在外
+    - 偵測誤設、過時設備、未受保護的裝置
+
+---
+
+✅ 補充：
+- 可搭配 DNS 查到的 IP 再到 Shodan 搜尋
+- 無須付費帳號即可取得大部分資訊
+- 進階搜尋語法可參考官方 Help 頁面
+
+---
+
+Question 1 - 3：進入 https://www.shodan.io/
+
+輸入 `Apache` 查詢
+
+<p align="left">
+  <img src="/rooms/images/31_07.png" width="600">
+</p>
+
+輸入 `nginx` 查詢
+
+<p align="left">
+  <img src="/rooms/images/31_08.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. According to Shodan.io, what is the 2nd country in the world in terms of the number of publicly accessible Apache servers?
+   
+   根據 Shodan.io 的數據，就可公開訪問的 Apache 伺服器數量而言，世界上排名第二的國家是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `China`
+
+2. Based on Shodan.io, what is the 3rd most common port used for Apache?
+   
+   根據 Shodan.io，Apache 使用的第 3 個最常見埠是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `8080`
+
+3. Based on Shodan.io, what is the 3rd most common port used for nginx?
+   
+   根據 Shodan.io，nginx 使用的第 3 個最常見埠是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `5001`
+
 >> #### Task 7：總結
+
+📌 核心概念：
+
+- 被動偵察（Passive Reconnaissance）是**不直接連接目標系統**，但能收集大量資訊的技術，常用於滲透測試或資安評估的初期階段。
+
+---
+
+🛠️ 工具與服務
+
+| 工具 / 服務         | 功能介紹                     |
+| --------------- | ------------------------ |
+| `whois`         | 查詢網域註冊資訊（註冊商、聯絡資訊、註冊時間）  |
+| `nslookup`      | 查詢 DNS 記錄，如 A、MX、TXT 等   |
+| `dig`           | 功能更強大的 DNS 查詢工具，支援更多輸出細節 |
+| **DNSDumpster** | 線上工具，可視覺化顯示 DNS 架構與子網域資訊 |
+| **Shodan.io**   | 搜尋公開連網裝置（如伺服器、攝影機、IoT 等） |
