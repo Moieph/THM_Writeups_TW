@@ -203,7 +203,7 @@ Question 1 - 3：啟動終端機，輸入 `whois tryhackme.com`
 
 ---
 
-Question 1：開啟虛擬機，輸入`nslookup -type=TXT thmlabs.con`
+Question 1：開啟虛擬機，輸入<br>`nslookup -type=TXT thmlabs.con`
 
 獲得 Flag 🎉🎉
 
@@ -353,10 +353,10 @@ Question 1 - 3：進入 https://www.shodan.io/
 
 🛠️ 工具與服務
 
-| 工具 / 服務         | 功能介紹                     |
-| --------------- | ------------------------ |
-| `whois`         | 查詢網域註冊資訊（註冊商、聯絡資訊、註冊時間）  |
-| `nslookup`      | 查詢 DNS 記錄，如 A、MX、TXT 等   |
-| `dig`           | 功能更強大的 DNS 查詢工具，支援更多輸出細節 |
-| **DNSDumpster** | 線上工具，可視覺化顯示 DNS 架構與子網域資訊 |
-| **Shodan.io**   | 搜尋公開連網裝置（如伺服器、攝影機、IoT 等） |
+| 工具 / 服務   | 功能介紹                     |
+| --------- | ------------------------ |
+| `whois`   | 查詢網域註冊資訊（註冊商、聯絡資訊、註冊時間）  |
+| `nslookup` | 查詢 DNS 記錄，如 A、MX、TXT 等   |
+| `dig`     | 功能更強大的 DNS 查詢工具，支援更多輸出細節 |
+| DNSDumpster | 線上工具，可視覺化顯示 DNS 架構與子網域資訊 |
+| Shodan.io | 搜尋公開連網裝置（如伺服器、攝影機、IoT 等） |
