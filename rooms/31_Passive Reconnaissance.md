@@ -110,19 +110,19 @@ THM路徑：https://tryhackme.com/room/passiverecon
 Question 1 - 3：啟動終端機，輸入 `whois tryhackme.com`
 
 <p align="left">
-  <img src="/rooms/images/30_13.png" width="600">
+  <img src="/rooms/images/31_01.png" width="600">
 </p>
 
 找到註冊時間及註冊商網址
 
 <p align="left">
-  <img src="/rooms/images/30_14.png" width="600">
+  <img src="/rooms/images/31_02.png" width="600">
 </p>
 
 找到名稱伺服器網址
 
 <p align="left">
-  <img src="/rooms/images/30_15.png" width="600">
+  <img src="/rooms/images/31_03.png" width="600">
 </p>
 
 ##### 🔐 答題：
@@ -201,8 +201,69 @@ Question 1 - 3：啟動終端機，輸入 `whois tryhackme.com`
 - 可用 MX 查郵件伺服器，觀察是否為舊版或有漏洞的系統
 - TXT 記錄有時會揭露設定資訊（如 SPF、Google 驗證碼等）
 
+---
+
+Question 1：開啟虛擬機，輸入`nslookup -type=TXT thmlabs.con`
+
+獲得 Flag 🎉🎉
+
+<p align="left">
+  <img src="/rooms/images/31_04.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. Check the TXT records of thmlabs.com. What is the flag there?
+   
+   檢查 thmlabs.com 的 TXT 記錄。那裡的旗子是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `THM{a5b83929888ed36acb0272971e438d78}`
 
 >> #### Task 5：DNSDumpster
+
+❓ 為什麼要找子網域？
+
+- 子網域（如 wiki.tryhackme.com, webmail.tryhackme.com）<br>可能暴露額外系統或服務
+
+- 某些子網域未定期更新，可能存在漏洞或弱點
+
+---
+
+🚫 限制：
+
+- `nslookup` 和 `dig` 無法自動列出所有子網域
+- 手動查詢各種子網域耗時、低效率
+
+---
+
+🔍 子網域探索方法：
+
+1. 搜尋引擎
+
+用 Google、Bing 等關鍵字搜尋子網域
+
+缺點：資料分散，需看很多頁結果
+
+暴力破解法（Brute Force DNS）
+
+使用字典測試常見子網域（如 admin、mail、dev 等）
+
+工具如：Gobuster、Sublist3r 等
+
+✅ DNSDumpster（推薦）
+
+線上工具，查詢完整 DNS 資訊
+
+可查出：
+
+子網域
+
+A、MX、TXT、NS 記錄
+
+IP 位址與地理位置
+
+圖形化關係圖（可移動區塊）
+
+部分主機擁有者資訊
 
 >> #### Task 6：Shodan.io
 
