@@ -63,7 +63,7 @@
 | Red Team Engagements      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/29_Red%20Team%20Engagements.md)             |
 | Active Reconnaissance     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/30_Active%20Reconnaissance.md)              | [Google_Dork](Tools.md#google_dork)、[ping](Tools.md#ping)、[traceroute](Tools.md#traceroute) 、[telnet](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#telnet)、[nc](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#nc)、[Active_Recon](Scripts.md#active_recon)
 | Passive Reconnaissance    | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/31_Passive%20Reconnaissance.md)             | [whois](Tools.md#whois)、[nslookup](Tools.md#nslookup) 、[DNS_Servers](Tools.md#dns_servers)
-| 🔧Nmap                      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/32_Nmap.md) |
+| 🔧Nmap                      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/32_Nmap.md) |[nmap](Tools.md#nmap)
 | 🔧 Metasploit: Introduction | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/33_Metasploit:%20Introduction.md)      
 
 Network Fundamentals (1 / 1）：
