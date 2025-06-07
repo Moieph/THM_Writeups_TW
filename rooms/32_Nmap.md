@@ -242,7 +242,7 @@ Question 1 - 16：於終端機輸入 `nmap -h` 查詢指令
 
 16. How would you activate all of the scripts in the "vuln" category?
    
-   您將如何啟動腳本「vuln」 類別中的所有文稿？
+    您將如何啟動腳本「vuln」 類別中的所有文稿？
    
 &nbsp;&nbsp;&nbsp;&nbsp; `--script=vuln`
 
@@ -518,6 +518,24 @@ sudo nmap -sX 10.10.10.10
 | FIN 掃描  | `-sF`   | **僅設定 FIN**（正常關閉連線使用）   | 優雅假裝中斷連線         |
 | Xmas 掃描 | `-sX`   | 設定 **PSH、URG、FIN**，像聖誕樹 | 封包像聖誕燈閃爍，得名 Xmas |
 
+NULL 掃描 `-sN`：
+
+<p align="left">
+  <img src="/rooms/images/32_12.png" width="600">
+</p>
+
+FIN 掃描 `-sF`：
+
+<p align="left">
+  <img src="/rooms/images/32_13.png" width="600">
+</p>
+
+Xmax 掃描 `-sX`：
+
+<p align="left">
+  <img src="/rooms/images/32_14.png" width="600">
+</p>
+
 ---
 
 🧠 判斷邏輯：
@@ -528,8 +546,140 @@ sudo nmap -sX 10.10.10.10
 | **Open / Filtered** | **無回應**（可能開啟或被防火牆擋） | 
 | **Filtered**        | 回傳 ICMP unreachable |
 
+---
+
+🛡️ 防火牆繞過效果：
+
+- 可 **繞過僅攔截 SYN 封包的防火牆**
+- 但現代防火牆 / IDS 通常已能辨識此類封包類型 → 隱蔽性有限
+
+---
+
+⚠️ 實務限制：
+
+- **Windows 系統 & Cisco 設備**：對所有不正常封包都回傳 RST
+   - 導致所有 port 被誤判為 **關閉（Closed）**
+- 無法明確確認 port 是開啟還是被擋 → 只能標為 `open|filtered`
+
+---
+
+✅ 實用指令範例：
+
+````
+sudo nmap -sN 10.10.10.10     # NULL 掃描
+sudo nmap -sF 10.10.10.10     # FIN 掃描
+sudo nmap -sX 10.10.10.10     # Xmas 掃描
+````
+
+---
+
+🎯 小結：
+
+| 優點                | 缺點                      |
+| ----------------- | ----------------------- |
+| 有機會繞過部分防火牆與舊型 IDS | 結果不明確，需交叉比對             |
+| 偽裝連線特性、難被應用層紀錄    | Windows/Cisco 反應一致，容易誤判 |
+| 可搭配其他掃描方式輔助分析     | 現代系統防禦效果有限              |
+
+##### 🔐 答題：
+1. Which of the three shown scan types uses the URG flag?
+   
+   顯示的三種掃描類型中，哪一種使用 URG 標誌？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Xmas`
+
+2. Why are NULL, FIN and Xmas scans generally used?
+   
+   為什麼使用 NULL、FIN 和 Xmas 掃描？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Firewall Evasion`
+
+3. Which common OS may respond to a NULL, FIN or Xmas scan with a RST for every port?
+
+   哪種常見作業系統可以回應 NULL、FIN 或 Xmas 掃描，以 RST 回應每個端口狀態？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Microsoft Windows`
 
 >> #### Task 9：ICMP 網路掃描
+
+🌐 Ping Sweep 掃描筆記（Nmap -sn）
+
+📌 任務背景（黑箱測試起點）：
+- 初次接觸目標網路時，目標是 **繪製網路地圖**
+- 揭示哪個 IP 是「**活的主機（Active Hosts）**」、哪些是沒反應的
+
+---
+
+🛠️ 使用指令：`-sn`
+
+✅ 指令範例：
+
+````
+nmap -sn 192.168.0.1-254        # 使用範圍方式
+nmap -sn 192.168.0.0/24         # 使用 CIDR 表示法
+````
+
+---
+
+**CIDR**（Classless Inter-Domain Routing）
+
+- **無類別網域間路由**
+
+
+- 用來表示 IP 網段範圍 的一種方式，比老舊的 A/B/C 類網域更靈活、更有效率地管理 IP 地址。
+
+````
+IP位址/遮罩位數
+
+192.168.1.0/24
+````
+
+- IP 範圍是從：192.168.1.0 到 192.168.1.255
+- /24 代表「前 24 位是網路位址」，後面 8 位是主機位址（2⁸ = 256 組）
+
+--- 
+
+- 🎯 常見 **CIDR** 範例快速對照表：
+
+| CIDR  | 可用 IP 數（主機） | 子網路遮罩           |
+| ----- | ----------- | --------------- |
+| `/8`  | 16,777,214  | 255.0.0.0       |
+| `/16` | 65,534      | 255.255.0.0     |
+| `/24` | 254         | 255.255.255.0   |
+| `/30` | 2（用於點對點）    | 255.255.255.252 |
+| `/32` | 1（單一主機）     | 255.255.255.255 |
+
+---
+
+🧠 `-sn` 的用途說明：
+
+| 特性                       | 說明                                      |
+| ------------------------ | --------------------------------------- |
+| 不掃 port                  | 僅進行 **主機存活偵測（Ping Sweep）**，不會執行 port 掃描 |
+| 發送 ICMP Echo Request     | 目標有回應 → 判定為「上線」                         |
+| 發送 TCP SYN 到 port 443    | 輔助判斷是否有伺服器反應                            |
+| 發送 TCP ACK/SYN 到 port 80 | 預設為 TCP ACK，**若非 root 執行則為 SYN**        |
+| 本地網段用 ARP 探測（需 sudo）     | 若目標在同一區網，Nmap 會用 ARP 尋找主機（更準確）          |
+
+---
+
+⚠️ 注意事項：
+- **部分主機會封鎖 ICMP 回應** → 可能導致誤判為離線
+- 結果只能作為 **「初步基線」**，需搭配其他掃描補強
+
+---
+
+🧪 小技巧建議：
+- 加上 `-v` 參數查看詳細過程：`nmap -sn -v 192.168.1.0/24`
+
+---
+
+##### 🔐 答題：
+1. How would you perform a ping sweep on the 172.16.x.x network (Netmask: 255.255.0.0) using Nmap? (CIDR notation)
+   
+   如何使用 Nmap 在 172.16.x.x 網路（網路遮罩：255.255.0.0）上執行 ping 掃描？（CIDR 表示法）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `nmap -sn 172.16.0.0/16`
 
 >> #### Task 10：NES 腳本概述
 
