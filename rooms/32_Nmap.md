@@ -36,7 +36,7 @@ THM路徑：https://tryhackme.com/room/furthernmap
 | 22    | SSH    |
 | 25    | SMTP |
 
-🧠 每台設備有 65535 個 port，但常用 port 被標準定義（1024 個），CTF 中可能有異常設定，需掃描所有可能端口
+🧠 每台設備有 **65535** 個 port，但常用 port 被標準定義（**1024** 個），CTF 中可能有異常設定，需掃描所有可能端口
 
 <p align="left">
   <img src="/rooms/images/32_01.png" width="600">
@@ -109,7 +109,9 @@ Port Scanning 是攻擊的起點，也是防禦者的警訊
 | 檢視說明   | `nmap -h`  |
 | 檢視說明文件 | `man nmap` |
 
-📌 所有選項（switch）都要包含前面的 - 符號，如 `-sS`, `-p`, `-A` 等。
+- 所有選項（switch）都要包含前面的 - 符號，如 `-sS`, `-p`, `-A` 等。
+
+---
 
 🧠 小提醒：
 - switch 就是你加在 `nmap` 後的功能開關（參數）
@@ -326,7 +328,7 @@ sudo nmap -sX 10.10.10.10
 | `RST`     | Port 為 **關閉（Closed）**  由 RFC 9293 定義 |
 | 無回應（被丟棄）  | Port 為 **被過濾（Filtered）**             |
 
-🔥 可能被**防火牆干擾**，導致誤判
+-  可能被**防火牆干擾**，導致誤判
 
 ---
 
@@ -404,7 +406,7 @@ sudo nmap -sX 10.10.10.10
 
 ---
 
-🔧實際範例：`sudo nmap -sS 10.10.10.10`
+🔧 實際範例：`sudo nmap -sS 10.10.10.10`
 
 ---
 
@@ -435,10 +437,97 @@ sudo nmap -sX 10.10.10.10
 
 >> #### Task 7：UDP 掃描
 
+📡 UDP 掃描（-sU）筆記
 
+- **無連線（stateless**）：無三次握手，直接送出封包
+- 適合速度需求高的應用（如：影音串流）
+- 不回應 ≠ 拒絕，導致掃描結果較難判斷
 
+---
+
+✅ Nmap UDP 掃描指令：
+
+`nmap -sU <目標IP>`
+
+---
+
+🧠 結果解讀邏輯：
+
+| 情境                           | Nmap 判定                 |
+| ---------------------------- |-------------------------|
+| **無回應（常見）**                  | `open`、`filtered`（無法確定） |
+| **收到 UDP 回應（少見）**            | `open`（已確認）             |  
+| **收到 ICMP Port Unreachable** | `closed`（明確關閉）          |  
+
+- Nmap 會對無回應的 **port** 再送一次確認封包
+- 大多數服務不會對空白 UDP 封包有反應 → 判斷困難
+
+---
+
+🐢 缺點：非常慢
+
+- 掃描前 1000 個 UDP port 可耗時 20 分鐘以上
+- 建議只掃常見 port，加快速度
+
+---
+
+⚡ 加速建議：
+
+`nmap -sU --top-ports 20 <目標IP>`
+
+- 掃描**最常見的 20 個 UDP port**
+- 節省時間，大幅提高效率
+
+---
+
+📘 補充說明：
+
+- Nmap 會根據 port 編號發送 **「協定專屬封包」** 來提高準確度
+   - 例如：對 DNS port (53) 送 DNS 封包
+- 其餘 port 則多使用**空封包（empty UDP）**
+
+---
+
+##### 🔐 答題：
+1. If a UDP port doesn't respond to an Nmap scan, what will it be marked as?
+   
+   如果 UDP 連接埠沒有回應 Nmap 掃描，它將被標記為什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `open|filtered`
+
+2. When a UDP port is closed, by convention the target should send back a "port unreachable" message. Which protocol would it use to do so?
+   
+   按照慣例，當 UDP 埠關閉時，目標應發回 “port unreachable” 消息。它將使用哪種協議來執行此作？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `ICMP`
 
 >> #### Task 8：NULL、FIN 和 Xmas
+
+🎯 NULL / FIN / Xmas Scan 筆記總整理
+
+- 比 **SYN 掃描還更隱密**的掃描方式
+- **繞過防火牆與 IDS 偵測**
+
+---
+
+🔍 各類掃描方式對比：
+
+| 掃描類型    | Nmap 參數 | TCP Flag 特性             | 別名/備註            |
+| ------- | ------- | ----------------------- | ---------------- |
+| NULL 掃描 | `-sN`   | **無任何 TCP flag**（空封包）   | 極度簡潔             |
+| FIN 掃描  | `-sF`   | **僅設定 FIN**（正常關閉連線使用）   | 優雅假裝中斷連線         |
+| Xmas 掃描 | `-sX`   | 設定 **PSH、URG、FIN**，像聖誕樹 | 封包像聖誕燈閃爍，得名 Xmas |
+
+---
+
+🧠 判斷邏輯：
+
+| 狀態                  | 回應                  | 
+| ------------------- | ------------------- | 
+| **Closed**          | 回傳 RST（Reset）封包     | 
+| **Open / Filtered** | **無回應**（可能開啟或被防火牆擋） | 
+| **Filtered**        | 回傳 ICMP unreachable |
+
 
 >> #### Task 9：ICMP 網路掃描
 
