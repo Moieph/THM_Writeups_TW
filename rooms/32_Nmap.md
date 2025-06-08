@@ -808,17 +808,206 @@ Nmap Script Library: https://nmap.org/nsedoc/
 
 ---
 
+Question 1：於終端機輸入 `nmap --script-help ftp-anon.nse`
+
+<p align="left">
+  <img src="/rooms/images/32_15.png" width="600">
+</p>
+
+依圖片提示進入該腳本的網址介紹：
+
+https://nmap.org/nsedoc/scripts/ftp-anon.html
+
+<p align="left">
+  <img src="/rooms/images/32_16.png" width="600">
+</p>
+
+
 ##### 🔐 答題：
 1. What optional argument can the ftp-anon.nse script take?
    
-   ftp-anon.nse 腳本可以採用什麼可選參數？
+   `ftp-anon.nse` 腳本可以採用什麼可選參數？
    
-&nbsp;&nbsp;&nbsp;&nbsp; ``
+&nbsp;&nbsp;&nbsp;&nbsp; `maxlist`
 
 >> #### Task 12：搜索 Scripts
 
+🔍 如何查找 Nmap 腳本（NSE Scripts）
+
+✅ **方式 1：官方網站**
+- 網址：https://nmap.org/nsedoc/
+- 提供完整腳本清單、分類、參數範例
+
+✅ 方式 2：本地端路徑
+- NSE 腳本預設儲存於：`/usr/local/share/nmap/scripts/`
+
+---
+
+📂 查找腳本方法：
+
+📘 **方法 1：**`grep script.db`
+
+`grep "ftp" /usr/local/share/nmap/scripts/script.db`
+
+- `script.db` 不是資料庫，而是 Nmap 的腳本索引表（純文字格式）
+- 可查關鍵字、類別（如：safe、vuln 等）
+
+
+<p align="left">
+  <img src="/rooms/images/32_17.png" width="600">
+</p>
+
+📘 **方法 2：**`ls` 直接模糊搜尋
+
+`ls -l /usr/local/share/nmap/scripts/*ftp*`
+
+
+<p align="left">
+  <img src="/rooms/images/32_18.png" width="600">
+</p>
+
+---
+
+⚙️ 安裝或新增腳本：
+
+````
+sudo wget -O /usr/local/share/nmap/scripts/<script-name>.nse \
+https://svn.nmap.org/nmap/scripts/<script-name>.nse
+
+# ✅ 下載後務必執行更新索引指令：
+
+sudo nmap --script-updatedb
+````
+
+如本地缺少腳本：
+
+````
+sudo apt update && sudo apt install nmap 
+
+# ✅ 下載後務必執行更新索引指令：
+
+sudo nmap --script-updatedb
+````
+
+🧠 自製 NSE 腳本也能加入：
+
+- 編寫 Lua 檔案（副檔名 `.nse`）放入 `/usr/local/share/nmap/scripts/`
+- 同樣使用 `--script-updatedb` 更新索引
+
+---
+
+🧪 快速檢查 NSE 腳本分類範例：
+
+````
+grep "intrusive" /usr/local/share/nmap/scripts/script.db
+grep "vuln" /usr/local/share/nmap/scripts/script.db
+````
+
+<p align="left">
+  <img src="/rooms/images/32_19.png" width="600">
+</p>
+
+---
+
+Question 1：根據題目，以 `os` 作為判斷條件，於終端機輸入 
+
+`grep "smb" /usr/local/share/nmap/scripts/script.d` 
+
+找尋與判斷條件相符的腳本
+
+<p align="left">
+  <img src="/rooms/images/32_20.png" width="600">
+</p>
+
+Question 2：根據題目，於終端機輸入
+
+`cat /usr/local/share/nmap/scripts/smb-os-discovery.nse`
+
+<p align="left">
+  <img src="/rooms/images/32_21.png" width="600">
+</p>
+
+閱讀該腳本文件，於搜尋欄（`Ctrl+F`）尋找 dependency
+
+<p align="left">
+  <img src="/rooms/images/32_22.png" width="600">
+</p>
+
+
+##### 🔐 答題：
+1. What is the filename of the script which determines the underlying OS of the SMB server?
+   
+   確定 SMB 伺服器底層作業系統腳本的檔名是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `smb-os-discovery.nse`
+
+2. Read through this script. What does it depend on?
+   
+   透過閱讀腳本。判斷它依賴於什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `smb-brute`
+
 >> #### Task 13：防火牆規避
 
+📛 問題：目標主機**封鎖 ICMP（如 Windows 預設）**
+- **導致 Nmap 預設無法偵測主機是否存活**
+- 掃描會被略過，主機會被誤判為「關機」
+
+---
+
+✅ 解法：使用 `-Pn`
+
+`nmap -Pn <目標IP>`
+
+| 參數    | 說明                                |
+| ----- | --------------------------------- |
+| `-Pn` | 告訴 Nmap **不要先 ping 掃主機**，直接掃 port |
+| 效果    | 可繞過封鎖 ICMP 的防火牆規則                 |
+| 缺點    | 若主機真的關機，仍會掃很久（誤以為還活著）             |
+
+---
+
+📡 本地區網環境額外提示：
+- 在本地網段中，**Nmap 可使用 ARP 尋找主機**，不受 ICMP 限制
+
+---
+
+🧨 進階防火牆/IDS 規避技巧：
+
+| 參數                      | 功能說明                                         |
+|-------------------------| -------------------------------------------- |
+| `-f`                    | **封包碎片化**，切小封包降低被偵測機率                        |
+| `--mtu <數值>`            | 指定 MTU 封包大小（需為 8 的倍數）                        |
+| `--scan-delay <time>ms` | 設定封包之間的延遲，可防止時間頻率觸發防火牆                       |
+| `--badsum`              | 發送帶有錯誤 checksum 的封包，用來**探測防火牆是否存在**（正常主機不會回應） |
+| `--data-length <數值>`    | 在數據包末尾附加任意長度的隨機數據|
+
+---
+
+🧪 範例：繞過防火牆掃描
+
+`sudo nmap -sS -Pn -f 10.10.10.10`
+
+或加上延遲與 MTU 控制：
+
+`sudo nmap -sS -Pn --scan-delay 200ms --mtu 32 10.10.10.10`
+
+---
+
+##### 🔐 答題：
+1. Which simple (and frequently relied upon) protocol is often blocked, requiring the use of the `-Pn` switch?
+   
+   哪種簡單（且經常依賴）協議經常被阻止，需要使用 `-Pn` 開關？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `ICMP`
+
+2. [Research] Which Nmap switch allows you to append an arbitrary length of random data to the end of packets?
+   
+   [研究] 哪個 Nmap 開關允許您在數據包末尾附加任意長度的隨機數據？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `--data-length`
+
 >> #### Task 14：習題
+
 
 >> #### Task 15：結論
