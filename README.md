@@ -7,7 +7,7 @@
 ---
 [![](https://tryhackme-badges.s3.amazonaws.com/Moieph.png?cb=324)](https://tryhackme.com/p/Moieph)
 
-## 已完成房間數：31
+## 已完成房間數：32
 
 **[Free Roadmap]** <br>Introduction to Cyber Security (2 / 2)：
 
@@ -54,7 +54,7 @@
 | Threat Intelligence Tools      |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/25_Threat%20Intelligence%20Tools.md)        | [sha256sum](Tools.md#sha256sum)
 | Phishing Analysis Fundamentals |    🟦 Blue Team   | Easy       | [Walkthrough](./rooms/26_Phishing%20Analysis%20Fundamentals.md)   |
 
-**[Free Roadmap]** <br>Penetration Tester (5 / 7)：
+**[Free Roadmap]** <br>Penetration Tester (6 / 7)：
 
 | Room                        | Field         | Difficulty | Writeup Link                                                      | Tools                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |-----------------------------|---------------|------------|-------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,7 +63,7 @@
 | Red Team Engagements      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/29_Red%20Team%20Engagements.md)             |
 | Active Reconnaissance     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/30_Active%20Reconnaissance.md)              | [Google_Dork](Tools.md#google_dork)、[ping](Tools.md#ping)、[traceroute](Tools.md#traceroute) 、[telnet](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#telnet)、[nc](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#nc)、[Active_Recon](Scripts.md#active_recon)
 | Passive Reconnaissance    | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/31_Passive%20Reconnaissance.md)             | [whois](Tools.md#whois)、[nslookup](Tools.md#nslookup) 、[DNS_Servers](Tools.md#dns_servers)
-| 🔧Nmap                      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/32_Nmap.md) |[nmap](Tools.md#nmap)、[CIDR](Tools.md#CIDR)
+| Nmap                      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/32_Nmap.md) |[nmap](Tools.md#nmap)、[CIDR](Tools.md#CIDR)、[ping](Tools.md#ping)
 | 🔧 Metasploit: Introduction | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/33_Metasploit:%20Introduction.md)      
 
 Network Fundamentals (1 / 1）：

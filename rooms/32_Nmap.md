@@ -1007,7 +1007,94 @@ Question 2：根據題目，於終端機輸入
    
 &nbsp;&nbsp;&nbsp;&nbsp; `--data-length`
 
->> #### Task 14：習題
+>> #### Task 14：實作
 
+Question 1：開啟虛擬機，輸入 `ping <IP>`
+
+目標機未回應 `ping` 請求
+
+<p align="left">
+  <img src="/rooms/images/32_23.png" width="600">
+</p>
+
+Question 2、3：輸入 `nmap -sX -vv -p 1-999 <IP>` 進行掃描
+
+確認端口狀態
+
+<p align="left">
+  <img src="/rooms/images/32_24.png" width="600">
+</p>
+
+Question 4：輸入 `nmap -sS -vv -p 1-5000 <IP>` 進行掃描
+
+確認端口狀態
+
+<p align="left">
+  <img src="/rooms/images/32_25.png" width="600">
+</p>
+
+Question 5：輸入 `nmap --script=ftp-anon -p 21 <IP>` 進行掃描
+
+確認 FTP 可否匿名登入
+
+<p align="left">
+  <img src="/rooms/images/32_26.png" width="600">
+</p>
+
+##### 🔐 答題：
+1. Does the target ip respond to ICMP echo (`ping`) requests (Y/N)?
+   
+   目標 IP 是否回應 ICMP 回顯 （`ping`） 請求 （Y/N）？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `N`
+
+2. Perform an `Xmas scan` on the first 999 ports of the target -- how many ports are shown to be open or filtered?
+   
+   對目標的前 999 個端口執行 `Xmas 掃描` -- 顯示有多少個端口處於打開狀態或已篩選狀態？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `999`
+
+3. There is a reason given for this -- what is it?
+   
+   這是有原因的 -- 它是什麼？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `No Response`
+
+4. Perform a `TCP SYN scan` on the first 5000 ports of the target -- how many ports are shown to be open?
+   
+   在目標的前 5000 個埠上執行 `TCP SYN 掃描` -- 顯示有多少個端口處於打開狀態？
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `No Response`
+
+5. Deploy the `ftp-anon` script against the box. Can Nmap login successfully to the FTP server on port 21? (Y/N)
+   
+   針對機器部署 `ftp-anon` 腳本。Nmap 能否在埠 21 上成功登錄 FTP 伺服器？（是/否）
+   
+&nbsp;&nbsp;&nbsp;&nbsp; `Y`
 
 >> #### Task 15：結論
+
+✅ 小結重點回顧：
+
+- 🔍 各類掃描方式（`-sS`, `-sT`, `-sU`, `-sN`, `-sF`, `-sX`）
+
+
+- 📡 `Ping` 掃描與 `-sn` 的使用方式
+
+
+- 🔐 防火牆繞過技巧：`-Pn`, `-f`, `--scan-delay`, `--badsum`
+
+
+- ⚙️ NSE 腳本系統（如何執行、查找、設定參數）
+
+
+- 🧠 腳本儲存位置與手動安裝方式
+`/usr/local/share/nmap/scripts/` + `--script-updatedb`
+
+---
+
+🔗 官方腳本文件庫：
+https://nmap.org/nsedoc/
+
+📖 Nmap 使用手冊與各種進階技巧：
+https://nmap.org/book/
