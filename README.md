@@ -64,7 +64,7 @@
 | Active Reconnaissance     | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/30_Active%20Reconnaissance.md)              | [Google_Dork](Tools.md#google_dork)、[ping](Tools.md#ping)、[traceroute](Tools.md#traceroute) 、[telnet](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#telnet)、[nc](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#nc)、[Active_Recon](Scripts.md#active_recon)
 | Passive Reconnaissance    | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/31_Passive%20Reconnaissance.md)             | [whois](Tools.md#whois)、[nslookup](Tools.md#nslookup) 、[DNS_Servers](Tools.md#dns_servers)
 | Nmap                      | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/32_Nmap.md) |[nmap](Tools.md#nmap)、[CIDR](Tools.md#CIDR)、[ping](Tools.md#ping)
-| 🔧 Metasploit: Introduction | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/33_Metasploit:%20Introduction.md)      
+| 🔧 Metasploit: Introduction | 🟥 Red Team   | Easy       | [Walkthrough](./rooms/33_Metasploit:%20Introduction.md)  |  [msfconsole](/Users/moe/Documents/GitHub/THM_Writeups_TW/Tools.md#msfconsole)   
 
 Network Fundamentals (1 / 1）：
 
