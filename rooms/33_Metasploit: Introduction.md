@@ -67,6 +67,10 @@ THM路徑：https://tryhackme.com/room/metasploitintro
 - 按平台分類（如 `Windows`, `Linux`, `Multi` 等）
 - 每個 exploit 可搭配 payload 使用
 
+<p align="left">
+  <img src="/rooms/images/33_04.png" width="600">
+</p>
+
 🔹 3. **Payloads（惡意負載）**
 
 - 四種子類型：
@@ -84,7 +88,12 @@ THM路徑：https://tryhackme.com/room/metasploitintro
 `shell/reverse_tcp`：分段 payload（staged）
 
 
-🔹 4. Encoders（編碼器）
+<p align="left">
+  <img src="/rooms/images/33_06.png" width="600">
+</p>
+
+
+🔹 4. **Encoders（編碼器）**
 - 將 payload 編碼，降低被防毒軟體辨識的機率
 - 效果有限，因現代防毒多用行為偵測
 
@@ -93,12 +102,36 @@ THM路徑：https://tryhackme.com/room/metasploitintro
 </p>
 
 
-🔹 5. Evasion（防毒繞過模組）
+🔹 5. **Evasion（防毒繞過模組）**
 - 特別為繞過防毒與應用白名單設計（如 AppLocker、Defender)
 
 <p align="left">
   <img src="/rooms/images/33_03.png" width="600">
 </p>
+
+🔹 6. **NOPs（無操作指令）**
+- No OPeration
+- 填充用，維持 payload 長度穩定（如 x86 架構中的 `0x90`）
+
+<p align="left">
+  <img src="/rooms/images/33_05.png" width="600">
+</p>
+
+🔹 7. **Post（滲透後模組）**
+- 成功進入系統後使用，如帳號列舉、提權、收集系統資訊等
+- 分平台分類（`Windows`、`Linux`、`Android`、`Osx`…）
+
+<p align="left">
+  <img src="/rooms/images/33_07.png" width="600">
+</p>
+
+---
+- 查看模組分類與數量：
+
+    `ls -l /opt/metasploit-framework/embedded/framework/modules/`
+
+- 
+
 
 >> #### Task 3：Msf 控制台
 
